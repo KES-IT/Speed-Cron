@@ -1,0 +1,6 @@
+version: '3'
+services:
+  push-go:
+    image: hamster1963/nasnetwork_push_go # 镜像名称
+    ports:
+      - "10401:10401"

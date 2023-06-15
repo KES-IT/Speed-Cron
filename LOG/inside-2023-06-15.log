@@ -1,0 +1,214 @@
+2023-06-15 16:15:12.863 [INFO] pid[13296]: http server started listening on [:10401]
+2023-06-15 16:15:12.863 [INFO] {0cfe2fedffc66817145f913eb37c3b47} swagger ui is serving at address: http://127.0.0.1:10401/swagger/
+2023-06-15 16:15:12.865 [INFO] {0cfe2fedffc66817145f913eb37c3b47} openapi specification is serving at address: http://127.0.0.1:10401/api.json
+
+  ADDRESS | METHOD |      ROUTE      |                                     HANDLER                                      |    MIDDLEWARE      
+----------|--------|-----------------|----------------------------------------------------------------------------------|--------------------
+  :10401  | ALL    | /               | home-network-watcher/internal/cmd.glob..func1.1.1                                |                    
+----------|--------|-----------------|----------------------------------------------------------------------------------|--------------------
+  :10401  | ALL    | /*              | github.com/gogf/gf/v2/net/ghttp.internalMiddlewareServerTracing                  | GLOBAL MIDDLEWARE  
+----------|--------|-----------------|----------------------------------------------------------------------------------|--------------------
+  :10401  | ALL    | /*              | home-network-watcher/internal/global/g_middleware.(*sMiddleware).MiddlewareCORS  | GLOBAL MIDDLEWARE  
+----------|--------|-----------------|----------------------------------------------------------------------------------|--------------------
+  :10401  | ALL    | /*              | home-network-watcher/internal/global/g_middleware.(*sMiddleware).ResponseHandler | GLOBAL MIDDLEWARE  
+----------|--------|-----------------|----------------------------------------------------------------------------------|--------------------
+  :10401  | GET    | /GetNetWorkData | home-network-watcher/internal/controller/c_data_core.(*cDataCore).GetNetWorkData |                    
+----------|--------|-----------------|----------------------------------------------------------------------------------|--------------------
+  :10401  | GET    | /GetTaskList    | home-network-watcher/internal/controller/c_data_core.(*cDataCore).GetTaskList    |                    
+----------|--------|-----------------|----------------------------------------------------------------------------------|--------------------
+  :10401  | POST   | /RecoverTask    | home-network-watcher/internal/controller/c_data_core.(*cDataCore).RecoverTask    |                    
+----------|--------|-----------------|----------------------------------------------------------------------------------|--------------------
+  :10401  | POST   | /StopTask       | home-network-watcher/internal/controller/c_data_core.(*cDataCore).StopTask       |                    
+----------|--------|-----------------|----------------------------------------------------------------------------------|--------------------
+  :10401  | ALL    | /api.json       | github.com/gogf/gf/v2/net/ghttp.(*Server).openapiSpec                            |                    
+----------|--------|-----------------|----------------------------------------------------------------------------------|--------------------
+  :10401  | ALL    | /swagger/*      | github.com/gogf/gf/v2/net/ghttp.(*Server).swaggerUI                              | HOOK_BEFORE_SERVE  
+----------|--------|-----------------|----------------------------------------------------------------------------------|--------------------
+  :10401  | ALL    | /version        | home-network-watcher/internal/cmd.glob..func1.1.2                                |                    
+----------|--------|-----------------|----------------------------------------------------------------------------------|--------------------
+
+2023-06-15 16:15:13.842 [DEBU] 定时任务启动中...
+2023-06-15 16:15:13.842 [NOTI] 开始获取科学上网网速
+2023-06-15 16:15:13.842 [NOTI] 开始获取家庭路由器网速
+2023-06-15 16:15:13.842 [NOTI] 开始获取当前代理节点信息
+2023-06-15 16:15:13.842 [NOTI] 开始推送科学上网网速
+2023-06-15 16:15:13.842 [NOTI] 开始存储出站流量
+2023-06-15 16:15:22.835 [INFO] 定时任务测试中...
+2023-06-15 16:15:22.836 [WARN] 定时任务测试失败:  proxyNetwork is empty
+2023-06-15 16:15:22.837 [INFO] 定时任务测试成功
+2023-06-15 16:15:35.020 [FATA] 定时任务启动失败:  request failed: Post "http://xui.buycoffee.top:580/login": EOF
+Stack:
+1.  home-network-watcher/internal/boot.Boot.func1
+    C:/Users/Administrator/Desktop/speedtest-go/Proxy_watcher-main/internal/boot/boot.go:17
+2.  github.com/gogf/gf/v2/os/gcron.(*Entry).checkAndRun
+    C:/Users/Administrator/go/pkg/mod/github.com/gogf/gf/v2@v2.4.2/os/gcron/gcron_entry.go:175
+3.  github.com/gogf/gf/v2/os/gtimer.(*Entry).Run.func1
+    C:/Users/Administrator/go/pkg/mod/github.com/gogf/gf/v2@v2.4.2/os/gtimer/gtimer_entry.go:65
+
+2023-06-15 16:23:50.833 [INFO] pid[18724]: http server started listening on [:10401]
+2023-06-15 16:23:50.833 [INFO] {3409098d80c768176af054419efa2f97} swagger ui is serving at address: http://127.0.0.1:10401/swagger/
+2023-06-15 16:23:50.836 [INFO] {3409098d80c768176af054419efa2f97} openapi specification is serving at address: http://127.0.0.1:10401/api.json
+
+  ADDRESS | METHOD |      ROUTE      |                                     HANDLER                                      |    MIDDLEWARE      
+----------|--------|-----------------|----------------------------------------------------------------------------------|--------------------
+  :10401  | ALL    | /               | home-network-watcher/internal/cmd.glob..func1.1.1                                |                    
+----------|--------|-----------------|----------------------------------------------------------------------------------|--------------------
+  :10401  | ALL    | /*              | github.com/gogf/gf/v2/net/ghttp.internalMiddlewareServerTracing                  | GLOBAL MIDDLEWARE  
+----------|--------|-----------------|----------------------------------------------------------------------------------|--------------------
+  :10401  | ALL    | /*              | home-network-watcher/internal/global/g_middleware.(*sMiddleware).MiddlewareCORS  | GLOBAL MIDDLEWARE  
+----------|--------|-----------------|----------------------------------------------------------------------------------|--------------------
+  :10401  | ALL    | /*              | home-network-watcher/internal/global/g_middleware.(*sMiddleware).ResponseHandler | GLOBAL MIDDLEWARE  
+----------|--------|-----------------|----------------------------------------------------------------------------------|--------------------
+  :10401  | GET    | /GetNetWorkData | home-network-watcher/internal/controller/c_data_core.(*cDataCore).GetNetWorkData |                    
+----------|--------|-----------------|----------------------------------------------------------------------------------|--------------------
+  :10401  | GET    | /GetTaskList    | home-network-watcher/internal/controller/c_data_core.(*cDataCore).GetTaskList    |                    
+----------|--------|-----------------|----------------------------------------------------------------------------------|--------------------
+  :10401  | POST   | /RecoverTask    | home-network-watcher/internal/controller/c_data_core.(*cDataCore).RecoverTask    |                    
+----------|--------|-----------------|----------------------------------------------------------------------------------|--------------------
+  :10401  | POST   | /StopTask       | home-network-watcher/internal/controller/c_data_core.(*cDataCore).StopTask       |                    
+----------|--------|-----------------|----------------------------------------------------------------------------------|--------------------
+  :10401  | ALL    | /api.json       | github.com/gogf/gf/v2/net/ghttp.(*Server).openapiSpec                            |                    
+----------|--------|-----------------|----------------------------------------------------------------------------------|--------------------
+  :10401  | ALL    | /swagger/*      | github.com/gogf/gf/v2/net/ghttp.(*Server).swaggerUI                              | HOOK_BEFORE_SERVE  
+----------|--------|-----------------|----------------------------------------------------------------------------------|--------------------
+  :10401  | ALL    | /version        | home-network-watcher/internal/cmd.glob..func1.1.2                                |                    
+----------|--------|-----------------|----------------------------------------------------------------------------------|--------------------
+
+2023-06-15 16:23:51.823 [DEBU] 定时任务启动中...
+2023-06-15 16:23:51.824 [DEBU] 定时任务启动成功
+2023-06-15 16:24:00.822 [INFO] 定时任务测试中...
+2023-06-15 16:24:00.822 [WARN] 定时任务测试失败:  nodeInfo is empty
+2023-06-15 16:24:00.822 [INFO] 定时任务测试成功
+2023-06-15 17:33:23.379 [INFO] pid[9856]: http server started listening on [:10401]
+2023-06-15 17:33:23.381 [INFO] {88c0c2164ccb6817aebc707b78b916ff} swagger ui is serving at address: http://127.0.0.1:10401/swagger/
+2023-06-15 17:33:23.383 [INFO] {88c0c2164ccb6817aebc707b78b916ff} openapi specification is serving at address: http://127.0.0.1:10401/api.json
+
+  ADDRESS | METHOD |      ROUTE       |                                     HANDLER                                      |    MIDDLEWARE      
+----------|--------|------------------|----------------------------------------------------------------------------------|--------------------
+  :10401  | ALL    | /                | kes-network-watcher/internal/cmd.glob..func1.1.1                                 |                    
+----------|--------|------------------|----------------------------------------------------------------------------------|--------------------
+  :10401  | ALL    | /*               | github.com/gogf/gf/v2/net/ghttp.internalMiddlewareServerTracing                  | GLOBAL MIDDLEWARE  
+----------|--------|------------------|----------------------------------------------------------------------------------|--------------------
+  :10401  | ALL    | /*               | kes-network-watcher/internal/global/g_middleware.(*sMiddleware).MiddlewareCORS   | GLOBAL MIDDLEWARE  
+----------|--------|------------------|----------------------------------------------------------------------------------|--------------------
+  :10401  | ALL    | /*               | kes-network-watcher/internal/global/g_middleware.(*sMiddleware).ResponseHandler  | GLOBAL MIDDLEWARE  
+----------|--------|------------------|----------------------------------------------------------------------------------|--------------------
+  :10401  | POST   | /UploadSpeedData | kes-network-watcher/internal/controller/c_data_core.(*cDataCore).UploadSpeedData |                    
+----------|--------|------------------|----------------------------------------------------------------------------------|--------------------
+  :10401  | ALL    | /api.json        | github.com/gogf/gf/v2/net/ghttp.(*Server).openapiSpec                            |                    
+----------|--------|------------------|----------------------------------------------------------------------------------|--------------------
+  :10401  | ALL    | /swagger/*       | github.com/gogf/gf/v2/net/ghttp.(*Server).swaggerUI                              | HOOK_BEFORE_SERVE  
+----------|--------|------------------|----------------------------------------------------------------------------------|--------------------
+  :10401  | ALL    | /version         | kes-network-watcher/internal/cmd.glob..func1.1.2                                 |                    
+----------|--------|------------------|----------------------------------------------------------------------------------|--------------------
+
+2023-06-15 17:33:24.372 [DEBU] 定时任务启动中...
+2023-06-15 17:33:24.374 [DEBU] 定时任务启动成功
+2023-06-15 17:33:33.379 [INFO] 定时任务测试中...
+2023-06-15 17:33:33.382 [INFO] 定时任务测试成功
+2023-06-15 17:33:45.041 [INFO] pid[15672]: http server started listening on [:10401]
+2023-06-15 17:33:45.047 [INFO] {88c0c2164ccb6817aebc707b78b916ff} swagger ui is serving at address: http://127.0.0.1:10401/swagger/
+2023-06-15 17:33:45.049 [INFO] {88c0c2164ccb6817aebc707b78b916ff} openapi specification is serving at address: http://127.0.0.1:10401/api.json
+
+  ADDRESS | METHOD |      ROUTE       |                                     HANDLER                                      |    MIDDLEWARE      
+----------|--------|------------------|----------------------------------------------------------------------------------|--------------------
+  :10401  | ALL    | /                | kes-network-watcher/internal/cmd.glob..func1.1.1                                 |                    
+----------|--------|------------------|----------------------------------------------------------------------------------|--------------------
+  :10401  | ALL    | /*               | github.com/gogf/gf/v2/net/ghttp.internalMiddlewareServerTracing                  | GLOBAL MIDDLEWARE  
+----------|--------|------------------|----------------------------------------------------------------------------------|--------------------
+  :10401  | ALL    | /*               | kes-network-watcher/internal/global/g_middleware.(*sMiddleware).MiddlewareCORS   | GLOBAL MIDDLEWARE  
+----------|--------|------------------|----------------------------------------------------------------------------------|--------------------
+  :10401  | ALL    | /*               | kes-network-watcher/internal/global/g_middleware.(*sMiddleware).ResponseHandler  | GLOBAL MIDDLEWARE  
+----------|--------|------------------|----------------------------------------------------------------------------------|--------------------
+  :10401  | POST   | /UploadSpeedData | kes-network-watcher/internal/controller/c_data_core.(*cDataCore).UploadSpeedData |                    
+----------|--------|------------------|----------------------------------------------------------------------------------|--------------------
+  :10401  | ALL    | /api.json        | github.com/gogf/gf/v2/net/ghttp.(*Server).openapiSpec                            |                    
+----------|--------|------------------|----------------------------------------------------------------------------------|--------------------
+  :10401  | ALL    | /swagger/*       | github.com/gogf/gf/v2/net/ghttp.(*Server).swaggerUI                              | HOOK_BEFORE_SERVE  
+----------|--------|------------------|----------------------------------------------------------------------------------|--------------------
+  :10401  | ALL    | /version         | kes-network-watcher/internal/cmd.glob..func1.1.2                                 |                    
+----------|--------|------------------|----------------------------------------------------------------------------------|--------------------
+
+2023-06-15 17:33:46.018 [DEBU] 定时任务启动中...
+2023-06-15 17:33:46.019 [DEBU] 定时任务启动成功
+2023-06-15 17:33:55.029 [INFO] 定时任务测试中...
+2023-06-15 17:33:55.031 [INFO] 定时任务测试成功
+2023-06-15 17:36:58.679 [INFO] {c0ec26e47ecb68172133f8379c7a9a12} swagger ui is serving at address: http://127.0.0.1:10401/swagger/
+2023-06-15 17:36:58.679 [INFO] pid[12680]: http server started listening on [:10401]
+2023-06-15 17:36:58.681 [INFO] {c0ec26e47ecb68172133f8379c7a9a12} openapi specification is serving at address: http://127.0.0.1:10401/api.json
+
+  ADDRESS | METHOD |      ROUTE       |                                     HANDLER                                      |    MIDDLEWARE      
+----------|--------|------------------|----------------------------------------------------------------------------------|--------------------
+  :10401  | ALL    | /                | kes-network-watcher/internal/cmd.glob..func1.1.1                                 |                    
+----------|--------|------------------|----------------------------------------------------------------------------------|--------------------
+  :10401  | ALL    | /*               | github.com/gogf/gf/v2/net/ghttp.internalMiddlewareServerTracing                  | GLOBAL MIDDLEWARE  
+----------|--------|------------------|----------------------------------------------------------------------------------|--------------------
+  :10401  | ALL    | /*               | kes-network-watcher/internal/global/g_middleware.(*sMiddleware).MiddlewareCORS   | GLOBAL MIDDLEWARE  
+----------|--------|------------------|----------------------------------------------------------------------------------|--------------------
+  :10401  | ALL    | /*               | kes-network-watcher/internal/global/g_middleware.(*sMiddleware).ResponseHandler  | GLOBAL MIDDLEWARE  
+----------|--------|------------------|----------------------------------------------------------------------------------|--------------------
+  :10401  | POST   | /UploadSpeedData | kes-network-watcher/internal/controller/c_data_core.(*cDataCore).UploadSpeedData |                    
+----------|--------|------------------|----------------------------------------------------------------------------------|--------------------
+  :10401  | ALL    | /api.json        | github.com/gogf/gf/v2/net/ghttp.(*Server).openapiSpec                            |                    
+----------|--------|------------------|----------------------------------------------------------------------------------|--------------------
+  :10401  | ALL    | /swagger/*       | github.com/gogf/gf/v2/net/ghttp.(*Server).swaggerUI                              | HOOK_BEFORE_SERVE  
+----------|--------|------------------|----------------------------------------------------------------------------------|--------------------
+  :10401  | ALL    | /version         | kes-network-watcher/internal/cmd.glob..func1.1.2                                 |                    
+----------|--------|------------------|----------------------------------------------------------------------------------|--------------------
+
+2023-06-15 17:36:59.671 [DEBU] 定时任务启动中...
+2023-06-15 17:36:59.672 [DEBU] 定时任务启动成功
+2023-06-15 17:37:08.665 [INFO] 定时任务测试中...
+2023-06-15 17:37:08.667 [INFO] 定时任务测试成功
+2023-06-15 17:37:15.486 [INFO] pid[3300]: http server started listening on [:10401]
+2023-06-15 17:37:15.486 [INFO] {c0ec26e47ecb68172133f8379c7a9a12} swagger ui is serving at address: http://127.0.0.1:10401/swagger/
+2023-06-15 17:37:15.490 [INFO] {c0ec26e47ecb68172133f8379c7a9a12} openapi specification is serving at address: http://127.0.0.1:10401/api.json
+
+  ADDRESS | METHOD |      ROUTE       |                                     HANDLER                                      |    MIDDLEWARE      
+----------|--------|------------------|----------------------------------------------------------------------------------|--------------------
+  :10401  | ALL    | /                | kes-network-watcher/internal/cmd.glob..func1.1.1                                 |                    
+----------|--------|------------------|----------------------------------------------------------------------------------|--------------------
+  :10401  | ALL    | /*               | github.com/gogf/gf/v2/net/ghttp.internalMiddlewareServerTracing                  | GLOBAL MIDDLEWARE  
+----------|--------|------------------|----------------------------------------------------------------------------------|--------------------
+  :10401  | ALL    | /*               | kes-network-watcher/internal/global/g_middleware.(*sMiddleware).MiddlewareCORS   | GLOBAL MIDDLEWARE  
+----------|--------|------------------|----------------------------------------------------------------------------------|--------------------
+  :10401  | ALL    | /*               | kes-network-watcher/internal/global/g_middleware.(*sMiddleware).ResponseHandler  | GLOBAL MIDDLEWARE  
+----------|--------|------------------|----------------------------------------------------------------------------------|--------------------
+  :10401  | POST   | /UploadSpeedData | kes-network-watcher/internal/controller/c_data_core.(*cDataCore).UploadSpeedData |                    
+----------|--------|------------------|----------------------------------------------------------------------------------|--------------------
+  :10401  | ALL    | /api.json        | github.com/gogf/gf/v2/net/ghttp.(*Server).openapiSpec                            |                    
+----------|--------|------------------|----------------------------------------------------------------------------------|--------------------
+  :10401  | ALL    | /swagger/*       | github.com/gogf/gf/v2/net/ghttp.(*Server).swaggerUI                              | HOOK_BEFORE_SERVE  
+----------|--------|------------------|----------------------------------------------------------------------------------|--------------------
+  :10401  | ALL    | /version         | kes-network-watcher/internal/cmd.glob..func1.1.2                                 |                    
+----------|--------|------------------|----------------------------------------------------------------------------------|--------------------
+
+2023-06-15 17:37:16.415 [DEBU] 定时任务启动中...
+2023-06-15 17:37:16.417 [DEBU] 定时任务启动成功
+2023-06-15 17:37:25.411 [INFO] 定时任务测试中...
+2023-06-15 17:37:25.413 [INFO] 定时任务测试成功
+2023-06-15 17:38:01.092 [INFO] pid[19308]: http server started listening on [:10401]
+2023-06-15 17:38:01.092 [INFO] {c0ec26e47ecb68172133f8379c7a9a12} swagger ui is serving at address: http://127.0.0.1:10401/swagger/
+2023-06-15 17:38:01.094 [INFO] {c0ec26e47ecb68172133f8379c7a9a12} openapi specification is serving at address: http://127.0.0.1:10401/api.json
+
+  ADDRESS | METHOD |      ROUTE       |                                     HANDLER                                      |    MIDDLEWARE      
+----------|--------|------------------|----------------------------------------------------------------------------------|--------------------
+  :10401  | ALL    | /                | kes-network-watcher/internal/cmd.glob..func1.1.1                                 |                    
+----------|--------|------------------|----------------------------------------------------------------------------------|--------------------
+  :10401  | ALL    | /*               | github.com/gogf/gf/v2/net/ghttp.internalMiddlewareServerTracing                  | GLOBAL MIDDLEWARE  
+----------|--------|------------------|----------------------------------------------------------------------------------|--------------------
+  :10401  | ALL    | /*               | kes-network-watcher/internal/global/g_middleware.(*sMiddleware).MiddlewareCORS   | GLOBAL MIDDLEWARE  
+----------|--------|------------------|----------------------------------------------------------------------------------|--------------------
+  :10401  | ALL    | /*               | kes-network-watcher/internal/global/g_middleware.(*sMiddleware).ResponseHandler  | GLOBAL MIDDLEWARE  
+----------|--------|------------------|----------------------------------------------------------------------------------|--------------------
+  :10401  | POST   | /UploadSpeedData | kes-network-watcher/internal/controller/c_data_core.(*cDataCore).UploadSpeedData |                    
+----------|--------|------------------|----------------------------------------------------------------------------------|--------------------
+  :10401  | ALL    | /api.json        | github.com/gogf/gf/v2/net/ghttp.(*Server).openapiSpec                            |                    
+----------|--------|------------------|----------------------------------------------------------------------------------|--------------------
+  :10401  | ALL    | /swagger/*       | github.com/gogf/gf/v2/net/ghttp.(*Server).swaggerUI                              | HOOK_BEFORE_SERVE  
+----------|--------|------------------|----------------------------------------------------------------------------------|--------------------
+  :10401  | ALL    | /version         | kes-network-watcher/internal/cmd.glob..func1.1.2                                 |                    
+----------|--------|------------------|----------------------------------------------------------------------------------|--------------------
+
+2023-06-15 17:38:02.078 [DEBU] 定时任务启动中...
+2023-06-15 17:38:02.083 [DEBU] 定时任务启动成功

@@ -1,0 +1,940 @@
+2023-03-30 00:18:30.223 [DEBU] {c00f9bbb26f050178817774d588acf69} [ 65 ms] [default] [push_service_go] [rows:5  ] SHOW FULL COLUMNS FROM `push_service`
+2023-03-30 00:18:30.246 [DEBU] {c00f9bbb26f050178817774d588acf69} [ 21 ms] [default] [push_service_go] [rows:1  ] SELECT `id`,`service_name`,`service_sign`,`service_status`,`service_push_time` FROM `push_service` WHERE `service_sign`='UptimeKuma_Push' LIMIT 1
+2023-03-30 00:18:55.152 [DEBU] {581ccd892cf05017956a67094946722f} [ 60 ms] [default] [push_service_go] [rows:5  ] SHOW FULL COLUMNS FROM `push_service`
+2023-03-30 00:18:55.173 [DEBU] {581ccd892cf05017956a67094946722f} [ 21 ms] [default] [push_service_go] [rows:1  ] SELECT `id`,`service_name`,`service_sign`,`service_status`,`service_push_time` FROM `push_service` WHERE `service_sign`='UptimeKuma_Push' LIMIT 1
+2023-03-30 00:19:08.410 [DEBU] {c0f77f9f2ff0501776d444371283a401} [ 69 ms] [default] [push_service_go] [rows:5  ] SHOW FULL COLUMNS FROM `push_service`
+2023-03-30 00:19:08.435 [DEBU] {c0f77f9f2ff0501776d444371283a401} [ 24 ms] [default] [push_service_go] [rows:1  ] SELECT `id`,`service_name`,`service_sign`,`service_status`,`service_push_time` FROM `push_service` WHERE `service_sign`='UptimeKuma_Push' LIMIT 1
+2023-03-30 00:19:44.223 [DEBU] {b8e4faf537f05017a7924d7ad91bf12d} [ 71 ms] [default] [push_service_go] [rows:5  ] SHOW FULL COLUMNS FROM `push_service`
+2023-03-30 00:19:44.246 [DEBU] {b8e4faf537f05017a7924d7ad91bf12d} [ 22 ms] [default] [push_service_go] [rows:1  ] SELECT `id`,`service_name`,`service_sign`,`service_status`,`service_push_time` FROM `push_service` WHERE `service_sign`='UptimeKuma_Push' LIMIT 1
+2023-03-30 00:20:34.218 [DEBU] {f0b2e09943f0501795d41411f2c4c67f} [ 72 ms] [default] [push_service_go] [rows:5  ] SHOW FULL COLUMNS FROM `push_service`
+2023-03-30 00:20:34.242 [DEBU] {f0b2e09943f0501795d41411f2c4c67f} [ 24 ms] [default] [push_service_go] [rows:1  ] SELECT `id`,`service_name`,`service_sign`,`service_status`,`service_push_time` FROM `push_service` WHERE `service_sign`='UptimeKuma_Push' LIMIT 1
+2023-03-30 00:21:10.334 [DEBU] {804f92034cf05017d0713705a6c27ab8} [ 55 ms] [default] [push_service_go] [rows:5  ] SHOW FULL COLUMNS FROM `push_service`
+2023-03-30 00:21:10.353 [DEBU] {804f92034cf05017d0713705a6c27ab8} [ 18 ms] [default] [push_service_go] [rows:1  ] SELECT `id`,`service_name`,`service_sign`,`service_status`,`service_push_time` FROM `push_service` WHERE `service_sign`='UptimeKuma_Push' LIMIT 1
+2023-03-30 00:21:53.347 [DEBU] {10c9620656f0501766ee3678c4ea9bd8} [ 72 ms] [default] [push_service_go] [rows:5  ] SHOW FULL COLUMNS FROM `push_service`
+2023-03-30 00:21:53.371 [DEBU] {10c9620656f0501766ee3678c4ea9bd8} [ 23 ms] [default] [push_service_go] [rows:1  ] SELECT `id`,`service_name`,`service_sign`,`service_status`,`service_push_time` FROM `push_service` WHERE `service_sign`='UptimeKuma_Push' LIMIT 1
+2023-03-30 00:22:16.747 [DEBU] {b81096795bf050174adf30275a6088b4} [ 63 ms] [default] [push_service_go] [rows:5  ] SHOW FULL COLUMNS FROM `push_service`
+2023-03-30 00:22:16.769 [DEBU] {b81096795bf050174adf30275a6088b4} [ 21 ms] [default] [push_service_go] [rows:1  ] SELECT `id`,`service_name`,`service_sign`,`service_status`,`service_push_time` FROM `push_service` WHERE `service_sign`='UptimeKuma_Push' LIMIT 1
+2023-03-30 00:23:43.685 [DEBU] {c81a2ab76ff050174e2c4b0cdb1692f1} [ 66 ms] [default] [push_service_go] [rows:5  ] SHOW FULL COLUMNS FROM `push_service`
+2023-03-30 00:23:43.708 [DEBU] {c81a2ab76ff050174e2c4b0cdb1692f1} [ 22 ms] [default] [push_service_go] [rows:1  ] SELECT `id`,`service_name`,`service_sign`,`service_status`,`service_push_time` FROM `push_service` WHERE `service_sign`='UptimeKuma_Push' LIMIT 1
+2023-03-30 00:23:43.719 [DEBU] {c81a2ab76ff050174e2c4b0cdb1692f1} [ 11 ms] [default] [push_service_go] [rows:7  ] SHOW FULL COLUMNS FROM `push_device`
+2023-03-30 00:23:43.739 [DEBU] {c81a2ab76ff050174e2c4b0cdb1692f1} [ 20 ms] [default] [push_service_go] [rows:2  ] SELECT `id`,`device_name`,`base_url`,`service_id_list`,`latest_push_time`,`device_status`,`create_time` FROM `push_device` WHERE id>0
+2023-03-30 00:23:49.764 [DEBU] {08f8702471f050174f2c4b0cb64af1cd} [ 22 ms] [default] [push_service_go] [rows:1  ] SELECT `id`,`service_name`,`service_sign`,`service_status`,`service_push_time` FROM `push_service` WHERE `service_sign`='UptimeKuma_Push' LIMIT 1
+2023-03-30 00:23:49.775 [DEBU] {08f8702471f050174f2c4b0cb64af1cd} [ 10 ms] [default] [push_service_go] [rows:2  ] SELECT `id`,`device_name`,`base_url`,`service_id_list`,`latest_push_time`,`device_status`,`create_time` FROM `push_device` WHERE id>0
+2023-03-30 00:23:50.451 [DEBU] {f8ee6f4d71f05017502c4b0cb28222f8} [ 21 ms] [default] [push_service_go] [rows:1  ] SELECT `id`,`service_name`,`service_sign`,`service_status`,`service_push_time` FROM `push_service` WHERE `service_sign`='UptimeKuma_Push' LIMIT 1
+2023-03-30 00:23:50.462 [DEBU] {f8ee6f4d71f05017502c4b0cb28222f8} [ 10 ms] [default] [push_service_go] [rows:2  ] SELECT `id`,`device_name`,`base_url`,`service_id_list`,`latest_push_time`,`device_status`,`create_time` FROM `push_device` WHERE id>0
+2023-03-30 00:23:51.566 [DEBU] {d025c98f71f05017512c4b0cff305071} [ 22 ms] [default] [push_service_go] [rows:1  ] SELECT `id`,`service_name`,`service_sign`,`service_status`,`service_push_time` FROM `push_service` WHERE `service_sign`='UptimeKuma_Push' LIMIT 1
+2023-03-30 00:23:51.576 [DEBU] {d025c98f71f05017512c4b0cff305071} [ 10 ms] [default] [push_service_go] [rows:2  ] SELECT `id`,`device_name`,`base_url`,`service_id_list`,`latest_push_time`,`device_status`,`create_time` FROM `push_device` WHERE id>0
+2023-03-30 00:23:54.755 [DEBU] {186a004e72f05017522c4b0c62197c88} [ 20 ms] [default] [push_service_go] [rows:1  ] SELECT `id`,`service_name`,`service_sign`,`service_status`,`service_push_time` FROM `push_service` WHERE `service_sign`='UptimeKuma_Push' LIMIT 1
+2023-03-30 00:23:54.766 [DEBU] {186a004e72f05017522c4b0c62197c88} [ 10 ms] [default] [push_service_go] [rows:2  ] SELECT `id`,`device_name`,`base_url`,`service_id_list`,`latest_push_time`,`device_status`,`create_time` FROM `push_device` WHERE id>0
+2023-03-30 00:23:55.449 [DEBU] {681e467772f05017532c4b0c9dbb0711} [ 22 ms] [default] [push_service_go] [rows:1  ] SELECT `id`,`service_name`,`service_sign`,`service_status`,`service_push_time` FROM `push_service` WHERE `service_sign`='UptimeKuma_Push' LIMIT 1
+2023-03-30 00:23:55.463 [DEBU] {681e467772f05017532c4b0c9dbb0711} [ 11 ms] [default] [push_service_go] [rows:2  ] SELECT `id`,`device_name`,`base_url`,`service_id_list`,`latest_push_time`,`device_status`,`create_time` FROM `push_device` WHERE id>0
+2023-03-30 00:23:56.065 [DEBU] {1840279c72f05017542c4b0c1f5d48e8} [ 19 ms] [default] [push_service_go] [rows:1  ] SELECT `id`,`service_name`,`service_sign`,`service_status`,`service_push_time` FROM `push_service` WHERE `service_sign`='UptimeKuma_Push' LIMIT 1
+2023-03-30 00:23:56.075 [DEBU] {1840279c72f05017542c4b0c1f5d48e8} [  9 ms] [default] [push_service_go] [rows:2  ] SELECT `id`,`device_name`,`base_url`,`service_id_list`,`latest_push_time`,`device_status`,`create_time` FROM `push_device` WHERE id>0
+2023-03-30 00:27:31.693 [DEBU] {58653fcea4f0501774c2157e2305895b} [ 57 ms] [default] [push_service_go] [rows:5  ] SHOW FULL COLUMNS FROM `push_service`
+2023-03-30 00:27:31.713 [DEBU] {58653fcea4f0501774c2157e2305895b} [ 19 ms] [default] [push_service_go] [rows:1  ] SELECT `id`,`service_name`,`service_sign`,`service_status`,`service_push_time` FROM `push_service` WHERE `service_sign`='UptimeKuma_Push' LIMIT 1
+2023-03-30 00:27:31.723 [DEBU] {58653fcea4f0501774c2157e2305895b} [ 10 ms] [default] [push_service_go] [rows:7  ] SHOW FULL COLUMNS FROM `push_device`
+2023-03-30 00:27:31.733 [DEBU] {58653fcea4f0501774c2157e2305895b} [  9 ms] [default] [push_service_go] [rows:2  ] SELECT `id`,`device_name`,`base_url`,`service_id_list`,`latest_push_time`,`device_status`,`create_time` FROM `push_device` WHERE id>0
+2023-03-30 00:27:49.024 [DEBU] {a88d6cd9a8f0501777c2157e1409e696} [ 19 ms] [default] [push_service_go] [rows:1  ] SELECT `id`,`service_name`,`service_sign`,`service_status`,`service_push_time` FROM `push_service` WHERE `service_sign`='UptimeKuma_Push' LIMIT 1
+2023-03-30 00:27:49.035 [DEBU] {a88d6cd9a8f0501777c2157e1409e696} [  9 ms] [default] [push_service_go] [rows:2  ] SELECT `id`,`device_name`,`base_url`,`service_id_list`,`latest_push_time`,`device_status`,`create_time` FROM `push_device` WHERE id>0
+2023-03-30 00:28:34.219 [DEBU] {7064905cb3f050177ac2157e9a04683e} [ 67 ms] [default] [push_service_go] [rows:1  ] SELECT `id`,`service_name`,`service_sign`,`service_status`,`service_push_time` FROM `push_service` WHERE `service_sign`='UptimeKuma_Push' LIMIT 1
+2023-03-30 00:28:34.229 [DEBU] {7064905cb3f050177ac2157e9a04683e} [  9 ms] [default] [push_service_go] [rows:2  ] SELECT `id`,`device_name`,`base_url`,`service_id_list`,`latest_push_time`,`device_status`,`create_time` FROM `push_device` WHERE id>0
+2023-03-30 00:30:32.828 [DEBU] {70800bfacef050177818a36bf647e8a0} [ 69 ms] [default] [push_service_go] [rows:5  ] SHOW FULL COLUMNS FROM `push_service`
+2023-03-30 00:30:32.852 [DEBU] {70800bfacef050177818a36bf647e8a0} [ 23 ms] [default] [push_service_go] [rows:1  ] SELECT `id`,`service_name`,`service_sign`,`service_status`,`service_push_time` FROM `push_service` WHERE `service_sign`='UptimeKuma_Push' LIMIT 1
+2023-03-30 00:30:32.865 [DEBU] {70800bfacef050177818a36bf647e8a0} [ 13 ms] [default] [push_service_go] [rows:7  ] SHOW FULL COLUMNS FROM `push_device`
+2023-03-30 00:30:32.878 [DEBU] {70800bfacef050177818a36bf647e8a0} [ 13 ms] [default] [push_service_go] [rows:2  ] SELECT `id`,`device_name`,`base_url`,`service_id_list`,`latest_push_time`,`device_status`,`create_time` FROM `push_device` WHERE id>0
+2023-03-30 00:31:10.698 [DEBU] {30d9cdcad7f050177b18a36b507faf17} [ 77 ms] [default] [push_service_go] [rows:1  ] SELECT `id`,`service_name`,`service_sign`,`service_status`,`service_push_time` FROM `push_service` WHERE `service_sign`='UptimeKuma_Push' LIMIT 1
+2023-03-30 00:31:10.709 [DEBU] {30d9cdcad7f050177b18a36b507faf17} [ 11 ms] [default] [push_service_go] [rows:2  ] SELECT `id`,`device_name`,`base_url`,`service_id_list`,`latest_push_time`,`device_status`,`create_time` FROM `push_device` WHERE id>0
+2023-03-30 00:31:19.925 [DEBU] {c8292df4d9f050177e18a36bd000441c} [ 21 ms] [default] [push_service_go] [rows:1  ] SELECT `id`,`service_name`,`service_sign`,`service_status`,`service_push_time` FROM `push_service` WHERE `service_sign`='UptimeKuma_Push' LIMIT 1
+2023-03-30 00:31:19.935 [DEBU] {c8292df4d9f050177e18a36bd000441c} [  9 ms] [default] [push_service_go] [rows:2  ] SELECT `id`,`device_name`,`base_url`,`service_id_list`,`latest_push_time`,`device_status`,`create_time` FROM `push_device` WHERE id>0
+2023-03-30 00:31:25.722 [DEBU] {40cac34ddbf050178118a36b703a5b61} [ 19 ms] [default] [push_service_go] [rows:1  ] SELECT `id`,`service_name`,`service_sign`,`service_status`,`service_push_time` FROM `push_service` WHERE `service_sign`='UptimeKuma_Push' LIMIT 1
+2023-03-30 00:31:25.732 [DEBU] {40cac34ddbf050178118a36b703a5b61} [ 10 ms] [default] [push_service_go] [rows:2  ] SELECT `id`,`device_name`,`base_url`,`service_id_list`,`latest_push_time`,`device_status`,`create_time` FROM `push_device` WHERE id>0
+2023-03-30 00:36:17.107 [DEBU] {f8c12c231ff150171e50e858e12082f0} [ 61 ms] [default] [push_service_go] [rows:5  ] SHOW FULL COLUMNS FROM `push_service`
+2023-03-30 00:36:17.129 [DEBU] {f8c12c231ff150171e50e858e12082f0} [ 21 ms] [default] [push_service_go] [rows:1  ] SELECT `id`,`service_name`,`service_sign`,`service_status`,`service_push_time` FROM `push_service` WHERE `service_sign`='UptimeKuma_Push' LIMIT 1
+2023-03-30 00:36:17.141 [ERRO] {f8c12c231ff150171e50e858e12082f0} [ 11 ms] [default] [push_service_go] [rows:0  ] UPDATE `push_service` SET service_push_time WHERE `id`=3
+Error: Error 1064: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE `id`=?' at line 1
+Stack:
+1.  github.com/gogf/gf/v2/database/gdb.(*Core).writeSqlToLogger
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/database/gdb/gdb_core.go:663
+2.  github.com/gogf/gf/v2/database/gdb.(*Core).DoCommit
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/database/gdb/gdb_core_underlying.go:278
+3.  github.com/gogf/gf/v2/database/gdb.(*Core).DoExec
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/database/gdb/gdb_core_underlying.go:135
+4.  github.com/gogf/gf/v2/database/gdb.(*Core).DoUpdate
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/database/gdb/gdb_core.go:600
+5.  github.com/gogf/gf/v2/database/gdb.(*HookUpdateInput).Next
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/database/gdb/gdb_model_hook.go:138
+6.  github.com/gogf/gf/v2/database/gdb.(*Model).Update
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/database/gdb/gdb_model_update.go:97
+7.  github.com/gogf/gf/v2/database/gdb.(*Model).Update
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/database/gdb/gdb_model_update.go:33
+8.  github.com/gogf/gf/v2/database/gdb.(*Model).UpdateAndGetAffected
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/database/gdb/gdb_model_update.go:102
+9.  push/internal/logic/s_push_service.(*sPushService).UpdatePushServicePushTime
+    /Users/laixin/Developer/统一推送/push/internal/logic/s_push_service/push_service.go:128
+10. push/internal/logic/s_push_core.(*sPushCore).PushCore
+    /Users/laixin/Developer/统一推送/push/internal/logic/s_push_core/push_core.go:49
+11. push/internal/controller.(*cPushCore).PushCore
+    /Users/laixin/Developer/统一推送/push/internal/controller/push_core.go:35
+12. github.com/gogf/gf/v2/net/ghttp.(*middleware).callHandlerFunc.func1
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:152
+13. github.com/gogf/gf/v2/net/ghttp.niceCallFunc
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_func.go:55
+14. github.com/gogf/gf/v2/net/ghttp.(*middleware).callHandlerFunc
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:129
+15. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next.func1
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:75
+16. github.com/gogf/gf/v2/util/gutil.TryCatch
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/util/gutil/gutil.go:56
+17. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:49
+18. push/internal/logic/middleware.HandlerResponse
+    /Users/laixin/Developer/统一推送/push/internal/logic/middleware/handler_response.go:18
+19. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next.func1.1
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:55
+20. github.com/gogf/gf/v2/net/ghttp.niceCallFunc
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_func.go:55
+21. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next.func1
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:54
+22. github.com/gogf/gf/v2/util/gutil.TryCatch
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/util/gutil/gutil.go:56
+23. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:49
+24. github.com/gogf/gf/v2/net/ghttp.internalMiddlewareServerTracing
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_middleware_tracing.go:78
+25. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next.func1.5
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:96
+26. github.com/gogf/gf/v2/net/ghttp.niceCallFunc
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_func.go:55
+27. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next.func1
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:95
+28. github.com/gogf/gf/v2/util/gutil.TryCatch
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/util/gutil/gutil.go:56
+29. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:49
+30. github.com/gogf/gf/v2/net/ghttp.(*Server).ServeHTTP
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_server_handler.go:132
+
+2023-03-30 00:36:59.301 [DEBU] {a0b168f528f15017870d4f134d4a3268} [ 72 ms] [default] [push_service_go] [rows:5  ] SHOW FULL COLUMNS FROM `push_service`
+2023-03-30 00:36:59.325 [DEBU] {a0b168f528f15017870d4f134d4a3268} [ 23 ms] [default] [push_service_go] [rows:1  ] SELECT `id`,`service_name`,`service_sign`,`service_status`,`service_push_time` FROM `push_service` WHERE `service_sign`='UptimeKuma_Push' LIMIT 1
+2023-03-30 00:36:59.337 [ERRO] {a0b168f528f15017870d4f134d4a3268} [ 11 ms] [default] [push_service_go] [rows:0  ] UPDATE `push_service` SET service_push_time WHERE `id`=3
+Error: Error 1064: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE `id`=?' at line 1
+Stack:
+1.  github.com/gogf/gf/v2/database/gdb.(*Core).writeSqlToLogger
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/database/gdb/gdb_core.go:663
+2.  github.com/gogf/gf/v2/database/gdb.(*Core).DoCommit
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/database/gdb/gdb_core_underlying.go:278
+3.  github.com/gogf/gf/v2/database/gdb.(*Core).DoExec
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/database/gdb/gdb_core_underlying.go:135
+4.  github.com/gogf/gf/v2/database/gdb.(*Core).DoUpdate
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/database/gdb/gdb_core.go:600
+5.  github.com/gogf/gf/v2/database/gdb.(*HookUpdateInput).Next
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/database/gdb/gdb_model_hook.go:138
+6.  github.com/gogf/gf/v2/database/gdb.(*Model).Update
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/database/gdb/gdb_model_update.go:97
+7.  github.com/gogf/gf/v2/database/gdb.(*Model).Update
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/database/gdb/gdb_model_update.go:33
+8.  github.com/gogf/gf/v2/database/gdb.(*Model).UpdateAndGetAffected
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/database/gdb/gdb_model_update.go:102
+9.  push/internal/logic/s_push_service.(*sPushService).UpdatePushServicePushTime
+    /Users/laixin/Developer/统一推送/push/internal/logic/s_push_service/push_service.go:128
+10. push/internal/logic/s_push_core.(*sPushCore).PushCore
+    /Users/laixin/Developer/统一推送/push/internal/logic/s_push_core/push_core.go:49
+11. push/internal/controller.(*cPushCore).PushCore
+    /Users/laixin/Developer/统一推送/push/internal/controller/push_core.go:35
+12. github.com/gogf/gf/v2/net/ghttp.(*middleware).callHandlerFunc.func1
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:152
+13. github.com/gogf/gf/v2/net/ghttp.niceCallFunc
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_func.go:55
+14. github.com/gogf/gf/v2/net/ghttp.(*middleware).callHandlerFunc
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:129
+15. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next.func1
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:75
+16. github.com/gogf/gf/v2/util/gutil.TryCatch
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/util/gutil/gutil.go:56
+17. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:49
+18. push/internal/logic/middleware.HandlerResponse
+    /Users/laixin/Developer/统一推送/push/internal/logic/middleware/handler_response.go:18
+19. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next.func1.1
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:55
+20. github.com/gogf/gf/v2/net/ghttp.niceCallFunc
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_func.go:55
+21. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next.func1
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:54
+22. github.com/gogf/gf/v2/util/gutil.TryCatch
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/util/gutil/gutil.go:56
+23. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:49
+24. github.com/gogf/gf/v2/net/ghttp.internalMiddlewareServerTracing
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_middleware_tracing.go:78
+25. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next.func1.5
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:96
+26. github.com/gogf/gf/v2/net/ghttp.niceCallFunc
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_func.go:55
+27. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next.func1
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:95
+28. github.com/gogf/gf/v2/util/gutil.TryCatch
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/util/gutil/gutil.go:56
+29. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:49
+30. github.com/gogf/gf/v2/net/ghttp.(*Server).ServeHTTP
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_server_handler.go:132
+
+2023-03-30 00:36:59.348 [DEBU] {a0b168f528f15017870d4f134d4a3268} [ 11 ms] [default] [push_service_go] [rows:6  ] SHOW FULL COLUMNS FROM `push_log`
+2023-03-30 00:36:59.371 [ERRO] {a0b168f528f15017870d4f134d4a3268} [ 23 ms] [default] [push_service_go] [rows:0  ] INSERT INTO `push_log`(`push_info`,`push_service`,`push_time`,`push_status`,`err_info`) VALUES('{
+    "heartbeat": {
+        "monitorID": 30,
+        "status": 0,
+        "time": "2023-03-29 15:39:01.286",
+        "msg": "timeout of 48000ms exceeded",
+        "important": true,
+        "duration": 59
+    },
+    "monitor": {
+        "id": 30,
+        "name": "服务器探针",
+        "url": "http://120.24.211.49:35600/#",
+        "method": "GET",
+        "hostname": null,
+        "port": null,
+        "maxretries": 0,
+        "weight": 2000,
+        "active": 1,
+        "type": "http",
+        "interval": 60,
+        "retryInterval": 60,
+        "resendInterval": 0,
+        "keyword": null,
+        "expiryNotification": false,
+        "ignoreTls": false,
+        "upsideDown": false,
+        "packetSize": 56,
+        "maxredirects": 10,
+        "accepted_statuscodes": [
+            "200-299"
+        ],
+        "dns_resolve_type": "A",
+        "dns_resolve_server": "1.1.1.1",
+        "dns_last_result": null,
+        "docker_container": "",
+        "docker_host": null,
+        "proxyId": null,
+        "notificationIDList": {
+            "1": true,
+            "2": true
+        },
+        "tags": [
+            {
+                "id": 11,
+                "monitor_id": 30,
+                "tag_id": 3,
+                "value": "服务器探针",
+                "name": "开发服务",
+                "color": "#4B5563"
+            }
+        ],
+        "maintenance": false,
+        "mqttTopic": "",
+        "mqttSuccessMessage": "",
+        "databaseQuery": null,
+        "authMethod": null,
+        "grpcUrl": null,
+        "grpcProtobuf": null,
+        "grpcMethod": null,
+        "grpcServiceName": null,
+        "grpcEnableTls": false,
+        "radiusCalledStationId": null,
+        "radiusCallingStationId": null,
+        "game": null,
+        "includeSensitiveData": false
+    },
+    "msg": "[服务器探针] [🔴 Down] timeout of 48000ms exceeded"
+}','UptimeKuma_Push','2023-03-30 00:36:59',false,'Error 1064: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near \'WHERE `id`=?\' at line 1, UPDATE `push_service` SET service_push_time WHERE `id`=3') 
+Error: Error 1366: Incorrect string value: '\xF0\x9F\x94\xB4 D...' for column 'push_info' at row 1
+Stack:
+1.  github.com/gogf/gf/v2/database/gdb.(*Core).writeSqlToLogger
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/database/gdb/gdb_core.go:663
+2.  github.com/gogf/gf/v2/database/gdb.(*Core).DoCommit
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/database/gdb/gdb_core_underlying.go:278
+3.  github.com/gogf/gf/v2/database/gdb.(*Core).DoExec
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/database/gdb/gdb_core_underlying.go:135
+4.  github.com/gogf/gf/v2/database/gdb.(*Core).DoInsert
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/database/gdb/gdb_core.go:440
+5.  github.com/gogf/gf/v2/database/gdb.(*HookInsertInput).Next
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/database/gdb/gdb_model_hook.go:122
+6.  github.com/gogf/gf/v2/database/gdb.(*Model).doInsertWithOption
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/database/gdb/gdb_model_insert.go:371
+7.  github.com/gogf/gf/v2/database/gdb.(*Model).Insert
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/database/gdb/gdb_model_insert.go:193
+8.  github.com/gogf/gf/v2/database/gdb.(*Model).Insert
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/database/gdb/gdb_model_insert.go:191
+9.  push/internal/logic/s_push_log.(*sPushLog).AddPushLog
+    /Users/laixin/Developer/统一推送/push/internal/logic/s_push_log/push_log.go:28
+10. push/internal/logic/s_push_core.(*sPushCore).PushCore
+    /Users/laixin/Developer/统一推送/push/internal/logic/s_push_core/push_core.go:51
+11. push/internal/controller.(*cPushCore).PushCore
+    /Users/laixin/Developer/统一推送/push/internal/controller/push_core.go:35
+12. github.com/gogf/gf/v2/net/ghttp.(*middleware).callHandlerFunc.func1
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:152
+13. github.com/gogf/gf/v2/net/ghttp.niceCallFunc
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_func.go:55
+14. github.com/gogf/gf/v2/net/ghttp.(*middleware).callHandlerFunc
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:129
+15. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next.func1
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:75
+16. github.com/gogf/gf/v2/util/gutil.TryCatch
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/util/gutil/gutil.go:56
+17. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:49
+18. push/internal/logic/middleware.HandlerResponse
+    /Users/laixin/Developer/统一推送/push/internal/logic/middleware/handler_response.go:18
+19. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next.func1.1
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:55
+20. github.com/gogf/gf/v2/net/ghttp.niceCallFunc
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_func.go:55
+21. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next.func1
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:54
+22. github.com/gogf/gf/v2/util/gutil.TryCatch
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/util/gutil/gutil.go:56
+23. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:49
+24. github.com/gogf/gf/v2/net/ghttp.internalMiddlewareServerTracing
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_middleware_tracing.go:78
+25. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next.func1.5
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:96
+26. github.com/gogf/gf/v2/net/ghttp.niceCallFunc
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_func.go:55
+27. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next.func1
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:95
+28. github.com/gogf/gf/v2/util/gutil.TryCatch
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/util/gutil/gutil.go:56
+29. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:49
+30. github.com/gogf/gf/v2/net/ghttp.(*Server).ServeHTTP
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_server_handler.go:132
+
+2023-03-30 00:37:10.370 [DEBU] {603e0f8c2bf15017880d4f139f4d1c4e} [ 25 ms] [default] [push_service_go] [rows:1  ] SELECT `id`,`service_name`,`service_sign`,`service_status`,`service_push_time` FROM `push_service` WHERE `service_sign`='UptimeKuma_Push' LIMIT 1
+2023-03-30 00:37:10.382 [ERRO] {603e0f8c2bf15017880d4f139f4d1c4e} [ 11 ms] [default] [push_service_go] [rows:0  ] UPDATE `push_service` SET service_push_time WHERE `id`=3
+Error: Error 1064: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE `id`=?' at line 1
+Stack:
+1.  github.com/gogf/gf/v2/database/gdb.(*Core).writeSqlToLogger
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/database/gdb/gdb_core.go:663
+2.  github.com/gogf/gf/v2/database/gdb.(*Core).DoCommit
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/database/gdb/gdb_core_underlying.go:278
+3.  github.com/gogf/gf/v2/database/gdb.(*Core).DoExec
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/database/gdb/gdb_core_underlying.go:135
+4.  github.com/gogf/gf/v2/database/gdb.(*Core).DoUpdate
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/database/gdb/gdb_core.go:600
+5.  github.com/gogf/gf/v2/database/gdb.(*HookUpdateInput).Next
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/database/gdb/gdb_model_hook.go:138
+6.  github.com/gogf/gf/v2/database/gdb.(*Model).Update
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/database/gdb/gdb_model_update.go:97
+7.  github.com/gogf/gf/v2/database/gdb.(*Model).Update
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/database/gdb/gdb_model_update.go:33
+8.  github.com/gogf/gf/v2/database/gdb.(*Model).UpdateAndGetAffected
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/database/gdb/gdb_model_update.go:102
+9.  push/internal/logic/s_push_service.(*sPushService).UpdatePushServicePushTime
+    /Users/laixin/Developer/统一推送/push/internal/logic/s_push_service/push_service.go:128
+10. push/internal/logic/s_push_core.(*sPushCore).PushCore
+    /Users/laixin/Developer/统一推送/push/internal/logic/s_push_core/push_core.go:49
+11. push/internal/controller.(*cPushCore).PushCore
+    /Users/laixin/Developer/统一推送/push/internal/controller/push_core.go:35
+12. github.com/gogf/gf/v2/net/ghttp.(*middleware).callHandlerFunc.func1
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:152
+13. github.com/gogf/gf/v2/net/ghttp.niceCallFunc
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_func.go:55
+14. github.com/gogf/gf/v2/net/ghttp.(*middleware).callHandlerFunc
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:129
+15. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next.func1
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:75
+16. github.com/gogf/gf/v2/util/gutil.TryCatch
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/util/gutil/gutil.go:56
+17. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:49
+18. push/internal/logic/middleware.HandlerResponse
+    /Users/laixin/Developer/统一推送/push/internal/logic/middleware/handler_response.go:18
+19. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next.func1.1
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:55
+20. github.com/gogf/gf/v2/net/ghttp.niceCallFunc
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_func.go:55
+21. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next.func1
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:54
+22. github.com/gogf/gf/v2/util/gutil.TryCatch
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/util/gutil/gutil.go:56
+23. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:49
+24. github.com/gogf/gf/v2/net/ghttp.internalMiddlewareServerTracing
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_middleware_tracing.go:78
+25. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next.func1.5
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:96
+26. github.com/gogf/gf/v2/net/ghttp.niceCallFunc
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_func.go:55
+27. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next.func1
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:95
+28. github.com/gogf/gf/v2/util/gutil.TryCatch
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/util/gutil/gutil.go:56
+29. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:49
+30. github.com/gogf/gf/v2/net/ghttp.(*Server).ServeHTTP
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_server_handler.go:132
+
+2023-03-30 00:37:10.405 [ERRO] {603e0f8c2bf15017880d4f139f4d1c4e} [ 23 ms] [default] [push_service_go] [rows:0  ] INSERT INTO `push_log`(`push_time`,`push_status`,`err_info`,`push_info`,`push_service`) VALUES('2023-03-30 00:37:10',false,'Error 1064: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near \'WHERE `id`=?\' at line 1, UPDATE `push_service` SET service_push_time WHERE `id`=3','{
+    "heartbeat": {
+        "monitorID": 30,
+        "status": 0,
+        "time": "2023-03-29 15:39:01.286",
+        "msg": "timeout of 48000ms exceeded",
+        "important": true,
+        "duration": 59
+    },
+    "monitor": {
+        "id": 30,
+        "name": "服务器探针",
+        "url": "http://120.24.211.49:35600/#",
+        "method": "GET",
+        "hostname": null,
+        "port": null,
+        "maxretries": 0,
+        "weight": 2000,
+        "active": 1,
+        "type": "http",
+        "interval": 60,
+        "retryInterval": 60,
+        "resendInterval": 0,
+        "keyword": null,
+        "expiryNotification": false,
+        "ignoreTls": false,
+        "upsideDown": false,
+        "packetSize": 56,
+        "maxredirects": 10,
+        "accepted_statuscodes": [
+            "200-299"
+        ],
+        "dns_resolve_type": "A",
+        "dns_resolve_server": "1.1.1.1",
+        "dns_last_result": null,
+        "docker_container": "",
+        "docker_host": null,
+        "proxyId": null,
+        "notificationIDList": {
+            "1": true,
+            "2": true
+        },
+        "tags": [
+            {
+                "id": 11,
+                "monitor_id": 30,
+                "tag_id": 3,
+                "value": "服务器探针",
+                "name": "开发服务",
+                "color": "#4B5563"
+            }
+        ],
+        "maintenance": false,
+        "mqttTopic": "",
+        "mqttSuccessMessage": "",
+        "databaseQuery": null,
+        "authMethod": null,
+        "grpcUrl": null,
+        "grpcProtobuf": null,
+        "grpcMethod": null,
+        "grpcServiceName": null,
+        "grpcEnableTls": false,
+        "radiusCalledStationId": null,
+        "radiusCallingStationId": null,
+        "game": null,
+        "includeSensitiveData": false
+    },
+    "msg": "[服务器探针] [🔴 Down] timeout of 48000ms exceeded"
+}','UptimeKuma_Push') 
+Error: Error 1366: Incorrect string value: '\xF0\x9F\x94\xB4 D...' for column 'push_info' at row 1
+Stack:
+1.  github.com/gogf/gf/v2/database/gdb.(*Core).writeSqlToLogger
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/database/gdb/gdb_core.go:663
+2.  github.com/gogf/gf/v2/database/gdb.(*Core).DoCommit
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/database/gdb/gdb_core_underlying.go:278
+3.  github.com/gogf/gf/v2/database/gdb.(*Core).DoExec
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/database/gdb/gdb_core_underlying.go:135
+4.  github.com/gogf/gf/v2/database/gdb.(*Core).DoInsert
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/database/gdb/gdb_core.go:440
+5.  github.com/gogf/gf/v2/database/gdb.(*HookInsertInput).Next
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/database/gdb/gdb_model_hook.go:122
+6.  github.com/gogf/gf/v2/database/gdb.(*Model).doInsertWithOption
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/database/gdb/gdb_model_insert.go:371
+7.  github.com/gogf/gf/v2/database/gdb.(*Model).Insert
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/database/gdb/gdb_model_insert.go:193
+8.  github.com/gogf/gf/v2/database/gdb.(*Model).Insert
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/database/gdb/gdb_model_insert.go:191
+9.  push/internal/logic/s_push_log.(*sPushLog).AddPushLog
+    /Users/laixin/Developer/统一推送/push/internal/logic/s_push_log/push_log.go:28
+10. push/internal/logic/s_push_core.(*sPushCore).PushCore
+    /Users/laixin/Developer/统一推送/push/internal/logic/s_push_core/push_core.go:51
+11. push/internal/controller.(*cPushCore).PushCore
+    /Users/laixin/Developer/统一推送/push/internal/controller/push_core.go:35
+12. github.com/gogf/gf/v2/net/ghttp.(*middleware).callHandlerFunc.func1
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:152
+13. github.com/gogf/gf/v2/net/ghttp.niceCallFunc
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_func.go:55
+14. github.com/gogf/gf/v2/net/ghttp.(*middleware).callHandlerFunc
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:129
+15. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next.func1
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:75
+16. github.com/gogf/gf/v2/util/gutil.TryCatch
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/util/gutil/gutil.go:56
+17. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:49
+18. push/internal/logic/middleware.HandlerResponse
+    /Users/laixin/Developer/统一推送/push/internal/logic/middleware/handler_response.go:18
+19. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next.func1.1
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:55
+20. github.com/gogf/gf/v2/net/ghttp.niceCallFunc
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_func.go:55
+21. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next.func1
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:54
+22. github.com/gogf/gf/v2/util/gutil.TryCatch
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/util/gutil/gutil.go:56
+23. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:49
+24. github.com/gogf/gf/v2/net/ghttp.internalMiddlewareServerTracing
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_middleware_tracing.go:78
+25. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next.func1.5
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:96
+26. github.com/gogf/gf/v2/net/ghttp.niceCallFunc
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_func.go:55
+27. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next.func1
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:95
+28. github.com/gogf/gf/v2/util/gutil.TryCatch
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/util/gutil/gutil.go:56
+29. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:49
+30. github.com/gogf/gf/v2/net/ghttp.(*Server).ServeHTTP
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_server_handler.go:132
+
+2023-03-30 00:38:58.684 [DEBU] {d88ec5c144f15017ff1db109c507e061} [ 62 ms] [default] [push_service_go] [rows:5  ] SHOW FULL COLUMNS FROM `push_service`
+2023-03-30 00:38:58.707 [DEBU] {d88ec5c144f15017ff1db109c507e061} [ 23 ms] [default] [push_service_go] [rows:1  ] SELECT `id`,`service_name`,`service_sign`,`service_status`,`service_push_time` FROM `push_service` WHERE `service_sign`='UptimeKuma_Push' LIMIT 1
+2023-03-30 00:38:58.717 [ERRO] {d88ec5c144f15017ff1db109c507e061} [  9 ms] [default] [push_service_go] [rows:0  ] UPDATE `push_service` SET service_push_time WHERE `id`=3
+Error: Error 1064: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE `id`=?' at line 1
+Stack:
+1.  github.com/gogf/gf/v2/database/gdb.(*Core).writeSqlToLogger
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/database/gdb/gdb_core.go:663
+2.  github.com/gogf/gf/v2/database/gdb.(*Core).DoCommit
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/database/gdb/gdb_core_underlying.go:278
+3.  github.com/gogf/gf/v2/database/gdb.(*Core).DoExec
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/database/gdb/gdb_core_underlying.go:135
+4.  github.com/gogf/gf/v2/database/gdb.(*Core).DoUpdate
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/database/gdb/gdb_core.go:600
+5.  github.com/gogf/gf/v2/database/gdb.(*HookUpdateInput).Next
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/database/gdb/gdb_model_hook.go:138
+6.  github.com/gogf/gf/v2/database/gdb.(*Model).Update
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/database/gdb/gdb_model_update.go:97
+7.  github.com/gogf/gf/v2/database/gdb.(*Model).Update
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/database/gdb/gdb_model_update.go:33
+8.  github.com/gogf/gf/v2/database/gdb.(*Model).UpdateAndGetAffected
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/database/gdb/gdb_model_update.go:102
+9.  push/internal/logic/s_push_service.(*sPushService).UpdatePushServicePushTime
+    /Users/laixin/Developer/统一推送/push/internal/logic/s_push_service/push_service.go:128
+10. push/internal/logic/s_push_core.(*sPushCore).PushCore
+    /Users/laixin/Developer/统一推送/push/internal/logic/s_push_core/push_core.go:49
+11. push/internal/controller.(*cPushCore).PushCore
+    /Users/laixin/Developer/统一推送/push/internal/controller/push_core.go:35
+12. github.com/gogf/gf/v2/net/ghttp.(*middleware).callHandlerFunc.func1
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:152
+13. github.com/gogf/gf/v2/net/ghttp.niceCallFunc
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_func.go:55
+14. github.com/gogf/gf/v2/net/ghttp.(*middleware).callHandlerFunc
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:129
+15. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next.func1
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:75
+16. github.com/gogf/gf/v2/util/gutil.TryCatch
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/util/gutil/gutil.go:56
+17. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:49
+18. push/internal/logic/middleware.HandlerResponse
+    /Users/laixin/Developer/统一推送/push/internal/logic/middleware/handler_response.go:18
+19. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next.func1.1
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:55
+20. github.com/gogf/gf/v2/net/ghttp.niceCallFunc
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_func.go:55
+21. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next.func1
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:54
+22. github.com/gogf/gf/v2/util/gutil.TryCatch
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/util/gutil/gutil.go:56
+23. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:49
+24. github.com/gogf/gf/v2/net/ghttp.internalMiddlewareServerTracing
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_middleware_tracing.go:78
+25. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next.func1.5
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:96
+26. github.com/gogf/gf/v2/net/ghttp.niceCallFunc
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_func.go:55
+27. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next.func1
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:95
+28. github.com/gogf/gf/v2/util/gutil.TryCatch
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/util/gutil/gutil.go:56
+29. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:49
+30. github.com/gogf/gf/v2/net/ghttp.(*Server).ServeHTTP
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_server_handler.go:132
+
+2023-03-30 00:38:58.729 [DEBU] {d88ec5c144f15017ff1db109c507e061} [ 12 ms] [default] [push_service_go] [rows:6  ] SHOW FULL COLUMNS FROM `push_log`
+2023-03-30 00:38:58.752 [ERRO] {d88ec5c144f15017ff1db109c507e061} [ 23 ms] [default] [push_service_go] [rows:0  ] INSERT INTO `push_log`(`push_status`,`err_info`,`push_info`,`push_service`,`push_time`) VALUES(false,'Error 1064: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near \'WHERE `id`=?\' at line 1, UPDATE `push_service` SET service_push_time WHERE `id`=3','{
+    "heartbeat": {
+        "monitorID": 30,
+        "status": 0,
+        "time": "2023-03-29 15:39:01.286",
+        "msg": "timeout of 48000ms exceeded",
+        "important": true,
+        "duration": 59
+    },
+    "monitor": {
+        "id": 30,
+        "name": "服务器探针",
+        "url": "http://120.24.211.49:35600/#",
+        "method": "GET",
+        "hostname": null,
+        "port": null,
+        "maxretries": 0,
+        "weight": 2000,
+        "active": 1,
+        "type": "http",
+        "interval": 60,
+        "retryInterval": 60,
+        "resendInterval": 0,
+        "keyword": null,
+        "expiryNotification": false,
+        "ignoreTls": false,
+        "upsideDown": false,
+        "packetSize": 56,
+        "maxredirects": 10,
+        "accepted_statuscodes": [
+            "200-299"
+        ],
+        "dns_resolve_type": "A",
+        "dns_resolve_server": "1.1.1.1",
+        "dns_last_result": null,
+        "docker_container": "",
+        "docker_host": null,
+        "proxyId": null,
+        "notificationIDList": {
+            "1": true,
+            "2": true
+        },
+        "tags": [
+            {
+                "id": 11,
+                "monitor_id": 30,
+                "tag_id": 3,
+                "value": "服务器探针",
+                "name": "开发服务",
+                "color": "#4B5563"
+            }
+        ],
+        "maintenance": false,
+        "mqttTopic": "",
+        "mqttSuccessMessage": "",
+        "databaseQuery": null,
+        "authMethod": null,
+        "grpcUrl": null,
+        "grpcProtobuf": null,
+        "grpcMethod": null,
+        "grpcServiceName": null,
+        "grpcEnableTls": false,
+        "radiusCalledStationId": null,
+        "radiusCallingStationId": null,
+        "game": null,
+        "includeSensitiveData": false
+    },
+    "msg": "[服务器探针] [🔴 Down] timeout of 48000ms exceeded"
+}','UptimeKuma_Push','2023-03-30 00:38:58') 
+Error: Error 1366: Incorrect string value: '\xF0\x9F\x94\xB4 D...' for column 'push_info' at row 1
+Stack:
+1.  github.com/gogf/gf/v2/database/gdb.(*Core).writeSqlToLogger
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/database/gdb/gdb_core.go:663
+2.  github.com/gogf/gf/v2/database/gdb.(*Core).DoCommit
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/database/gdb/gdb_core_underlying.go:278
+3.  github.com/gogf/gf/v2/database/gdb.(*Core).DoExec
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/database/gdb/gdb_core_underlying.go:135
+4.  github.com/gogf/gf/v2/database/gdb.(*Core).DoInsert
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/database/gdb/gdb_core.go:440
+5.  github.com/gogf/gf/v2/database/gdb.(*HookInsertInput).Next
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/database/gdb/gdb_model_hook.go:122
+6.  github.com/gogf/gf/v2/database/gdb.(*Model).doInsertWithOption
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/database/gdb/gdb_model_insert.go:371
+7.  github.com/gogf/gf/v2/database/gdb.(*Model).Insert
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/database/gdb/gdb_model_insert.go:193
+8.  github.com/gogf/gf/v2/database/gdb.(*Model).Insert
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/database/gdb/gdb_model_insert.go:191
+9.  push/internal/logic/s_push_log.(*sPushLog).AddPushLog
+    /Users/laixin/Developer/统一推送/push/internal/logic/s_push_log/push_log.go:28
+10. push/internal/logic/s_push_core.(*sPushCore).PushCore
+    /Users/laixin/Developer/统一推送/push/internal/logic/s_push_core/push_core.go:51
+11. push/internal/controller.(*cPushCore).PushCore
+    /Users/laixin/Developer/统一推送/push/internal/controller/push_core.go:35
+12. github.com/gogf/gf/v2/net/ghttp.(*middleware).callHandlerFunc.func1
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:152
+13. github.com/gogf/gf/v2/net/ghttp.niceCallFunc
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_func.go:55
+14. github.com/gogf/gf/v2/net/ghttp.(*middleware).callHandlerFunc
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:129
+15. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next.func1
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:75
+16. github.com/gogf/gf/v2/util/gutil.TryCatch
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/util/gutil/gutil.go:56
+17. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:49
+18. push/internal/logic/middleware.HandlerResponse
+    /Users/laixin/Developer/统一推送/push/internal/logic/middleware/handler_response.go:18
+19. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next.func1.1
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:55
+20. github.com/gogf/gf/v2/net/ghttp.niceCallFunc
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_func.go:55
+21. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next.func1
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:54
+22. github.com/gogf/gf/v2/util/gutil.TryCatch
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/util/gutil/gutil.go:56
+23. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:49
+24. github.com/gogf/gf/v2/net/ghttp.internalMiddlewareServerTracing
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_middleware_tracing.go:78
+25. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next.func1.5
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:96
+26. github.com/gogf/gf/v2/net/ghttp.niceCallFunc
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_func.go:55
+27. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next.func1
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:95
+28. github.com/gogf/gf/v2/util/gutil.TryCatch
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/util/gutil/gutil.go:56
+29. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:49
+30. github.com/gogf/gf/v2/net/ghttp.(*Server).ServeHTTP
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_server_handler.go:132
+
+2023-03-30 00:40:35.754 [DEBU] {98f3d15b5bf1501767292f03ac7add0f} [ 58 ms] [default] [push_service_go] [rows:5  ] SHOW FULL COLUMNS FROM `push_service`
+2023-03-30 00:40:35.774 [DEBU] {98f3d15b5bf1501767292f03ac7add0f} [ 19 ms] [default] [push_service_go] [rows:1  ] SELECT `id`,`service_name`,`service_sign`,`service_status`,`service_push_time` FROM `push_service` WHERE `service_sign`='UptimeKuma_Push' LIMIT 1
+2023-03-30 00:40:35.783 [ERRO] {98f3d15b5bf1501767292f03ac7add0f} [  9 ms] [default] [push_service_go] [rows:0  ] UPDATE `push_service` SET service_push_time WHERE `id`=3
+Error: Error 1064: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE `id`=?' at line 1
+Stack:
+1.  github.com/gogf/gf/v2/database/gdb.(*Core).writeSqlToLogger
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/database/gdb/gdb_core.go:663
+2.  github.com/gogf/gf/v2/database/gdb.(*Core).DoCommit
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/database/gdb/gdb_core_underlying.go:278
+3.  github.com/gogf/gf/v2/database/gdb.(*Core).DoExec
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/database/gdb/gdb_core_underlying.go:135
+4.  github.com/gogf/gf/v2/database/gdb.(*Core).DoUpdate
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/database/gdb/gdb_core.go:600
+5.  github.com/gogf/gf/v2/database/gdb.(*HookUpdateInput).Next
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/database/gdb/gdb_model_hook.go:138
+6.  github.com/gogf/gf/v2/database/gdb.(*Model).Update
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/database/gdb/gdb_model_update.go:97
+7.  github.com/gogf/gf/v2/database/gdb.(*Model).Update
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/database/gdb/gdb_model_update.go:33
+8.  github.com/gogf/gf/v2/database/gdb.(*Model).UpdateAndGetAffected
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/database/gdb/gdb_model_update.go:102
+9.  push/internal/logic/s_push_service.(*sPushService).UpdatePushServicePushTime
+    /Users/laixin/Developer/统一推送/push/internal/logic/s_push_service/push_service.go:128
+10. push/internal/logic/s_push_core.(*sPushCore).PushCore
+    /Users/laixin/Developer/统一推送/push/internal/logic/s_push_core/push_core.go:49
+11. push/internal/controller.(*cPushCore).PushCore
+    /Users/laixin/Developer/统一推送/push/internal/controller/push_core.go:35
+12. github.com/gogf/gf/v2/net/ghttp.(*middleware).callHandlerFunc.func1
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:152
+13. github.com/gogf/gf/v2/net/ghttp.niceCallFunc
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_func.go:55
+14. github.com/gogf/gf/v2/net/ghttp.(*middleware).callHandlerFunc
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:129
+15. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next.func1
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:75
+16. github.com/gogf/gf/v2/util/gutil.TryCatch
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/util/gutil/gutil.go:56
+17. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:49
+18. push/internal/logic/middleware.HandlerResponse
+    /Users/laixin/Developer/统一推送/push/internal/logic/middleware/handler_response.go:18
+19. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next.func1.1
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:55
+20. github.com/gogf/gf/v2/net/ghttp.niceCallFunc
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_func.go:55
+21. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next.func1
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:54
+22. github.com/gogf/gf/v2/util/gutil.TryCatch
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/util/gutil/gutil.go:56
+23. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:49
+24. github.com/gogf/gf/v2/net/ghttp.internalMiddlewareServerTracing
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_middleware_tracing.go:78
+25. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next.func1.5
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:96
+26. github.com/gogf/gf/v2/net/ghttp.niceCallFunc
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_func.go:55
+27. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next.func1
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:95
+28. github.com/gogf/gf/v2/util/gutil.TryCatch
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/util/gutil/gutil.go:56
+29. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:49
+30. github.com/gogf/gf/v2/net/ghttp.(*Server).ServeHTTP
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_server_handler.go:132
+
+2023-03-30 00:40:35.793 [DEBU] {98f3d15b5bf1501767292f03ac7add0f} [ 10 ms] [default] [push_service_go] [rows:6  ] SHOW FULL COLUMNS FROM `push_log`
+2023-03-30 00:40:35.815 [DEBU] {98f3d15b5bf1501767292f03ac7add0f} [ 21 ms] [default] [push_service_go] [rows:1  ] INSERT INTO `push_log`(`err_info`,`push_info`,`push_service`,`push_time`,`push_status`) VALUES('Error 1064: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near \'WHERE `id`=?\' at line 1, UPDATE `push_service` SET service_push_time WHERE `id`=3','in.PushData','UptimeKuma_Push','2023-03-30 00:40:35',false) 
+2023-03-30 00:40:35.826 [DEBU] {98f3d15b5bf1501767292f03ac7add0f} [ 11 ms] [default] [push_service_go] [rows:7  ] SHOW FULL COLUMNS FROM `push_device`
+2023-03-30 00:40:35.836 [DEBU] {98f3d15b5bf1501767292f03ac7add0f} [ 10 ms] [default] [push_service_go] [rows:2  ] SELECT `id`,`device_name`,`base_url`,`service_id_list`,`latest_push_time`,`device_status`,`create_time` FROM `push_device` WHERE id>0
+2023-03-30 00:41:24.502 [DEBU] {90e911b466f150176a292f0349da0a30} [ 81 ms] [default] [push_service_go] [rows:1  ] SELECT `id`,`service_name`,`service_sign`,`service_status`,`service_push_time` FROM `push_service` WHERE `service_sign`='UptimeKuma_Push' LIMIT 1
+2023-03-30 00:41:24.515 [ERRO] {90e911b466f150176a292f0349da0a30} [ 11 ms] [default] [push_service_go] [rows:0  ] UPDATE `push_service` SET service_push_time WHERE `id`=3
+Error: Error 1064: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE `id`=?' at line 1
+Stack:
+1.  github.com/gogf/gf/v2/database/gdb.(*Core).writeSqlToLogger
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/database/gdb/gdb_core.go:663
+2.  github.com/gogf/gf/v2/database/gdb.(*Core).DoCommit
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/database/gdb/gdb_core_underlying.go:278
+3.  github.com/gogf/gf/v2/database/gdb.(*Core).DoExec
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/database/gdb/gdb_core_underlying.go:135
+4.  github.com/gogf/gf/v2/database/gdb.(*Core).DoUpdate
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/database/gdb/gdb_core.go:600
+5.  github.com/gogf/gf/v2/database/gdb.(*HookUpdateInput).Next
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/database/gdb/gdb_model_hook.go:138
+6.  github.com/gogf/gf/v2/database/gdb.(*Model).Update
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/database/gdb/gdb_model_update.go:97
+7.  github.com/gogf/gf/v2/database/gdb.(*Model).Update
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/database/gdb/gdb_model_update.go:33
+8.  github.com/gogf/gf/v2/database/gdb.(*Model).UpdateAndGetAffected
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/database/gdb/gdb_model_update.go:102
+9.  push/internal/logic/s_push_service.(*sPushService).UpdatePushServicePushTime
+    /Users/laixin/Developer/统一推送/push/internal/logic/s_push_service/push_service.go:128
+10. push/internal/logic/s_push_core.(*sPushCore).PushCore
+    /Users/laixin/Developer/统一推送/push/internal/logic/s_push_core/push_core.go:49
+11. push/internal/controller.(*cPushCore).PushCore
+    /Users/laixin/Developer/统一推送/push/internal/controller/push_core.go:35
+12. github.com/gogf/gf/v2/net/ghttp.(*middleware).callHandlerFunc.func1
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:152
+13. github.com/gogf/gf/v2/net/ghttp.niceCallFunc
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_func.go:55
+14. github.com/gogf/gf/v2/net/ghttp.(*middleware).callHandlerFunc
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:129
+15. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next.func1
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:75
+16. github.com/gogf/gf/v2/util/gutil.TryCatch
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/util/gutil/gutil.go:56
+17. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:49
+18. push/internal/logic/middleware.HandlerResponse
+    /Users/laixin/Developer/统一推送/push/internal/logic/middleware/handler_response.go:18
+19. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next.func1.1
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:55
+20. github.com/gogf/gf/v2/net/ghttp.niceCallFunc
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_func.go:55
+21. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next.func1
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:54
+22. github.com/gogf/gf/v2/util/gutil.TryCatch
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/util/gutil/gutil.go:56
+23. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:49
+24. github.com/gogf/gf/v2/net/ghttp.internalMiddlewareServerTracing
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_middleware_tracing.go:78
+25. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next.func1.5
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:96
+26. github.com/gogf/gf/v2/net/ghttp.niceCallFunc
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_func.go:55
+27. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next.func1
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:95
+28. github.com/gogf/gf/v2/util/gutil.TryCatch
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/util/gutil/gutil.go:56
+29. github.com/gogf/gf/v2/net/ghttp.(*middleware).Next
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_request_middleware.go:49
+30. github.com/gogf/gf/v2/net/ghttp.(*Server).ServeHTTP
+    /Users/laixin/go/pkg/mod/github.com/gogf/gf/v2@v2.3.1/net/ghttp/ghttp_server_handler.go:132
+
+2023-03-30 00:41:24.540 [DEBU] {90e911b466f150176a292f0349da0a30} [ 25 ms] [default] [push_service_go] [rows:1  ] INSERT INTO `push_log`(`err_info`,`push_info`,`push_service`,`push_time`,`push_status`) VALUES('Error 1064: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near \'WHERE `id`=?\' at line 1, UPDATE `push_service` SET service_push_time WHERE `id`=3','in.PushData','UptimeKuma_Push','2023-03-30 00:41:24',false) 
+2023-03-30 00:41:24.552 [DEBU] {90e911b466f150176a292f0349da0a30} [ 11 ms] [default] [push_service_go] [rows:2  ] SELECT `id`,`device_name`,`base_url`,`service_id_list`,`latest_push_time`,`device_status`,`create_time` FROM `push_device` WHERE id>0
+2023-03-30 00:43:50.704 [DEBU] {b8742cbf88f15017638fa36e0013571a} [ 69 ms] [default] [push_service_go] [rows:5  ] SHOW FULL COLUMNS FROM `push_service`
+2023-03-30 00:43:50.728 [DEBU] {b8742cbf88f15017638fa36e0013571a} [ 22 ms] [default] [push_service_go] [rows:1  ] SELECT `id`,`service_name`,`service_sign`,`service_status`,`service_push_time` FROM `push_service` WHERE `service_sign`='UptimeKuma_Push' LIMIT 1
+2023-03-30 00:43:50.752 [DEBU] {b8742cbf88f15017638fa36e0013571a} [ 24 ms] [default] [push_service_go] [rows:1  ] UPDATE `push_service` SET `service_push_time`='2023-03-30 00:43:50' WHERE `id`=3
+2023-03-30 00:43:50.764 [DEBU] {b8742cbf88f15017638fa36e0013571a} [ 12 ms] [default] [push_service_go] [rows:7  ] SHOW FULL COLUMNS FROM `push_device`
+2023-03-30 00:43:50.776 [DEBU] {b8742cbf88f15017638fa36e0013571a} [ 12 ms] [default] [push_service_go] [rows:2  ] SELECT `id`,`device_name`,`base_url`,`service_id_list`,`latest_push_time`,`device_status`,`create_time` FROM `push_device` WHERE id>0
+2023-03-30 00:44:58.201 [DEBU] {40e1257698f150176473f07c00c61215} [ 71 ms] [default] [push_service_go] [rows:5  ] SHOW FULL COLUMNS FROM `push_service`
+2023-03-30 00:44:58.224 [DEBU] {40e1257698f150176473f07c00c61215} [ 23 ms] [default] [push_service_go] [rows:1  ] SELECT `id`,`service_name`,`service_sign`,`service_status`,`service_push_time` FROM `push_service` WHERE `service_sign`='UptimeKuma_Push' LIMIT 1
+2023-03-30 00:44:58.247 [DEBU] {40e1257698f150176473f07c00c61215} [ 22 ms] [default] [push_service_go] [rows:1  ] UPDATE `push_service` SET `service_push_time`='2023-03-30 00:44:58' WHERE `id`=3
+2023-03-30 00:44:58.258 [DEBU] {40e1257698f150176473f07c00c61215} [ 11 ms] [default] [push_service_go] [rows:7  ] SHOW FULL COLUMNS FROM `push_device`
+2023-03-30 00:44:58.271 [DEBU] {40e1257698f150176473f07c00c61215} [ 13 ms] [default] [push_service_go] [rows:2  ] SELECT `id`,`device_name`,`base_url`,`service_id_list`,`latest_push_time`,`device_status`,`create_time` FROM `push_device` WHERE id>0
+2023-03-30 00:45:55.854 [DEBU] {982191e2a5f15017f00e425cfc6cd200} [ 70 ms] [default] [push_service_go] [rows:5  ] SHOW FULL COLUMNS FROM `push_service`
+2023-03-30 00:45:55.877 [DEBU] {982191e2a5f15017f00e425cfc6cd200} [ 22 ms] [default] [push_service_go] [rows:1  ] SELECT `id`,`service_name`,`service_sign`,`service_status`,`service_push_time` FROM `push_service` WHERE `service_sign`='UptimeKuma_Push' LIMIT 1
+2023-03-30 00:45:55.903 [DEBU] {982191e2a5f15017f00e425cfc6cd200} [ 25 ms] [default] [push_service_go] [rows:1  ] UPDATE `push_service` SET `service_push_time`='2023-03-30 00:45:55' WHERE `id`=3
+2023-03-30 00:45:55.916 [DEBU] {982191e2a5f15017f00e425cfc6cd200} [ 12 ms] [default] [push_service_go] [rows:7  ] SHOW FULL COLUMNS FROM `push_device`
+2023-03-30 00:45:55.928 [DEBU] {982191e2a5f15017f00e425cfc6cd200} [ 12 ms] [default] [push_service_go] [rows:2  ] SELECT `id`,`device_name`,`base_url`,`service_id_list`,`latest_push_time`,`device_status`,`create_time` FROM `push_device` WHERE id>0
+2023-03-30 00:47:24.181 [DEBU] {a0f9f772baf15017f30e425cc8a0244e} [ 64 ms] [default] [push_service_go] [rows:1  ] SELECT `id`,`service_name`,`service_sign`,`service_status`,`service_push_time` FROM `push_service` WHERE `service_sign`='UptimeKuma_Push' LIMIT 1
+2023-03-30 00:47:24.202 [DEBU] {a0f9f772baf15017f30e425cc8a0244e} [ 20 ms] [default] [push_service_go] [rows:1  ] UPDATE `push_service` SET `service_push_time`='2023-03-30 00:47:24' WHERE `id`=3
+2023-03-30 00:47:24.212 [DEBU] {a0f9f772baf15017f30e425cc8a0244e} [  9 ms] [default] [push_service_go] [rows:2  ] SELECT `id`,`device_name`,`base_url`,`service_id_list`,`latest_push_time`,`device_status`,`create_time` FROM `push_device` WHERE id>0
+2023-03-30 00:48:48.035 [DEBU] {88328df9cdf1501739de720d10715d95} [ 67 ms] [default] [push_service_go] [rows:5  ] SHOW FULL COLUMNS FROM `push_service`
+2023-03-30 00:48:48.058 [DEBU] {88328df9cdf1501739de720d10715d95} [ 22 ms] [default] [push_service_go] [rows:1  ] SELECT `id`,`service_name`,`service_sign`,`service_status`,`service_push_time` FROM `push_service` WHERE `service_sign`='UptimeKuma_Push' LIMIT 1
+2023-03-30 00:48:48.081 [DEBU] {88328df9cdf1501739de720d10715d95} [ 22 ms] [default] [push_service_go] [rows:1  ] UPDATE `push_service` SET `service_push_time`='2023-03-30 00:48:48' WHERE `id`=3
+2023-03-30 00:48:48.092 [DEBU] {88328df9cdf1501739de720d10715d95} [ 11 ms] [default] [push_service_go] [rows:7  ] SHOW FULL COLUMNS FROM `push_device`
+2023-03-30 00:48:48.103 [DEBU] {88328df9cdf1501739de720d10715d95} [ 10 ms] [default] [push_service_go] [rows:2  ] SELECT `id`,`device_name`,`base_url`,`service_id_list`,`latest_push_time`,`device_status`,`create_time` FROM `push_device` WHERE id>0
+2023-03-30 01:05:03.306 [DEBU] {e0ed010bb1f250173cde720dffef2154} [ 77 ms] [default] [push_service_go] [rows:1  ] SELECT `id`,`service_name`,`service_sign`,`service_status`,`service_push_time` FROM `push_service` WHERE `service_sign`='UptimeKuma_Push' LIMIT 1
+2023-03-30 01:05:03.331 [DEBU] {e0ed010bb1f250173cde720dffef2154} [ 23 ms] [default] [push_service_go] [rows:1  ] UPDATE `push_service` SET `service_push_time`='2023-03-30 01:05:03' WHERE `id`=3
+2023-03-30 01:05:03.342 [DEBU] {e0ed010bb1f250173cde720dffef2154} [ 10 ms] [default] [push_service_go] [rows:2  ] SELECT `id`,`device_name`,`base_url`,`service_id_list`,`latest_push_time`,`device_status`,`create_time` FROM `push_device` WHERE id>0
+2023-03-30 01:05:22.771 [DEBU] {0014fb94b5f25017a3cc977aa812143f} [ 59 ms] [default] [push_service_go] [rows:5  ] SHOW FULL COLUMNS FROM `push_service`
+2023-03-30 01:05:22.790 [DEBU] {0014fb94b5f25017a3cc977aa812143f} [ 19 ms] [default] [push_service_go] [rows:1  ] SELECT `id`,`service_name`,`service_sign`,`service_status`,`service_push_time` FROM `push_service` WHERE `service_sign`='UptimeKuma_Push' LIMIT 1
+2023-03-30 01:05:22.809 [DEBU] {0014fb94b5f25017a3cc977aa812143f} [ 18 ms] [default] [push_service_go] [rows:1  ] UPDATE `push_service` SET `service_push_time`='2023-03-30 01:05:22' WHERE `id`=3
+2023-03-30 01:05:22.820 [DEBU] {0014fb94b5f25017a3cc977aa812143f} [ 10 ms] [default] [push_service_go] [rows:7  ] SHOW FULL COLUMNS FROM `push_device`
+2023-03-30 01:05:22.830 [DEBU] {0014fb94b5f25017a3cc977aa812143f} [ 10 ms] [default] [push_service_go] [rows:2  ] SELECT `id`,`device_name`,`base_url`,`service_id_list`,`latest_push_time`,`device_status`,`create_time` FROM `push_device` WHERE id>0
+2023-03-30 01:05:23.261 [DEBU] {0014fb94b5f25017a3cc977aa812143f} [ 12 ms] [default] [push_service_go] [rows:6  ] SHOW FULL COLUMNS FROM `push_log`
+2023-03-30 01:05:23.284 [DEBU] {0014fb94b5f25017a3cc977aa812143f} [ 23 ms] [default] [push_service_go] [rows:1  ] INSERT INTO `push_log`(`push_status`,`err_info`,`push_info`,`push_service`,`push_time`) VALUES(true,'','in.PushData','UptimeKuma_Push','2023-03-30 01:05:23') 
+2023-03-30 01:06:37.230 [DEBU] {107c02ebc6f250171d483948c9fd3e44} [ 59 ms] [default] [push_service_go] [rows:5  ] SHOW FULL COLUMNS FROM `push_service`
+2023-03-30 01:06:37.250 [DEBU] {107c02ebc6f250171d483948c9fd3e44} [ 19 ms] [default] [push_service_go] [rows:1  ] SELECT `id`,`service_name`,`service_sign`,`service_status`,`service_push_time` FROM `push_service` WHERE `service_sign`='UptimeKuma_Push' LIMIT 1
+2023-03-30 01:06:37.272 [DEBU] {107c02ebc6f250171d483948c9fd3e44} [ 21 ms] [default] [push_service_go] [rows:1  ] UPDATE `push_service` SET `service_push_time`='2023-03-30 01:06:37' WHERE `id`=3
+2023-03-30 01:06:37.283 [DEBU] {107c02ebc6f250171d483948c9fd3e44} [ 11 ms] [default] [push_service_go] [rows:7  ] SHOW FULL COLUMNS FROM `push_device`
+2023-03-30 01:06:37.295 [DEBU] {107c02ebc6f250171d483948c9fd3e44} [ 11 ms] [default] [push_service_go] [rows:2  ] SELECT `id`,`device_name`,`base_url`,`service_id_list`,`latest_push_time`,`device_status`,`create_time` FROM `push_device` WHERE id>0
+2023-03-30 01:06:37.731 [DEBU] {107c02ebc6f250171d483948c9fd3e44} [ 10 ms] [default] [push_service_go] [rows:6  ] SHOW FULL COLUMNS FROM `push_log`
+2023-03-30 01:06:37.754 [DEBU] {107c02ebc6f250171d483948c9fd3e44} [ 22 ms] [default] [push_service_go] [rows:1  ] INSERT INTO `push_log`(`push_time`,`push_status`,`err_info`,`push_info`,`push_service`) VALUES('2023-03-30 01:06:37',true,'','in.PushData','UptimeKuma_Push') 
+2023-03-30 01:09:36.561 [DEBU] {a09cc6abf0f25017270fe76373d2446d} [ 60 ms] [default] [push_service_go] [rows:5  ] SHOW FULL COLUMNS FROM `push_service`
+2023-03-30 01:09:36.582 [DEBU] {a09cc6abf0f25017270fe76373d2446d} [ 21 ms] [default] [push_service_go] [rows:1  ] SELECT `id`,`service_name`,`service_sign`,`service_status`,`service_push_time` FROM `push_service` WHERE `service_sign`='UptimeKuma_Push' LIMIT 1
+2023-03-30 01:09:36.605 [DEBU] {a09cc6abf0f25017270fe76373d2446d} [ 22 ms] [default] [push_service_go] [rows:1  ] UPDATE `push_service` SET `service_push_time`='2023-03-30 01:09:36' WHERE `id`=3
+2023-03-30 01:09:36.616 [DEBU] {a09cc6abf0f25017270fe76373d2446d} [ 10 ms] [default] [push_service_go] [rows:7  ] SHOW FULL COLUMNS FROM `push_device`
+2023-03-30 01:09:36.628 [DEBU] {a09cc6abf0f25017270fe76373d2446d} [ 11 ms] [default] [push_service_go] [rows:2  ] SELECT `id`,`device_name`,`base_url`,`service_id_list`,`latest_push_time`,`device_status`,`create_time` FROM `push_device` WHERE id>0
+2023-03-30 01:09:37.055 [DEBU] {a09cc6abf0f25017270fe76373d2446d} [ 11 ms] [default] [push_service_go] [rows:6  ] SHOW FULL COLUMNS FROM `push_log`
+2023-03-30 01:09:37.079 [DEBU] {a09cc6abf0f25017270fe76373d2446d} [ 24 ms] [default] [push_service_go] [rows:1  ] INSERT INTO `push_log`(`push_service`,`push_time`,`push_status`,`err_info`,`push_info`) VALUES('UptimeKuma_Push','2023-03-30 01:09:36',true,'','in.PushData') 
+2023-03-30 01:44:34.579 [DEBU] {50012e27d9f45017076b2b2db476e162} [ 62 ms] [default] [push_service_go] [rows:5  ] SHOW FULL COLUMNS FROM `push_service`
+2023-03-30 01:44:34.600 [DEBU] {50012e27d9f45017076b2b2db476e162} [ 20 ms] [default] [push_service_go] [rows:1  ] SELECT COUNT(1) FROM `push_service` WHERE `service_name`='DDNS-Go'
+2023-03-30 01:44:34.621 [DEBU] {50012e27d9f45017076b2b2db476e162} [ 20 ms] [default] [push_service_go] [rows:1  ] SELECT COUNT(1) FROM `push_service` WHERE `service_sign`='DDNS_Push'
+2023-03-30 01:44:34.645 [DEBU] {50012e27d9f45017076b2b2db476e162} [ 23 ms] [default] [push_service_go] [rows:1  ] INSERT INTO `push_service`(`id`,`service_name`,`service_sign`,`service_status`,`service_push_time`) VALUES(0,'DDNS-Go','DDNS_Push',true,'2023-03-30 01:44:34') 
+2023-03-30 01:56:35.355 [DEBU] {d0c138f780f550175dde6f64c479e1e4} [ 65 ms] [default] [push_service_go] [rows:5  ] SHOW FULL COLUMNS FROM `push_service`
+2023-03-30 01:56:35.382 [DEBU] {d0c138f780f550175dde6f64c479e1e4} [ 24 ms] [default] [push_service_go] [rows:1  ] SELECT `id`,`service_name`,`service_sign`,`service_status`,`service_push_time` FROM `push_service` WHERE `service_sign`='UptimeKuma_Push' LIMIT 1
+2023-03-30 01:56:35.404 [DEBU] {d0c138f780f550175dde6f64c479e1e4} [ 22 ms] [default] [push_service_go] [rows:1  ] UPDATE `push_service` SET `service_push_time`='2023-03-30 01:56:35' WHERE `id`=3
+2023-03-30 01:56:35.415 [DEBU] {d0c138f780f550175dde6f64c479e1e4} [ 11 ms] [default] [push_service_go] [rows:7  ] SHOW FULL COLUMNS FROM `push_device`
+2023-03-30 01:56:35.426 [DEBU] {d0c138f780f550175dde6f64c479e1e4} [ 10 ms] [default] [push_service_go] [rows:2  ] SELECT `id`,`device_name`,`base_url`,`service_id_list`,`latest_push_time`,`device_status`,`create_time` FROM `push_device` WHERE id>0
+2023-03-30 01:56:35.438 [DEBU] {d0c138f780f550175dde6f64c479e1e4} [ 11 ms] [default] [push_service_go] [rows:6  ] SHOW FULL COLUMNS FROM `push_log`
+2023-03-30 01:56:35.462 [DEBU] {d0c138f780f550175dde6f64c479e1e4} [ 24 ms] [default] [push_service_go] [rows:1  ] INSERT INTO `push_log`(`push_info`,`push_service`,`push_time`,`push_status`,`err_info`) VALUES('in.PushData','UptimeKuma','2023-03-30 01:56:35',true,'') 
+2023-03-30 01:56:53.518 [DEBU] {1068ce3585f550175ede6f6454345233} [ 25 ms] [default] [push_service_go] [rows:1  ] SELECT `id`,`service_name`,`service_sign`,`service_status`,`service_push_time` FROM `push_service` WHERE `service_sign`='UptimeKuma_Push' LIMIT 1
+2023-03-30 01:56:53.541 [DEBU] {1068ce3585f550175ede6f6454345233} [ 23 ms] [default] [push_service_go] [rows:1  ] UPDATE `push_service` SET `service_push_time`='2023-03-30 01:56:53' WHERE `id`=3
+2023-03-30 01:56:53.552 [DEBU] {1068ce3585f550175ede6f6454345233} [ 11 ms] [default] [push_service_go] [rows:2  ] SELECT `id`,`device_name`,`base_url`,`service_id_list`,`latest_push_time`,`device_status`,`create_time` FROM `push_device` WHERE id>0
+2023-03-30 01:56:53.580 [DEBU] {1068ce3585f550175ede6f6454345233} [ 24 ms] [default] [push_service_go] [rows:1  ] INSERT INTO `push_log`(`err_info`,`push_info`,`push_service`,`push_time`,`push_status`) VALUES('','in.PushData','UptimeKuma','2023-03-30 01:56:53',true) 
+2023-03-30 01:57:44.911 [DEBU] {60cdbd2a91f55017457145456ba41d0d} [ 65 ms] [default] [push_service_go] [rows:5  ] SHOW FULL COLUMNS FROM `push_service`
+2023-03-30 01:57:44.930 [DEBU] {60cdbd2a91f55017457145456ba41d0d} [ 19 ms] [default] [push_service_go] [rows:1  ] SELECT `id`,`service_name`,`service_sign`,`service_status`,`service_push_time` FROM `push_service` WHERE `service_sign`='UptimeKuma_Push' LIMIT 1
+2023-03-30 01:57:44.952 [DEBU] {60cdbd2a91f55017457145456ba41d0d} [ 22 ms] [default] [push_service_go] [rows:1  ] UPDATE `push_service` SET `service_push_time`='2023-03-30 01:57:44' WHERE `id`=3
+2023-03-30 01:57:44.962 [DEBU] {60cdbd2a91f55017457145456ba41d0d} [ 10 ms] [default] [push_service_go] [rows:7  ] SHOW FULL COLUMNS FROM `push_device`
+2023-03-30 01:57:44.973 [DEBU] {60cdbd2a91f55017457145456ba41d0d} [ 10 ms] [default] [push_service_go] [rows:2  ] SELECT `id`,`device_name`,`base_url`,`service_id_list`,`latest_push_time`,`device_status`,`create_time` FROM `push_device` WHERE id>0
+2023-03-30 01:57:44.984 [DEBU] {60cdbd2a91f55017457145456ba41d0d} [ 11 ms] [default] [push_service_go] [rows:6  ] SHOW FULL COLUMNS FROM `push_log`
+2023-03-30 01:57:45.006 [DEBU] {60cdbd2a91f55017457145456ba41d0d} [ 22 ms] [default] [push_service_go] [rows:1  ] INSERT INTO `push_log`(`push_time`,`push_status`,`err_info`,`push_info`,`push_service`) VALUES('2023-03-30 01:57:44',true,'','in.PushData','UptimeKuma') 
+2023-03-30 01:58:03.298 [DEBU] {38395d7595f5501746714545a10e44ab} [ 21 ms] [default] [push_service_go] [rows:1  ] SELECT `id`,`service_name`,`service_sign`,`service_status`,`service_push_time` FROM `push_service` WHERE `service_sign`='DDNS_Push' LIMIT 1
+2023-03-30 01:58:03.323 [DEBU] {38395d7595f5501746714545a10e44ab} [ 23 ms] [default] [push_service_go] [rows:1  ] UPDATE `push_service` SET `service_push_time`='2023-03-30 01:58:03' WHERE `id`=4
+2023-03-30 01:58:03.333 [DEBU] {38395d7595f5501746714545a10e44ab} [ 10 ms] [default] [push_service_go] [rows:2  ] SELECT `id`,`device_name`,`base_url`,`service_id_list`,`latest_push_time`,`device_status`,`create_time` FROM `push_device` WHERE id>0
+2023-03-30 01:58:03.355 [DEBU] {38395d7595f5501746714545a10e44ab} [ 22 ms] [default] [push_service_go] [rows:1  ] INSERT INTO `push_log`(`push_info`,`push_service`,`push_time`,`push_status`,`err_info`) VALUES('in.PushData','DDNS-Go','2023-03-30 01:58:03',true,'') 
+2023-03-30 01:59:00.649 [DEBU] {a07b67cca2f55017477145451a4a54d9} [ 77 ms] [default] [push_service_go] [rows:1  ] SELECT `id`,`service_name`,`service_sign`,`service_status`,`service_push_time` FROM `push_service` WHERE `service_sign`='DDNS_Push' LIMIT 1
+2023-03-30 01:59:00.673 [DEBU] {a07b67cca2f55017477145451a4a54d9} [ 23 ms] [default] [push_service_go] [rows:1  ] UPDATE `push_service` SET `service_push_time`='2023-03-30 01:59:00' WHERE `id`=4
+2023-03-30 01:59:00.685 [DEBU] {a07b67cca2f55017477145451a4a54d9} [ 11 ms] [default] [push_service_go] [rows:2  ] SELECT `id`,`device_name`,`base_url`,`service_id_list`,`latest_push_time`,`device_status`,`create_time` FROM `push_device` WHERE id>0
+2023-03-30 01:59:00.712 [DEBU] {a07b67cca2f55017477145451a4a54d9} [ 25 ms] [default] [push_service_go] [rows:1  ] INSERT INTO `push_log`(`push_info`,`push_service`,`push_time`,`push_status`,`err_info`) VALUES('in.PushData','DDNS-Go','2023-03-30 01:59:00',true,'') 
+2023-03-30 01:59:35.359 [DEBU] {20f4dde1aaf5501745758b761eddf828} [ 67 ms] [default] [push_service_go] [rows:5  ] SHOW FULL COLUMNS FROM `push_service`
+2023-03-30 01:59:35.381 [DEBU] {20f4dde1aaf5501745758b761eddf828} [ 22 ms] [default] [push_service_go] [rows:1  ] SELECT `id`,`service_name`,`service_sign`,`service_status`,`service_push_time` FROM `push_service` WHERE `service_sign`='DDNS_Push' LIMIT 1
+2023-03-30 01:59:35.405 [DEBU] {20f4dde1aaf5501745758b761eddf828} [ 24 ms] [default] [push_service_go] [rows:1  ] UPDATE `push_service` SET `service_push_time`='2023-03-30 01:59:35' WHERE `id`=4
+2023-03-30 01:59:35.418 [DEBU] {20f4dde1aaf5501745758b761eddf828} [ 12 ms] [default] [push_service_go] [rows:7  ] SHOW FULL COLUMNS FROM `push_device`
+2023-03-30 01:59:35.428 [DEBU] {20f4dde1aaf5501745758b761eddf828} [ 10 ms] [default] [push_service_go] [rows:2  ] SELECT `id`,`device_name`,`base_url`,`service_id_list`,`latest_push_time`,`device_status`,`create_time` FROM `push_device` WHERE id>0
+2023-03-30 01:59:35.875 [DEBU] {20f4dde1aaf5501745758b761eddf828} [ 11 ms] [default] [push_service_go] [rows:6  ] SHOW FULL COLUMNS FROM `push_log`
+2023-03-30 01:59:35.899 [DEBU] {20f4dde1aaf5501745758b761eddf828} [ 23 ms] [default] [push_service_go] [rows:1  ] INSERT INTO `push_log`(`push_info`,`push_service`,`push_time`,`push_status`,`err_info`) VALUES('in.PushData','DDNS-Go','2023-03-30 01:59:35',true,'') 
+2023-03-30 02:00:18.040 [DEBU] {c00353d1b4f5501748758b76c3fa1827} [ 76 ms] [default] [push_service_go] [rows:1  ] SELECT `id`,`service_name`,`service_sign`,`service_status`,`service_push_time` FROM `push_service` WHERE `service_sign`='DDNS_Push' LIMIT 1
+2023-03-30 02:00:18.065 [DEBU] {c00353d1b4f5501748758b76c3fa1827} [ 24 ms] [default] [push_service_go] [rows:1  ] UPDATE `push_service` SET `service_push_time`='2023-03-30 02:00:18' WHERE `id`=4
+2023-03-30 02:00:18.076 [DEBU] {c00353d1b4f5501748758b76c3fa1827} [ 11 ms] [default] [push_service_go] [rows:2  ] SELECT `id`,`device_name`,`base_url`,`service_id_list`,`latest_push_time`,`device_status`,`create_time` FROM `push_device` WHERE id>0
+2023-03-30 02:00:18.527 [DEBU] {c00353d1b4f5501748758b76c3fa1827} [ 24 ms] [default] [push_service_go] [rows:1  ] INSERT INTO `push_log`(`push_info`,`push_service`,`push_time`,`push_status`,`err_info`) VALUES('in.PushData','DDNS-Go','2023-03-30 02:00:18',true,'') 
+2023-03-30 02:00:29.307 [DEBU] {a87f0d74b7f550174b758b76a8b56d31} [ 23 ms] [default] [push_service_go] [rows:1  ] SELECT `id`,`service_name`,`service_sign`,`service_status`,`service_push_time` FROM `push_service` WHERE `service_sign`='DDNS_Push' LIMIT 1
+2023-03-30 02:00:29.332 [DEBU] {a87f0d74b7f550174b758b76a8b56d31} [ 24 ms] [default] [push_service_go] [rows:1  ] UPDATE `push_service` SET `service_push_time`='2023-03-30 02:00:29' WHERE `id`=4
+2023-03-30 02:00:29.343 [DEBU] {a87f0d74b7f550174b758b76a8b56d31} [ 11 ms] [default] [push_service_go] [rows:2  ] SELECT `id`,`device_name`,`base_url`,`service_id_list`,`latest_push_time`,`device_status`,`create_time` FROM `push_device` WHERE id>0
+2023-03-30 02:00:29.788 [DEBU] {a87f0d74b7f550174b758b76a8b56d31} [ 26 ms] [default] [push_service_go] [rows:1  ] INSERT INTO `push_log`(`push_status`,`err_info`,`push_info`,`push_service`,`push_time`) VALUES(true,'','in.PushData','DDNS-Go','2023-03-30 02:00:29') 

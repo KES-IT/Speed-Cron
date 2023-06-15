@@ -1,0 +1,14 @@
+# https://goframe.org/pages/viewpage.action?pageId=3673173
+gfcli:
+  gen:
+    dao:
+      - link: "mysql:netspeed_go:X2t6swhsJGFZZNNF@tcp(120.24.211.49:3306)/netspeed_go" # 数据库链接
+        jsonCase: Snake # 蛇型json命名
+  build:
+    name: "service"
+    arch: "amd64" # all,386,amd64,arm64
+    system: "linux" # all,linux,darwin,windows....
+    packSrc: "manifest/config"
+    version: "release"
+    mod: ""
+    cgo: 0
