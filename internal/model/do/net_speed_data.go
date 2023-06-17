@@ -24,4 +24,6 @@ type NetSpeedData struct {
 	TestDuration  interface{} // 测速持续时间
 	InternalIp    interface{} // 内网地址
 	ExternalIp    interface{} // 外网地址
+	Department    interface{} // 部门
+	StaffName     interface{} // 员工姓名
 }

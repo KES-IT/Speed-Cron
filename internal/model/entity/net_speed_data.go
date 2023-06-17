@@ -22,4 +22,6 @@ type NetSpeedData struct {
 	TestDuration  string      `json:"test_duration"  ` // 测速持续时间
 	InternalIp    string      `json:"internal_ip"    ` // 内网地址
 	ExternalIp    string      `json:"external_ip"    ` // 外网地址
+	Department    string      `json:"department"     ` // 部门
+	StaffName     string      `json:"staff_name"     ` // 员工姓名
 }

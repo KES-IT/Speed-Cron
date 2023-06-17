@@ -1,7 +1,7 @@
 # 服务配置:https://goframe.org/pages/viewpage.action?pageId=44449486
 server:
   # 基本配置
-  address: ":10401"                     # 本地监听地址
+  address: ":10441"                     # 本地监听地址
   serverAgent: "KES Server"         # 服务端Agent信息。默认为"GoFrame HTTP Server"
   nameToUriType: 1                      # 路由注册中使用对象注册时的路由生成规则—-驼峰
   clientMaxBodySize: 810241024          # 客户端最大Body上传限制大小，影响文件上传大小(Byte)。默认为8*1024*1024=8MB

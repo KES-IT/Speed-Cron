@@ -32,6 +32,8 @@ type NetSpeedDataColumns struct {
 	TestDuration  string // 测速持续时间
 	InternalIp    string // 内网地址
 	ExternalIp    string // 外网地址
+	Department    string // 部门
+	StaffName     string // 员工姓名
 }
 
 // netSpeedDataColumns holds the columns for table net_speed_data.
@@ -48,6 +50,8 @@ var netSpeedDataColumns = NetSpeedDataColumns{
 	TestDuration:  "test_duration",
 	InternalIp:    "internal_ip",
 	ExternalIp:    "external_ip",
+	Department:    "department",
+	StaffName:     "staff_name",
 }
 
 // NewNetSpeedDataDao creates and returns a new DAO object for table data access.
