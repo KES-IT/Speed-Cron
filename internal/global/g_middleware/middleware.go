@@ -7,16 +7,16 @@ import (
 	"github.com/gogf/gf/v2/net/ghttp"
 	"github.com/gogf/gf/v2/os/glog"
 	"github.com/golang-jwt/jwt/v5"
-	"kes-network-watcher/internal/global/g_consts"
+	"kes-cron/internal/global/g_consts"
 	"sync"
 	"time"
 )
 
 type sMiddleware struct{} // 创建结构体
 var (
-	once         = &sync.Once{}    // 创建互锁
-	s            *sMiddleware      // 创建指针
-	SMiddlewares = newMiddleware() // 对外暴露
+	once = &sync.Once{} // 创建互锁
+	s    *sMiddleware   // 创建指针
+	// SMiddlewares = newMiddleware() // 对外暴露
 )
 
 // defaultHandlerResponse 返回结构体
@@ -27,12 +27,12 @@ type defaultHandlerResponse struct {
 }
 
 // newMiddleware 单例中间件
-func newMiddleware() *sMiddleware {
-	once.Do(func() {
-		s = &sMiddleware{}
-	})
-	return s
-}
+// func newMiddleware() *sMiddleware {
+// 	once.Do(func() {
+// 		s = &sMiddleware{}
+// 	})
+// 	return s
+// }
 
 func (s *sMiddleware) MiddlewareCORS(r *ghttp.Request) {
 	r.Response.CORSDefault()

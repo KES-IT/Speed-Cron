@@ -5,6 +5,5 @@
 package logic
 
 import (
-	_ "kes-network-watcher/internal/logic/middleware"
-	_ "kes-network-watcher/internal/logic/s_speed_data_service"
+	_ "kes-cron/internal/logic/middleware"
 )

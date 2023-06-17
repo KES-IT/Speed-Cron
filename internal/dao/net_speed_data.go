@@ -5,7 +5,7 @@
 package dao
 
 import (
-	"kes-network-watcher/internal/dao/internal"
+	"kes-cron/internal/dao/internal"
 )
 
 // internalNetSpeedDataDao is internal type for wrapping internal DAO implements.
