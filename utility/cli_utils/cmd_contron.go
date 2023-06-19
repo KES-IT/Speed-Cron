@@ -27,6 +27,7 @@ func (u *uCliUtils) StartSingleSpeedTest(initData g.Map) (err error) {
 	}
 	departmentCmd := "-department=" + gconv.String(initData["department"])
 	nameCmd := "-name=" + gconv.String(initData["name"])
+	glog.Info(context.Background(), "部门:", departmentCmd, "姓名:", nameCmd)
 	cmd := exec.Command("speed_cli/speed/speed_bin.exe", departmentCmd, nameCmd)
 	// 启动命令
 	glog.Notice(context.Background(), "启动测速命令")

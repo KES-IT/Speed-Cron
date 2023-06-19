@@ -66,7 +66,7 @@ func (u *uNetUtils) CoreLatency(initData g.Map) (err error) {
 //	@response:
 //	@author: Administrator   @date:2023-06-17 14:02:59
 func (u *uNetUtils) PushLatencyToServer(initData g.Map, latency int) (err error) {
-	url := "http://127.0.0.1:10441/UploadPingData"
+	url := "http://120.24.211.49:10441/UploadPingData"
 	params := g.Map{
 		"department": initData["department"],
 		"staff_name": initData["name"],
