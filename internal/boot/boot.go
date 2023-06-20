@@ -6,7 +6,7 @@ import (
 	"github.com/gogf/gf/v2/os/gcron"
 	"github.com/gogf/gf/v2/os/glog"
 	"kes-cron/utility/cli_utils"
-	"kes-cron/utility/net_utils"
+	"kes-cron/utility/cron_utils"
 )
 
 func Boot(initData g.Map) (err error) {
@@ -36,7 +36,7 @@ func Boot(initData g.Map) (err error) {
 }
 
 func bootCheck(initData g.Map) (err error) {
-	err = cli_utils.CliUtils.StartSingleSpeedTest(initData)
+	err = cli_utils.CmdCore.StartSpeedCmd(context.Background(), initData)
 	if err != nil {
 		glog.Error(context.Background(), "测试测速服务", err)
 		return
@@ -47,29 +47,19 @@ func bootCheck(initData g.Map) (err error) {
 func bootMethod(initData g.Map) (err error) {
 	var ctx = context.TODO()
 
-	glog.Notice(ctx, "开始HTTPS延迟定时检测服务")
-	_, err = gcron.AddSingleton(ctx, "@every 15s", func(ctx context.Context) {
-		err := net_utils.NetUtils.CoreLatency(initData)
+	glog.Debug(ctx, "开始初始化定时任务管理器")
+	_, err = gcron.AddSingleton(ctx, "@every 30s", func(ctx context.Context) {
+		err := cron_utils.CronManage.GetConfigAndStart(ctx, initData)
 		if err != nil {
-			glog.Error(ctx, "HTTPS延迟检测失败: ", err)
+			glog.Error(ctx, "初始化定时任务管理器服务失败: ", err)
 			return
 		}
-	}, "HTTPS延迟检测服务")
+	}, "Cron-Manager")
 	if err != nil {
+		glog.Warning(ctx, "添加初始化定时任务管理器服务失败: ", err)
 		return err
 	}
-
-	glog.Notice(ctx, "开始定时(1h)测速服务")
-	_, err = gcron.AddSingleton(ctx, "@every 1h", func(ctx context.Context) {
-		err := cli_utils.CliUtils.StartSingleSpeedTest(initData)
-		if err != nil {
-			glog.Error(ctx, "定时测速服务失败: ", err)
-			return
-		}
-	}, "定时测速服务")
-	if err != nil {
-		return err
-	}
+	glog.Debug(ctx, "初始化定时任务管理器服务成功")
 
 	return nil
 }
