@@ -37,17 +37,20 @@ var (
 				glog.Warning(ctx, "设备认证失败: ", err)
 				return err
 			}
+
+			// 获取设备信息
 			serverInitData, err := cron_utils.Auth.GetDeviceInfo()
 			if err != nil {
 				glog.Warning(ctx, "获取设备信息失败: ", err)
 				return err
 			}
-			s := g.Server()
+
 			// 初始化
 			if err := boot.Boot(serverInitData); err != nil {
 				glog.Fatal(ctx, "初始化任务失败: ", err)
 			}
-
+			// 启动服务
+			s := g.Server()
 			s.Run()
 			return nil
 		},
