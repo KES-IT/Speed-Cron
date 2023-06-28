@@ -5,7 +5,6 @@ go 1.20
 require (
 	github.com/gogf/gf/contrib/drivers/mysql/v2 v2.4.3
 	github.com/gogf/gf/v2 v2.4.3
-	github.com/golang-jwt/jwt/v5 v5.0.0
 	github.com/schollz/progressbar/v3 v3.13.1
 )
 
@@ -29,7 +28,7 @@ require (
 	go.opentelemetry.io/otel v1.7.0 // indirect
 	go.opentelemetry.io/otel/sdk v1.7.0 // indirect
 	go.opentelemetry.io/otel/trace v1.7.0 // indirect
-	golang.org/x/net v0.0.0-20211112202133-69e39bad7dc2 // indirect
+	golang.org/x/net v0.0.0-20211123202848-9e5a29745d54 // indirect
 	golang.org/x/sys v0.6.0 // indirect
 	golang.org/x/term v0.6.0 // indirect
 	golang.org/x/text v0.3.8-0.20211105212822-18b340fc7af2 // indirect
