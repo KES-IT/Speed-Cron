@@ -37,13 +37,6 @@ func (b *uBar) CreatePingBar() *progressbar.ProgressBar {
 			_, _ = fmt.Fprint(os.Stderr, "\n")
 		}),
 		progressbar.OptionSetDescription("[speed][1/4][ping] 测试延迟中..."))
-	// progressbar.OptionSetTheme(progressbar.Theme{
-	// 	Saucer:        "[green]=[reset]",
-	// 	SaucerHead:    "[green]>[reset]",
-	// 	SaucerPadding: " ",
-	// 	BarStart:      "[",
-	// 	BarEnd:        "]",
-	// }))
 }
 
 func (b *uBar) CreateDownloadBar() *progressbar.ProgressBar {
@@ -56,13 +49,6 @@ func (b *uBar) CreateDownloadBar() *progressbar.ProgressBar {
 			_, _ = fmt.Fprint(os.Stderr, "\n")
 		}),
 		progressbar.OptionSetDescription("[speed][2/4][download] 下行速度测试中..."))
-	// progressbar.OptionSetTheme(progressbar.Theme{
-	// 	Saucer:        "[green]=[reset]",
-	// 	SaucerHead:    "[green]>[reset]",
-	// 	SaucerPadding: " ",
-	// 	BarStart:      "[",
-	// 	BarEnd:        "]",
-	// }))
 }
 
 func (b *uBar) CreateUploadBar() *progressbar.ProgressBar {
@@ -75,13 +61,6 @@ func (b *uBar) CreateUploadBar() *progressbar.ProgressBar {
 			_, _ = fmt.Fprint(os.Stderr, "\n")
 		}),
 		progressbar.OptionSetDescription("[speed][3/4][upload] 上行速度测试中..."))
-	// progressbar.OptionSetTheme(progressbar.Theme{
-	// 	Saucer:        "[green]=[reset]",
-	// 	SaucerHead:    "[green]>[reset]",
-	// 	SaucerPadding: " ",
-	// 	BarStart:      "[",
-	// 	BarEnd:        "]",
-	// }))
 }
 
 func (b *uBar) CreateUploadNetSpeedDataBar() *progressbar.ProgressBar {
@@ -94,11 +73,4 @@ func (b *uBar) CreateUploadNetSpeedDataBar() *progressbar.ProgressBar {
 			_, _ = fmt.Fprint(os.Stderr, "\n")
 		}),
 		progressbar.OptionSetDescription("[speed][4/4][confirm] 上传数据中..."))
-	// progressbar.OptionSetTheme(progressbar.Theme{
-	// 	Saucer:        "[green]=[reset]",
-	// 	SaucerHead:    "[green]>[reset]",
-	// 	SaucerPadding: " ",
-	// 	BarStart:      "[",
-	// 	BarEnd:        "]",
-	// }))
 }
