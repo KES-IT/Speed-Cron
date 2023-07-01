@@ -3,12 +3,10 @@ package cli_utils
 import (
 	"bufio"
 	"context"
-	"fmt"
 	"github.com/gogf/gf/v2/errors/gerror"
 	"github.com/gogf/gf/v2/frame/g"
 	"github.com/gogf/gf/v2/os/glog"
 	"github.com/gogf/gf/v2/util/gconv"
-	"time"
 )
 
 type uCmdCore struct{}
@@ -31,13 +29,13 @@ func (u *uCmdCore) StartSpeedCmd(ctx context.Context, initData g.Map) (err error
 	// 获取命令的标准输出管道
 	stdout, err := cmd.StdoutPipe()
 	if err != nil {
-		fmt.Println("获取标准输出管道时发生错误:", err)
+		glog.Warning(ctx, "获取标准输出管道时发生错误:", err)
 		return
 	}
 	// 启动命令
 	err = cmd.Start()
 	if err != nil {
-		fmt.Println("启动命令时发生错误:", err)
+		glog.Warning(ctx, "启动命令时发生错误:", err)
 		return
 	}
 	var (
@@ -63,8 +61,7 @@ func (u *uCmdCore) StartSpeedCmd(ctx context.Context, initData g.Map) (err error
 	// 等待命令执行完成
 	err = cmd.Wait()
 	if err != nil {
-		fmt.Println("等待命令执行完成时发生错误:", err)
-		time.Sleep(time.Second * 5)
+		glog.Warning(ctx, "等待命令执行完成时发生错误:", err)
 	}
 	return
 }

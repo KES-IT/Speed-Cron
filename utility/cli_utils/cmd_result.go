@@ -69,7 +69,9 @@ func (u *uResult) UploadDataToServer(netInfo *NetInfoUploadData) error {
 	dataBar := Bar.CreateUploadNetSpeedDataBar()
 	// 转换为json
 	uploadJson := gjson.New(netInfo).MapStrAny()
+	glog.Debug(context.Background(), "---上传数据---")
 	g.Dump(uploadJson)
+	glog.Debug(context.Background(), "---上传数据---")
 	post, err := g.Client().Post(context.Background(), g_consts.SpeedBackendUrl, uploadJson)
 	if err != nil {
 		return err
