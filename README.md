@@ -1,9 +1,15 @@
-# 家庭网络信息采集后端
-
-Project Makefile Commands: 
-- `make cli`: Install or Update to the latest GoFrame CLI tool.
-- `make dao`: Generate go files for `Entity/DAO/DO` according to the configuration file from `hack` folder.
-- `make service`: Parse `logic` folder to generate interface go files into `service` folder.
-- `make image TAG=xxx`: Run `docker build` to build image according `manifest/docker`.
-- `make image.push TAG=xxx`: Run `docker build` and `docker push` to build and push image according `manifest/docker`.
-- `make deploy TAG=xxx`: Run `kustomize build` to build and deploy deployment to kubernetes server group according `manifest/deploy`.
+# KES定时测速客户端
+## 1. 项目介绍
+本项目是一个基于Speed CLI的KES定时测速客户端，可以在指定时间段内定时测速并将测速结果发送到后端进行数据汇总。
+## 2. 项目开发
+安装GF CLI工具
+```bash
+go mod tidy
+```
+```bash
+gf run main.go
+```
+## 3. 项目部署
+```bash
+gf build main.go
+```
