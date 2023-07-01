@@ -5,6 +5,7 @@ import (
 	"github.com/gogf/gf/v2/encoding/gjson"
 	"github.com/gogf/gf/v2/errors/gerror"
 	"github.com/gogf/gf/v2/frame/g"
+	"github.com/gogf/gf/v2/net/gclient"
 	"github.com/gogf/gf/v2/os/glog"
 	"kes-cron/internal/global/g_consts"
 	"kes-cron/utility/net_utils"
@@ -17,7 +18,7 @@ var Auth = &uAuth{}
 
 // DeviceAuth
 //
-//	@dc:
+//	@dc: 设备认证
 //	@params:
 //	@response:
 //	@author: hamster   @date:2023/6/20 11:42:38
@@ -31,7 +32,12 @@ func (u *uAuth) DeviceAuth(initData g.Map) (err error) {
 		"department":  initData["department"],
 		"staff_name":  initData["name"],
 	})
-	defer response.Close()
+	defer func(response *gclient.Response) {
+		err := response.Close()
+		if err != nil {
+			glog.Error(context.Background(), "关闭response时发生错误:", err)
+		}
+	}(response)
 	if err != nil {
 		return err
 	}
@@ -57,7 +63,12 @@ func (u *uAuth) GetDeviceInfo() (initData g.Map, err error) {
 	response, err := g.Client().SetTimeout(5*time.Second).Post(context.TODO(), g_consts.ConfigBackendUrl, g.Map{
 		"mac_address": macAddress,
 	})
-	defer response.Close()
+	defer func(response *gclient.Response) {
+		err := response.Close()
+		if err != nil {
+			glog.Error(context.Background(), "关闭response时发生错误:", err)
+		}
+	}(response)
 	if err != nil {
 		return
 	}

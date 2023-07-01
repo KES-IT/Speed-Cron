@@ -5,6 +5,7 @@ import (
 	"github.com/gogf/gf/v2/encoding/gjson"
 	"github.com/gogf/gf/v2/errors/gerror"
 	"github.com/gogf/gf/v2/frame/g"
+	"github.com/gogf/gf/v2/net/gclient"
 	"github.com/gogf/gf/v2/os/glog"
 	"kes-cron/internal/global/g_consts"
 	"kes-cron/utility/net_utils"
@@ -24,7 +25,12 @@ func (s *uCliUtils) CreateSpeedCmd() *exec.Cmd {
 	response, err := g.Client().SetTimeout(5*time.Second).Post(context.TODO(), g_consts.ConfigBackendUrl, g.Map{
 		"mac_address": macAddress,
 	})
-	defer response.Close()
+	defer func(response *gclient.Response) {
+		err := response.Close()
+		if err != nil {
+			glog.Error(context.Background(), "关闭response时发生错误:", err)
+		}
+	}(response)
 	if err != nil {
 		return nil
 	}

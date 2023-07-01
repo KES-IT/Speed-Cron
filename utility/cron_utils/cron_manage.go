@@ -5,6 +5,7 @@ import (
 	"github.com/gogf/gf/v2/encoding/gjson"
 	"github.com/gogf/gf/v2/errors/gerror"
 	"github.com/gogf/gf/v2/frame/g"
+	"github.com/gogf/gf/v2/net/gclient"
 	"github.com/gogf/gf/v2/os/gcron"
 	"github.com/gogf/gf/v2/os/glog"
 	"kes-cron/internal/global/g_consts"
@@ -20,7 +21,7 @@ var CronManage = &uCronManage{}
 
 // GetConfigAndStart
 //
-//	@dc:
+//	@dc: 获取定时任务管理器配置并启动
 //	@params:
 //	@response:
 //	@author: hamster   @date:2023/6/20 13:41:26
@@ -55,8 +56,6 @@ func (u *uCronManage) GetConfigAndStart(ctx context.Context, initData g.Map) (er
 	} else {
 		HTTPSEntryPattern := reflect.ValueOf(localHTTPSCron).Elem().FieldByName("schedule").Elem().FieldByName("pattern")
 		if HTTPSEntryPattern.IsValid() {
-			// glog.Info(context.TODO(), "HTTPS-Cron本地延迟测试间隔为", HTTPSEntryPattern.String())
-			// glog.Info(context.TODO(), "HTTPS-Cron服务器延迟测试间隔为", pingInterval)
 			if HTTPSEntryPattern.String() != pingInterval {
 				glog.Notice(ctx, "更新HTTPS-Cron定时器")
 				// 更新定时任务
@@ -87,8 +86,6 @@ func (u *uCronManage) GetConfigAndStart(ctx context.Context, initData g.Map) (er
 		}
 	} else {
 		speedEntryPattern := reflect.ValueOf(localSpeedCron).Elem().FieldByName("schedule").Elem().FieldByName("pattern")
-		// glog.Info(context.TODO(), "Speed-Cron本地测速间隔为", speedEntryPattern.String())
-		// glog.Info(context.TODO(), "Speed-Cron服务器测速间隔为", speedInterval)
 		if speedEntryPattern.String() != speedInterval {
 			glog.Notice(ctx, "更新Speed-Cron定时器")
 			// 更新定时任务
@@ -134,7 +131,12 @@ func getConfig() (speedInterval, pingInterval string, cronStatus int, err error)
 	response, err := g.Client().SetTimeout(5*time.Second).Post(context.TODO(), g_consts.ConfigBackendUrl, g.Map{
 		"mac_address": macAddress,
 	})
-	defer response.Close()
+	defer func(response *gclient.Response) {
+		err := response.Close()
+		if err != nil {
+			glog.Warning(context.TODO(), "getConfig 关闭response失败: ", err)
+		}
+	}(response)
 	if err != nil {
 		return
 	}
