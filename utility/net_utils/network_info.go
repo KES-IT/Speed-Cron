@@ -26,9 +26,6 @@ func (u *uNetworkInfo) GetMacAddress() (internalIP, macAddress string) {
 
 			for _, addr := range addressList {
 				if ipNet, ok := addr.(*net.IPNet); ok && !ipNet.IP.IsLoopback() && ipNet.IP.To4() != nil {
-					if ipNet.IP.To4().String()[:3] == "192" || ipNet.IP.To4().String()[:3] == "198" || ipNet.IP.To4().String()[:3] == "169" {
-						continue
-					}
 					return ipNet.IP.String(), iFace.HardwareAddr.String()
 				}
 			}
