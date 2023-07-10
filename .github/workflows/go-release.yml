@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        goos: [linux, windows, darwin] # 需要打包的系统
+        goos: [windows] # 需要打包的系统
         goarch: [amd64, arm64] # 需要打包的架构
         exclude: # 排除某些平台和架构
           - goarch: arm64
@@ -25,4 +25,6 @@ jobs:
           binary_name: "speed_cron" # 可以指定二进制文件的名称
           pre_command: export CGO_ENABLED=0 && export GODEBUG=http2client=0
           overwrite: true
+          asset_name: "speed_cron_${{ matrix.goos }}_${{ matrix.goarch }}" # 可以指定二进制文件的名称
+          compress_assets: OFF # 可以指定是否压缩二进制文件
           
