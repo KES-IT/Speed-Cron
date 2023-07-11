@@ -9,5 +9,6 @@ import (
 )
 
 func main() {
+	_ = cmd.Main.AddCommand(cmd.Version)
 	cmd.Main.Run(gctx.New())
 }
