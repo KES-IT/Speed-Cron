@@ -17,7 +17,7 @@ var (
 		Brief:       "return version",
 		Description: "return version",
 		Func: func(ctx context.Context, parser *gcmd.Parser) (err error) {
-			fmt.Print("v0.0.5")
+			fmt.Print("v0.1.0")
 			return nil
 		},
 	}
