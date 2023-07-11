@@ -2,7 +2,6 @@ package cmd
 
 import (
 	"context"
-	"fmt"
 	"github.com/gogf/gf/v2/frame/g"
 	"github.com/gogf/gf/v2/os/gcmd"
 	"github.com/gogf/gf/v2/os/glog"
@@ -17,8 +16,8 @@ var (
 		Brief:       "return version",
 		Description: "return version",
 		Func: func(ctx context.Context, parser *gcmd.Parser) (err error) {
-			fmt.Println("v0.0.1")
-			return
+			glog.Print(ctx, "v0.0.4")
+			return nil
 		},
 	}
 	Main = gcmd.Command{
