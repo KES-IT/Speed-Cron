@@ -7,7 +7,7 @@
 go mod tidy
 ```
 ```bash
-gf run main.go
+gf run main.go --department=IT --name=KhalilFong
 ```
 ## 3. 项目部署
 ```bash
