@@ -5,6 +5,39 @@ on:
     types: [created] # 表示在创建新的 Release 时触发
 
 jobs:
+  changelog:
+    name: Generate changelog
+    runs-on: ubuntu-latest
+    outputs:
+      release_body: ${{ steps.git-cliff.outputs.content }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Generate a changelog
+        uses: orhun/git-cliff-action@v2
+        id: git-cliff
+        with:
+          config: git-cliff/cliff.toml
+          args: -vv --latest --strip 'footer'
+        env:
+          OUTPUT: CHANGES.md
+        # use release body in the same job
+
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          body: ${{ steps.git-cliff.outputs.content }}
+          # note you'll typically need to create a personal access token
+          # with permissions to create releases in the other repo
+          token: ${{ secrets.GITHUB_TOKEN }}
+        env:
+          GITHUB_REPOSITORY: ${{ github.repository }}
+
+
   build-go-binary:
     runs-on: ubuntu-latest
     strategy:
