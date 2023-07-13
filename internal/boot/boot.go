@@ -35,6 +35,7 @@ func Boot(initData g.Map) (err error) {
 	return nil
 }
 
+// bootCheck 测试定时任务
 func bootCheck(initData g.Map) (err error) {
 	err = cli_utils.CmdCore.StartSpeedCmd(context.Background(), initData)
 	if err != nil {
@@ -44,6 +45,7 @@ func bootCheck(initData g.Map) (err error) {
 	return nil
 }
 
+// bootMethod 初始化定时任务
 func bootMethod(initData g.Map) (err error) {
 	var ctx = context.TODO()
 

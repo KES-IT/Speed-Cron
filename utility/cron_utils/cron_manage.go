@@ -22,8 +22,6 @@ var CronManage = &uCronManage{}
 // GetConfigAndStart
 //
 //	@dc: 获取定时任务管理器配置并启动
-//	@params:
-//	@response:
 //	@author: hamster   @date:2023/6/20 13:41:26
 func (u *uCronManage) GetConfigAndStart(ctx context.Context, initData g.Map) (err error) {
 	glog.Debug(ctx, "开始获取定时任务管理器配置")
@@ -104,6 +102,7 @@ func (u *uCronManage) GetConfigAndStart(ctx context.Context, initData g.Map) (er
 	return
 }
 
+// removeAllCron 移除所有定时任务
 func removeAllCron() {
 	localSpeedCron := gcron.Search("Speed-Cron")
 	if localSpeedCron != nil {
@@ -123,7 +122,8 @@ func removeAllCron() {
 	return
 }
 
-func getConfig() (speedInterval, pingInterval string, cronStatus int, err error) {
+// getConfig 获取定时任务管理器配置
+func getConfig() (speedInterval string, pingInterval string, cronStatus int, err error) {
 	// 获取Mac地址
 	_, macAddress := net_utils.NetworkInfo.GetMacAddress()
 	// 获取配置
@@ -153,6 +153,7 @@ func getConfig() (speedInterval, pingInterval string, cronStatus int, err error)
 	return
 }
 
+// addSpeedCron 添加测速定时任务
 func addSpeedCron(ctx context.Context, initData g.Map, timePattern string) (err error) {
 	glog.Notice(ctx, "开始定时测速服务", timePattern)
 	_, err = gcron.AddSingleton(ctx, timePattern, func(ctx context.Context) {
@@ -169,6 +170,7 @@ func addSpeedCron(ctx context.Context, initData g.Map, timePattern string) (err 
 	return
 }
 
+// addPingCron 添加延迟检测定时任务
 func addPingCron(ctx context.Context, initData g.Map, timePattern string) (err error) {
 	glog.Notice(ctx, "开始HTTPS延迟定时检测服务", timePattern)
 	_, err = gcron.AddSingleton(ctx, timePattern, func(ctx context.Context) {

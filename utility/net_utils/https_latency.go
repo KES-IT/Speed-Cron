@@ -18,9 +18,7 @@ var NetUtils = &uNetUtils{}
 // HttpsLatency
 //
 //	@dc: 测试https延迟
-//	@params:
-//	@response:
-//	@author: Administrator   @date:2023-06-17 14:01:06
+//	@author: Hamster   @date:2023-06-17 14:01:06
 func (u *uNetUtils) HttpsLatency() (latency int, err error) {
 	start := time.Now()
 	resp, err := http.Get(g_consts.PingUrl)
@@ -41,9 +39,7 @@ func (u *uNetUtils) HttpsLatency() (latency int, err error) {
 // CoreLatency
 //
 //	@dc: 测试延迟核心服务
-//	@params:
-//	@response:
-//	@author: Administrator   @date:2023-06-17 14:03:41
+//	@author: Hamster   @date:2023-06-17 14:03:41
 func (u *uNetUtils) CoreLatency(initData g.Map) (err error) {
 	latency, err := u.HttpsLatency()
 	if err != nil {
@@ -62,9 +58,7 @@ func (u *uNetUtils) CoreLatency(initData g.Map) (err error) {
 // PushLatencyToServer
 //
 //	@dc: 推送延迟到服务器
-//	@params:
-//	@response:
-//	@author: Administrator   @date:2023-06-17 14:02:59
+//	@author: Hamster   @date:2023-06-17 14:02:59
 func (u *uNetUtils) PushLatencyToServer(initData g.Map, latency int) (err error) {
 	_, macAddress := NetworkInfo.GetMacAddress()
 	params := g.Map{
