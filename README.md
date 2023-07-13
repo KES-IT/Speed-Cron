@@ -1,6 +1,7 @@
 # KES定时测速客户端
 ## 1. 项目介绍
 本项目是一个基于Speed CLI的KES定时测速客户端，可以在指定时间段内定时测速并将测速结果发送到后端进行数据汇总。
+![](https://s2.loli.net/2023/07/13/gnMZJQStCkoEXNK.png)
 ## 2. 项目开发
 安装GF CLI工具
 ```bash
