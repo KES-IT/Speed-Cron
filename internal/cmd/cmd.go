@@ -12,12 +12,16 @@ import (
 )
 
 var (
+	LocalVersion = ""
+)
+
+var (
 	Version = &gcmd.Command{
 		Name:        "version",
 		Brief:       "return version",
 		Description: "return version",
 		Func: func(ctx context.Context, parser *gcmd.Parser) (err error) {
-			fmt.Print("v0.1.0")
+			fmt.Print(LocalVersion)
 			return nil
 		},
 	}
@@ -59,6 +63,7 @@ var (
 			if err := boot.Boot(serverInitData); err != nil {
 				glog.Fatal(ctx, "初始化任务失败: ", err)
 			}
+
 			// 启动服务
 			s := g.Server()
 			s.Run()
