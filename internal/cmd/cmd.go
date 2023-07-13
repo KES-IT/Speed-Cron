@@ -12,12 +12,16 @@ import (
 )
 
 var (
+	GitTag = "unknown"
+)
+
+var (
 	Version = &gcmd.Command{
 		Name:        "version",
 		Brief:       "return version",
 		Description: "return version",
 		Func: func(ctx context.Context, parser *gcmd.Parser) (err error) {
-			fmt.Print("v0.1.0")
+			fmt.Print(GitTag)
 			return nil
 		},
 	}
