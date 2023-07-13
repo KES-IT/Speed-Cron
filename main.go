@@ -7,8 +7,7 @@ import (
 	_ "kes-cron/internal/packed"
 )
 
-// 初始化为 unknown，如果编译时没有传入这些值，则为 unknown
-
+// GitTag 初始化为 unknown，如果编译时没有传入这些值，则为 unknown
 var (
 	GitTag = "unknown"
 )

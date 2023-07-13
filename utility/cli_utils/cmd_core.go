@@ -15,9 +15,7 @@ var CmdCore = &uCmdCore{}
 
 // StartSpeedCmd
 //
-//	@dc:
-//	@params:
-//	@response:
+//	@dc: 启动speedtest命令
 //	@author: hamster   @date:2023/6/20 10:06:06
 func (u *uCmdCore) StartSpeedCmd(ctx context.Context, initData g.Map) (err error) {
 	cmd := CliUtils.CreateSpeedCmd()
@@ -52,16 +50,21 @@ func (u *uCmdCore) StartSpeedCmd(ctx context.Context, initData g.Map) (err error
 		ok, err := CmdProgress.CmdCoreProgress(ctx, string(line), defaultBars, uploadNetDataStruct)
 		if err != nil {
 			glog.Warning(ctx, "处理命令行输出时发生错误:", err)
+			_ = cmd.Process.Kill()
 			return err
 		}
 		if ok {
-			return nil
+			glog.Debug(ctx, "单次speedtest测速处理已完成")
+			break
 		}
 	}
-	// 等待命令执行完成
-	err = cmd.Wait()
+	// 进行speedtestCLI的退出
+	glog.Debug(ctx, "关闭speedtestCLI中", cmd.Process.Pid)
+	err = cmd.Process.Kill()
 	if err != nil {
-		glog.Warning(ctx, "等待命令执行完成时发生错误:", err)
+		glog.Warning(ctx, "退出speedtestCLI时发生错误:", err)
+	} else {
+		glog.Debug(ctx, "speedtestCLI已退出", cmd.Process.Pid)
 	}
 	return
 }

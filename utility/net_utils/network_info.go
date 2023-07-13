@@ -9,6 +9,7 @@ type uNetworkInfo struct{}
 
 var NetworkInfo = &uNetworkInfo{}
 
+// GetMacAddress 获取Mac地址
 func (u *uNetworkInfo) GetMacAddress() (internalIP, macAddress string) {
 	interfaces, err := net.Interfaces()
 	if err != nil {

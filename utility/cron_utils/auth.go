@@ -19,8 +19,6 @@ var Auth = &uAuth{}
 // DeviceAuth
 //
 //	@dc: 设备认证
-//	@params:
-//	@response:
 //	@author: hamster   @date:2023/6/20 11:42:38
 func (u *uAuth) DeviceAuth(initData g.Map) (err error) {
 	// 获取内网与mac地址
@@ -51,9 +49,7 @@ func (u *uAuth) DeviceAuth(initData g.Map) (err error) {
 
 // GetDeviceInfo
 //
-//	@dc:
-//	@params:
-//	@response:
+//	@dc: 获取设备信息
 //	@author: hamster   @date:2023/6/20 17:34:24
 func (u *uAuth) GetDeviceInfo() (initData g.Map, err error) {
 	// 获取Mac地址

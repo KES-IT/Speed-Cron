@@ -1,6 +1,0 @@
-# 服务配置:https://goframe.org/pages/viewpage.action?pageId=44449486
-server:
-  # 基本配置
-  address: ":10444"                     # 本地监听地址
-  serverAgent: "KES Cron"         # 服务端Agent信息。默认为"GoFrame HTTP Server"
-
