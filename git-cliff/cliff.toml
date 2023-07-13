@@ -35,6 +35,7 @@ trim = true
 footer = """
 """
 
+
 [git]
 # parse the commits based on https://www.conventionalcommits.org
 conventional_commits = true
