@@ -55,8 +55,7 @@ jobs:
           goos: ${{ matrix.goos }}
           goarch: ${{ matrix.goarch }}
           goversion: 1.19 # 可以指定编译使用的 Golang 版本
-          ldflags: -X "main.GitTag=${{ env.CURRENT_VERSION }}"
-          binary_name: "speed_cron" # 可以指定二进制文件的名称
+          ldflags: -X "main.GitTag=${{ env.CURRENT_VERSION }}" # 通过 ldflags 注入版本号
           pre_command: export CGO_ENABLED=0 && export GODEBUG=http2client=0
           overwrite: true
           asset_name: "speed_cron_${{ matrix.goos }}_${{ matrix.goarch }}" # 可以指定二进制文件的名称
