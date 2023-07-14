@@ -5,7 +5,9 @@ go 1.20
 require (
 	github.com/gogf/gf/contrib/drivers/mysql/v2 v2.4.3
 	github.com/gogf/gf/v2 v2.4.3
+	github.com/kardianos/osext v0.0.0-20190222173326-2bc1f35cddc0
 	github.com/schollz/progressbar/v3 v3.13.1
+	gopkg.in/inconshreveable/go-update.v0 v0.0.0-20150814200126-d8b0b1d421aa
 )
 
 require (
@@ -18,6 +20,7 @@ require (
 	github.com/go-sql-driver/mysql v1.6.0 // indirect
 	github.com/gorilla/websocket v1.5.0 // indirect
 	github.com/grokify/html-strip-tags-go v0.0.1 // indirect
+	github.com/kr/binarydist v0.1.0 // indirect
 	github.com/magiconair/properties v1.8.6 // indirect
 	github.com/mattn/go-colorable v0.1.9 // indirect
 	github.com/mattn/go-isatty v0.0.17 // indirect

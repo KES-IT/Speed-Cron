@@ -60,7 +60,9 @@ var (
 				glog.Warning(ctx, "获取设备信息失败: ", err)
 				return err
 			}
-
+			// 设置本地版本号
+			serverInitData["localVersion"] = LocalVersion
+			glog.Notice(ctx, "当前客户端版本: ", LocalVersion)
 			// 初始化
 			if err := boot.Boot(serverInitData); err != nil {
 				glog.Fatal(ctx, "初始化任务失败: ", err)
