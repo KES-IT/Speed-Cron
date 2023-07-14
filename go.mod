@@ -1,6 +1,6 @@
 module kes-cron
 
-go 1.20
+go 1.18
 
 require (
 	github.com/gogf/gf/contrib/drivers/mysql/v2 v2.4.3
