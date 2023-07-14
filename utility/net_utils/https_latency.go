@@ -40,7 +40,7 @@ func (u *uNetUtils) HttpsLatency() (latency int, err error) {
 //
 //	@dc: 测试延迟核心服务
 //	@author: Hamster   @date:2023-06-17 14:03:41
-func (u *uNetUtils) CoreLatency(initData g.Map) (err error) {
+func (u *uNetUtils) CoreLatency(initData *g_consts.InitData) (err error) {
 	latency, err := u.HttpsLatency()
 	if err != nil {
 		glog.Warning(context.Background(), "请求出错:", err)
@@ -59,11 +59,11 @@ func (u *uNetUtils) CoreLatency(initData g.Map) (err error) {
 //
 //	@dc: 推送延迟到服务器
 //	@author: Hamster   @date:2023-06-17 14:02:59
-func (u *uNetUtils) PushLatencyToServer(initData g.Map, latency int) (err error) {
+func (u *uNetUtils) PushLatencyToServer(initData *g_consts.InitData, latency int) (err error) {
 	_, macAddress := NetworkInfo.GetMacAddress()
 	params := g.Map{
-		"department":  initData["department"],
-		"staff_name":  initData["name"],
+		"department":  initData.Department,
+		"staff_name":  initData.Name,
 		"latency":     latency,
 		"mac_address": macAddress,
 	}

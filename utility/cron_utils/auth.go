@@ -20,15 +20,15 @@ var Auth = &uAuth{}
 //
 //	@dc: 设备认证
 //	@author: hamster   @date:2023/6/20 11:42:38
-func (u *uAuth) DeviceAuth(initData g.Map) (err error) {
+func (u *uAuth) DeviceAuth(initData *g_consts.InitData) (err error) {
 	// 获取内网与mac地址
 	internalIp, macAddress := net_utils.NetworkInfo.GetMacAddress()
 	// 进行设备认证
 	response, err := g.Client().SetTimeout(5*time.Second).Post(context.TODO(), g_consts.AuthBackendUrl, g.Map{
 		"internal_ip": internalIp,
 		"mac_address": macAddress,
-		"department":  initData["department"],
-		"staff_name":  initData["name"],
+		"department":  initData.Department,
+		"staff_name":  initData.Name,
 	})
 	defer func(response *gclient.Response) {
 		err := response.Close()
@@ -51,7 +51,7 @@ func (u *uAuth) DeviceAuth(initData g.Map) (err error) {
 //
 //	@dc: 获取设备信息
 //	@author: hamster   @date:2023/6/20 17:34:24
-func (u *uAuth) GetDeviceInfo() (initData g.Map, err error) {
+func (u *uAuth) GetDeviceInfo() (getInitData *g_consts.InitData, err error) {
 	// 获取Mac地址
 	_, macAddress := net_utils.NetworkInfo.GetMacAddress()
 	// 获取配置
@@ -74,10 +74,10 @@ func (u *uAuth) GetDeviceInfo() (initData g.Map, err error) {
 	}
 	// 解析配置
 	configMap := gjson.New(response.ReadAllString())
-	initData = g.Map{
-		"department": configMap.Get("data.department").String(),
-		"name":       configMap.Get("data.staff_name").String(),
+	getInitData = &g_consts.InitData{
+		Department: configMap.Get("data.department").String(),
+		Name:       configMap.Get("data.staff_name").String(),
 	}
-	glog.Debug(context.TODO(), "获取到的当前个人信息为", "部门", initData["department"], "姓名", initData["name"])
+	glog.Debug(context.TODO(), "获取到的当前个人信息为", "部门", getInitData.Department, "姓名", getInitData.Name)
 	return
 }

@@ -25,10 +25,10 @@ var AutoUpdate = &uAutoUpdate{}
 //
 //	@dc: 更新任务核心程序
 //	@author: laixin   @date:2023/7/14 09:37:24
-func (u *uAutoUpdate) UpdateCore(ctx context.Context, initData g.Map) (err error) {
+func (u *uAutoUpdate) UpdateCore(ctx context.Context, initData *g_consts.InitData) (err error) {
 	var (
 		latestTag    = false
-		localVersion = gconv.String(initData["localVersion"])
+		localVersion = gconv.String(initData.LocalVersion)
 	)
 	// 与服务器版本比较
 	githubVersion := getLatestVersion()
