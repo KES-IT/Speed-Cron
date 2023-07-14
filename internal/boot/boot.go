@@ -65,7 +65,7 @@ func bootMethod(initData *g_consts.InitData) (err error) {
 	glog.Debug(ctx, "初始化定时任务管理器服务成功")
 
 	glog.Debug(ctx, "开始初始化自动更新服务")
-	_, err = gcron.AddSingleton(ctx, "@every 10s", func(ctx context.Context) {
+	_, err = gcron.AddSingleton(ctx, "@every 20s", func(ctx context.Context) {
 		err := update_utils.AutoUpdate.UpdateCore(ctx, initData)
 		if err != nil {
 			glog.Error(ctx, "初始化自动更新服务失败: ", err)

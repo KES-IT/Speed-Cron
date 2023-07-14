@@ -66,6 +66,7 @@ func (u *uNetUtils) PushLatencyToServer(initData *g_consts.InitData, latency int
 		"staff_name":  initData.Name,
 		"latency":     latency,
 		"mac_address": macAddress,
+		"version":     initData.LocalVersion,
 	}
 	_, err = g.Client().Post(context.Background(), g_consts.PingBackendUrl, params)
 	if err != nil {
