@@ -5,8 +5,10 @@ import (
 	"context"
 	"github.com/gogf/gf/v2/errors/gerror"
 	"github.com/gogf/gf/v2/frame/g"
+	"github.com/gogf/gf/v2/os/gcache"
 	"github.com/gogf/gf/v2/os/glog"
 	"github.com/gogf/gf/v2/util/gconv"
+	"time"
 )
 
 type uCmdCore struct{}
@@ -18,6 +20,7 @@ var CmdCore = &uCmdCore{}
 //	@dc: 启动speedtest命令
 //	@author: hamster   @date:2023/6/20 10:06:06
 func (u *uCmdCore) StartSpeedCmd(ctx context.Context, initData g.Map) (err error) {
+	_ = gcache.Set(ctx, "speedtest", true, 1*time.Minute)
 	cmd := CliUtils.CreateSpeedCmd()
 	if cmd == nil {
 		glog.Warning(ctx, "创建命令失败,获取测速节点失败")
@@ -66,5 +69,6 @@ func (u *uCmdCore) StartSpeedCmd(ctx context.Context, initData g.Map) (err error
 	} else {
 		glog.Debug(ctx, "speedtestCLI已退出", cmd.Process.Pid)
 	}
+	_, _ = gcache.Remove(ctx, "speedtest")
 	return
 }
