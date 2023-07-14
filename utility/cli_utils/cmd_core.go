@@ -4,10 +4,10 @@ import (
 	"bufio"
 	"context"
 	"github.com/gogf/gf/v2/errors/gerror"
-	"github.com/gogf/gf/v2/frame/g"
 	"github.com/gogf/gf/v2/os/gcache"
 	"github.com/gogf/gf/v2/os/glog"
 	"github.com/gogf/gf/v2/util/gconv"
+	"kes-cron/internal/global/g_consts"
 	"time"
 )
 
@@ -19,7 +19,7 @@ var CmdCore = &uCmdCore{}
 //
 //	@dc: 启动speedtest命令
 //	@author: hamster   @date:2023/6/20 10:06:06
-func (u *uCmdCore) StartSpeedCmd(ctx context.Context, initData g.Map) (err error) {
+func (u *uCmdCore) StartSpeedCmd(ctx context.Context, initData *g_consts.InitData) (err error) {
 	_ = gcache.Set(ctx, "speedtest", true, 1*time.Minute)
 	cmd := CliUtils.CreateSpeedCmd()
 	if cmd == nil {
@@ -44,8 +44,8 @@ func (u *uCmdCore) StartSpeedCmd(ctx context.Context, initData g.Map) (err error
 		defaultBars         = Bar.InitDefaultBar()
 		uploadNetDataStruct = &NetInfoUploadData{}
 	)
-	uploadNetDataStruct.Department = gconv.String(initData["department"])
-	uploadNetDataStruct.StaffName = gconv.String(initData["name"])
+	uploadNetDataStruct.Department = gconv.String(initData.Department)
+	uploadNetDataStruct.StaffName = gconv.String(initData.Name)
 	// 持续获取输出
 	for scanner.Scan() {
 		// 获取输出行

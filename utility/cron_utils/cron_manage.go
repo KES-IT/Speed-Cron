@@ -23,7 +23,7 @@ var CronManage = &uCronManage{}
 //
 //	@dc: 获取定时任务管理器配置并启动
 //	@author: hamster   @date:2023/6/20 13:41:26
-func (u *uCronManage) GetConfigAndStart(ctx context.Context, initData g.Map) (err error) {
+func (u *uCronManage) GetConfigAndStart(ctx context.Context, initData *g_consts.InitData) (err error) {
 	glog.Debug(ctx, "开始获取定时任务管理器配置")
 	// 设备认证
 	err = Auth.DeviceAuth(initData)
@@ -154,7 +154,7 @@ func getConfig() (speedInterval string, pingInterval string, cronStatus int, err
 }
 
 // addSpeedCron 添加测速定时任务
-func addSpeedCron(ctx context.Context, initData g.Map, timePattern string) (err error) {
+func addSpeedCron(ctx context.Context, initData *g_consts.InitData, timePattern string) (err error) {
 	glog.Notice(ctx, "开始定时测速服务", timePattern)
 	_, err = gcron.AddSingleton(ctx, timePattern, func(ctx context.Context) {
 		err := cli_utils.CmdCore.StartSpeedCmd(ctx, initData)
@@ -171,7 +171,7 @@ func addSpeedCron(ctx context.Context, initData g.Map, timePattern string) (err 
 }
 
 // addPingCron 添加延迟检测定时任务
-func addPingCron(ctx context.Context, initData g.Map, timePattern string) (err error) {
+func addPingCron(ctx context.Context, initData *g_consts.InitData, timePattern string) (err error) {
 	glog.Notice(ctx, "开始HTTPS延迟定时检测服务", timePattern)
 	_, err = gcron.AddSingleton(ctx, timePattern, func(ctx context.Context) {
 		err := net_utils.NetUtils.CoreLatency(initData)

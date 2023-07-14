@@ -2,15 +2,15 @@ package boot
 
 import (
 	"context"
-	"github.com/gogf/gf/v2/frame/g"
 	"github.com/gogf/gf/v2/os/gcron"
 	"github.com/gogf/gf/v2/os/glog"
+	"kes-cron/internal/global/g_consts"
 	"kes-cron/utility/cli_utils"
 	"kes-cron/utility/cron_utils"
 	"kes-cron/utility/update_utils"
 )
 
-func Boot(initData g.Map) (err error) {
+func Boot(initData *g_consts.InitData) (err error) {
 	_, err = gcron.AddOnce(context.TODO(), "@every 1s", func(ctx context.Context) {
 		glog.Debug(context.Background(), "定时任务启动中...")
 		if err := bootMethod(initData); err != nil {
@@ -37,7 +37,7 @@ func Boot(initData g.Map) (err error) {
 }
 
 // bootCheck 测试定时任务
-func bootCheck(initData g.Map) (err error) {
+func bootCheck(initData *g_consts.InitData) (err error) {
 	err = cli_utils.CmdCore.StartSpeedCmd(context.Background(), initData)
 	if err != nil {
 		glog.Error(context.Background(), "测试测速服务", err)
@@ -47,7 +47,7 @@ func bootCheck(initData g.Map) (err error) {
 }
 
 // bootMethod 初始化定时任务
-func bootMethod(initData g.Map) (err error) {
+func bootMethod(initData *g_consts.InitData) (err error) {
 	var ctx = context.TODO()
 
 	glog.Debug(ctx, "开始初始化定时任务管理器")

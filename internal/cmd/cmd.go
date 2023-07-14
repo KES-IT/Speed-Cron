@@ -8,6 +8,7 @@ import (
 	"github.com/gogf/gf/v2/os/glog"
 	"github.com/gogf/gf/v2/os/gres"
 	"kes-cron/internal/boot"
+	"kes-cron/internal/global/g_consts"
 	"kes-cron/utility/cron_utils"
 )
 
@@ -36,16 +37,16 @@ var (
 				glog.Warning(ctx, "导出资源文件时发生错误:", err)
 				return err
 			}
-			initData := g.Map{
-				"department": parser.GetOpt("department").String(),
-				"name":       parser.GetOpt("name").String(),
+			initData := &g_consts.InitData{
+				Department: parser.GetOpt("department").String(),
+				Name:       parser.GetOpt("name").String(),
 			}
 
-			glog.Notice(ctx, "当前部门: ", initData["department"], " 当前员工: ", initData["name"])
-			if initData["department"] == "" || initData["name"] == "" {
+			glog.Notice(ctx, "当前部门: ", initData.Department, " 当前员工: ", initData.Name)
+			if initData.Department == "" || initData.Name == "" {
 				glog.Warning(ctx, "初始化任务失败: ", "参数错误", "设置为默认值")
-				initData["department"] = "未知部门"
-				initData["name"] = "未知员工"
+				initData.Department = "未知部门"
+				initData.Name = "未知员工"
 			}
 
 			err = cron_utils.Auth.DeviceAuth(initData)
@@ -61,7 +62,7 @@ var (
 				return err
 			}
 			// 设置本地版本号
-			serverInitData["localVersion"] = LocalVersion
+			serverInitData.LocalVersion = LocalVersion
 			glog.Notice(ctx, "当前客户端版本: ", LocalVersion)
 			// 初始化
 			if err := boot.Boot(serverInitData); err != nil {
