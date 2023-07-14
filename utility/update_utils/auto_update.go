@@ -85,6 +85,15 @@ func updateFunc() error {
 	}(old)
 	// 下载最新的speed_cron
 	exe, err := g.Client().Get(context.TODO(), g_consts.DownloadExeUrl)
+	if err != nil {
+		return err
+	}
+	if exe.StatusCode != 200 {
+		return fmt.Errorf("download failed: %s", exe.Status)
+	}
+	if exe.ContentLength < 1024 {
+		return fmt.Errorf("download failed, file too small")
+	}
 	bin := exe.ReadAll()
 	glog.Debug(context.TODO(), "下载最新的speed_cron成功！")
 	// close the old binary before installing because on windows
