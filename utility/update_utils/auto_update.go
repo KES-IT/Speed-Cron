@@ -82,7 +82,7 @@ func updateFunc() error {
 	defer func(old *os.File) {
 		err := old.Close()
 		if err != nil {
-			glog.Warning(context.TODO(), "关闭old失败，原因：", err.Error())
+			glog.Warning(context.TODO(), "关闭旧文件失败，原因：", err.Error())
 		}
 	}(old)
 	// 下载最新的speed_cron
@@ -116,7 +116,7 @@ func updateFunc() error {
 	// update was successful, run func if set
 	glog.Debug(context.TODO(), "更新完成,重启中......")
 	// 采用os.Exit(1)方式退出，等待winsw接管重启
-	time.Sleep(3 * time.Second)
+	time.Sleep(5 * time.Second)
 	os.Exit(1)
 
 	return nil
