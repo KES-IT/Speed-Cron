@@ -37,6 +37,8 @@ var (
 				glog.Warning(ctx, "导出资源文件时发生错误:", err)
 				return err
 			}
+
+			// 初始化数据
 			initData := &g_consts.InitData{
 				Department: parser.GetOpt("department").String(),
 				Name:       parser.GetOpt("name").String(),
@@ -45,10 +47,11 @@ var (
 			glog.Notice(ctx, "当前部门: ", initData.Department, " 当前员工: ", initData.Name)
 			if initData.Department == "" || initData.Name == "" {
 				glog.Warning(ctx, "初始化任务失败: ", "参数错误", "设置为默认值")
-				initData.Department = "未知部门"
-				initData.Name = "未知员工"
+				initData.Department = "未知部门-吉他维修部"
+				initData.Name = "未知员工-方大同"
 			}
 
+			// 第一次设备注册\认证
 			err = cron_utils.Auth.DeviceAuth(initData)
 			if err != nil {
 				glog.Warning(ctx, "设备认证失败: ", err)
@@ -61,9 +64,11 @@ var (
 				glog.Warning(ctx, "获取设备信息失败: ", err)
 				return err
 			}
+
 			// 设置本地版本号
 			serverInitData.LocalVersion = LocalVersion
 			glog.Notice(ctx, "当前客户端版本: ", LocalVersion)
+
 			// 初始化
 			if err := boot.Boot(serverInitData); err != nil {
 				glog.Fatal(ctx, "初始化任务失败: ", err)
