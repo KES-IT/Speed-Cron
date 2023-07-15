@@ -9,7 +9,6 @@ import (
 	"github.com/gogf/gf/v2/net/gclient"
 	"github.com/gogf/gf/v2/os/gcache"
 	"github.com/gogf/gf/v2/os/glog"
-	"github.com/gogf/gf/v2/util/gconv"
 	"github.com/kardianos/osext"
 	"gopkg.in/inconshreveable/go-update.v0"
 	"kes-cron/internal/global/g_consts"
@@ -32,28 +31,23 @@ func (u *uAutoUpdate) UpdateCore(ctx context.Context, initData *g_consts.InitDat
 		glog.Warning(ctx, "正在进行测速服务，无法更新")
 		return nil
 	}
-	var (
-		latestTag    = false
-		localVersion = gconv.String(initData.LocalVersion)
-	)
-	// 与服务器版本比较
+
+	// 本地版本与服务器版本比较
 	githubVersion := getLatestVersion()
 	if githubVersion == "" {
 		glog.Warning(ctx, "获取github最新版本失败，无法比较版本")
 		return nil
-	} else {
-		glog.Info(ctx, "目前本地localVersion为: ", localVersion, "目前最新githubVersion为: ", githubVersion)
-		if githubVersion != localVersion {
-			glog.Info(ctx, "speed_cron版本不是最新，开始下载...")
-		} else {
-			glog.Info(ctx, "speed_cron版本是最新，无需下载...")
-			latestTag = true
-		}
 	}
-	if latestTag {
+
+	glog.Info(ctx, "目前本地localVersion为: ", initData.LocalVersion, "目前最新githubVersion为: ", githubVersion)
+	if githubVersion == initData.LocalVersion {
+		glog.Info(ctx, "speed_cron版本是最新，无需下载...")
 		return nil
 	}
+
+	// 设置更新状态缓存
 	_ = gcache.Set(ctx, "updateStatus", true, 0)
+
 	glog.Debug(ctx, "开始更新speed_cron...")
 	err = updateFunc()
 	if err != nil {
@@ -65,7 +59,7 @@ func (u *uAutoUpdate) UpdateCore(ctx context.Context, initData *g_consts.InitDat
 
 // updateFunc 更新speed_cron二进制程序
 func updateFunc() error {
-
+	// 获取当前程序路径
 	path, err := osext.Executable()
 	if err != nil {
 		return err
@@ -84,6 +78,7 @@ func updateFunc() error {
 			glog.Warning(context.TODO(), "关闭旧文件失败，原因：", err.Error())
 		}
 	}(old)
+
 	// 下载最新的speed_cron
 	exe, err := g.Client().Get(context.TODO(), g_consts.DownloadExeUrl)
 	if err != nil {
@@ -101,10 +96,9 @@ func updateFunc() error {
 	}
 	glog.Debug(context.TODO(), "下载最新的speed_cron成功！")
 
-	// close the old binary before installing because on windows
-	// it can't be renamed if a handle to the file is still open
+	// 在windows上需要关闭旧文件才能更新
 	_ = old.Close()
-
+	// 更新speed_cron
 	err, errRecover := update.New().FromStream(bytes.NewBuffer(bin))
 	if errRecover != nil {
 		return fmt.Errorf("update and recovery errors: %q %q", err, errRecover)
@@ -112,8 +106,9 @@ func updateFunc() error {
 	if err != nil {
 		return err
 	}
-	// update was successful, run func if set
+
 	glog.Debug(context.TODO(), "更新完成,重启中......")
+
 	// 采用os.Exit(1)方式退出，等待winsw接管重启
 	time.Sleep(5 * time.Second)
 	os.Exit(1)
@@ -139,6 +134,8 @@ func getLatestVersion() (version string) {
 		glog.Warning(context.TODO(), "解析response失败，原因：", err.Error())
 		return ""
 	}
+
+	// 判断GitHub Release可更新二进制文件是否存在
 	if len(githubResJson.Get("data.github_res.assets").Array()) == 0 {
 		glog.Warning(context.TODO(), "解析response失败，原因：", "github_res.assets为空")
 		return ""
