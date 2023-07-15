@@ -27,6 +27,11 @@ var AutoUpdate = &uAutoUpdate{}
 //	@dc: 更新任务核心程序
 //	@author: laixin   @date:2023/7/14 09:37:24
 func (u *uAutoUpdate) UpdateCore(ctx context.Context, initData *g_consts.InitData) (err error) {
+	// 检测是否在进行测速服务
+	if gcache.MustGet(ctx, "speedtestStatus").Bool() {
+		glog.Warning(ctx, "正在进行测速服务，无法更新")
+		return nil
+	}
 	var (
 		latestTag    = false
 		localVersion = gconv.String(initData.LocalVersion)
@@ -37,8 +42,7 @@ func (u *uAutoUpdate) UpdateCore(ctx context.Context, initData *g_consts.InitDat
 		glog.Warning(ctx, "获取github最新版本失败，无法比较版本")
 		return nil
 	} else {
-		glog.Info(ctx, "目前最新githubVersion为: ", githubVersion)
-		glog.Info(ctx, "目前本地localVersion为: ", localVersion)
+		glog.Info(ctx, "目前本地localVersion为: ", localVersion, "目前最新githubVersion为: ", githubVersion)
 		if githubVersion != localVersion {
 			glog.Info(ctx, "speed_cron版本不是最新，开始下载...")
 		} else {
@@ -49,12 +53,7 @@ func (u *uAutoUpdate) UpdateCore(ctx context.Context, initData *g_consts.InitDat
 	if latestTag {
 		return nil
 	}
-	// 检测是否在进行测速服务
-	if gcache.MustGet(ctx, "speedtest").Bool() {
-		glog.Warning(ctx, "正在进行测速服务，无法更新")
-		return nil
-	}
-
+	_ = gcache.Set(ctx, "updateStatus", true, 0)
 	glog.Debug(ctx, "开始更新speed_cron...")
 	err = updateFunc()
 	if err != nil {

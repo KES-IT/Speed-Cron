@@ -6,6 +6,7 @@ import (
 	"github.com/gogf/gf/v2/errors/gerror"
 	"github.com/gogf/gf/v2/frame/g"
 	"github.com/gogf/gf/v2/net/gclient"
+	"github.com/gogf/gf/v2/os/gcache"
 	"github.com/gogf/gf/v2/os/gcron"
 	"github.com/gogf/gf/v2/os/glog"
 	"kes-cron/internal/global/g_consts"
@@ -157,11 +158,20 @@ func getConfig() (speedInterval string, pingInterval string, cronStatus int, err
 func addSpeedCron(ctx context.Context, initData *g_consts.InitData, timePattern string) (err error) {
 	glog.Notice(ctx, "开始定时测速服务", timePattern)
 	_, err = gcron.AddSingleton(ctx, timePattern, func(ctx context.Context) {
+		// 判断是否在更新中
+		if gcache.MustGet(ctx, "speedtestStatus").Bool() {
+			glog.Warning(ctx, "正在更新客户端程序，跳过本次测速")
+			return
+		}
+		_ = gcache.Set(ctx, "speedtestStatus", true, 1*time.Minute)
+
 		err := cli_utils.CmdCore.StartSpeedCmd(ctx, initData)
 		if err != nil {
 			glog.Error(ctx, "定时测速服务失败: ", err)
 			return
 		}
+
+		_, _ = gcache.Remove(ctx, "speedtestStatus")
 	}, "Speed-Cron")
 	if err != nil {
 		glog.Warning(ctx, "添加定时测速服务失败: ", err)
