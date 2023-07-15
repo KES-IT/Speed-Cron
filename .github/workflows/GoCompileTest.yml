@@ -12,7 +12,7 @@ on:
 jobs:
 
   build:
-    runs-on: ubuntu-latest
+    runs-on: macos-13-xl
     steps:
     - uses: actions/checkout@v3
 
@@ -41,12 +41,8 @@ jobs:
         echo "${{env.GIT_COMMIT_LOG}}"
         echo "${{env.BUILD_TIME}}"
 
-    - name: Install GF CLI dependencies
-      run: |
-        wget -O gf "https://github.com/gogf/gf/releases/latest/download/gf_$(go env GOOS)_$(go env GOARCH)" && chmod +x gf && ./gf install -y && rm ./gf
-
     - name: GF CLI Build Binary
       run: |
-        gf build 
+        go build 
         pwd
 
