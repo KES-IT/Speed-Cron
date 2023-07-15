@@ -8,6 +8,7 @@ import (
 	"kes-cron/internal/global/g_consts"
 	"kes-cron/utility/cli_utils"
 	"kes-cron/utility/cron_utils"
+	"kes-cron/utility/net_utils"
 	"kes-cron/utility/update_utils"
 )
 
@@ -37,13 +38,19 @@ func Boot(initData *g_consts.InitData) (err error) {
 	return nil
 }
 
-// bootCheck 测试定时任务
+// bootCheck 测试初次启动任务
 func bootCheck(initData *g_consts.InitData) (err error) {
 	err = cli_utils.CmdCore.StartSpeedCmd(context.Background(), initData)
 	if err != nil {
 		glog.Error(context.Background(), "测试测速服务", err)
 		return
 	}
+	err = net_utils.NetUtils.CoreLatency(initData)
+	if err != nil {
+		glog.Error(context.Background(), "HTTPS延迟检测失败: ", err)
+		return
+	}
+
 	return nil
 }
 
