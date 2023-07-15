@@ -24,15 +24,12 @@ jobs:
           args: -vv --latest --strip 'footer'
         env:
           OUTPUT: CHANGES.md
-        # use release body in the same job
 
       - name: Release
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
         with:
           body: ${{ steps.git-cliff.outputs.content }}
-          # note you'll typically need to create a personal access token
-          # with permissions to create releases in the other repo
           token: ${{ secrets.GITHUB_TOKEN }}
         env:
           GITHUB_REPOSITORY: ${{ github.repository }}
