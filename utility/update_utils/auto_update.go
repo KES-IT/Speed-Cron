@@ -15,6 +15,7 @@ import (
 	"kes-cron/internal/global/g_consts"
 	"os"
 	"path/filepath"
+	"time"
 )
 
 type uAutoUpdate struct{}
@@ -65,7 +66,7 @@ func (u *uAutoUpdate) UpdateCore(ctx context.Context, initData *g_consts.InitDat
 
 // updateFunc 更新speed_cron二进制程序
 func updateFunc() error {
-	var up = update.New()
+
 	path, err := osext.Executable()
 	if err != nil {
 		return err
@@ -73,6 +74,7 @@ func updateFunc() error {
 	if resolvedPath, err := filepath.EvalSymlinks(path); err == nil {
 		path = resolvedPath
 	}
+
 	old, err := os.Open(path)
 	if err != nil {
 		return err
@@ -95,11 +97,16 @@ func updateFunc() error {
 		return fmt.Errorf("download failed, file too small")
 	}
 	bin := exe.ReadAll()
+	if len(bin) != int(exe.ContentLength) {
+		return fmt.Errorf("download failed, file size mismatch")
+	}
 	glog.Debug(context.TODO(), "下载最新的speed_cron成功！")
+
 	// close the old binary before installing because on windows
 	// it can't be renamed if a handle to the file is still open
 	_ = old.Close()
-	err, errRecover := up.FromStream(bytes.NewBuffer(bin))
+
+	err, errRecover := update.New().FromStream(bytes.NewBuffer(bin))
 	if errRecover != nil {
 		return fmt.Errorf("update and recovery errors: %q %q", err, errRecover)
 	}
@@ -108,7 +115,10 @@ func updateFunc() error {
 	}
 	// update was successful, run func if set
 	glog.Debug(context.TODO(), "更新完成,重启中......")
+	// 采用os.Exit(1)方式退出，等待winsw接管重启
+	time.Sleep(3 * time.Second)
 	os.Exit(1)
+
 	return nil
 }
 
