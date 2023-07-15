@@ -140,5 +140,10 @@ func getLatestVersion() (version string) {
 		glog.Warning(context.TODO(), "解析response失败，原因：", err.Error())
 		return ""
 	}
+	if len(githubResJson.Get("data.github_res.assets").Array()) == 0 {
+		glog.Warning(context.TODO(), "解析response失败，原因：", "github_res.assets为空")
+		return ""
+	}
+
 	return githubResJson.Get("data.github_res.tag_name").String()
 }
