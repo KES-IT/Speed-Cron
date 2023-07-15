@@ -4,10 +4,8 @@ import (
 	"bufio"
 	"context"
 	"github.com/gogf/gf/v2/errors/gerror"
-	"github.com/gogf/gf/v2/os/gcache"
 	"github.com/gogf/gf/v2/os/glog"
 	"kes-cron/internal/global/g_consts"
-	"time"
 )
 
 type uCmdCore struct{}
@@ -19,7 +17,6 @@ var CmdCore = &uCmdCore{}
 //	@dc: 启动speedtest命令
 //	@author: hamster   @date:2023/6/20 10:06:06
 func (u *uCmdCore) StartSpeedCmd(ctx context.Context, initData *g_consts.InitData) (err error) {
-	_ = gcache.Set(ctx, "speedtest", true, 1*time.Minute)
 	cmd := CliUtils.CreateSpeedCmd()
 	if cmd == nil {
 		glog.Warning(ctx, "创建命令失败,获取测速节点失败")
@@ -68,6 +65,5 @@ func (u *uCmdCore) StartSpeedCmd(ctx context.Context, initData *g_consts.InitDat
 	} else {
 		glog.Debug(ctx, "speedtestCLI已退出", cmd.Process.Pid)
 	}
-	_, _ = gcache.Remove(ctx, "speedtest")
 	return
 }

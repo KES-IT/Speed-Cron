@@ -2,6 +2,7 @@ package boot
 
 import (
 	"context"
+	"github.com/gogf/gf/v2/os/gcache"
 	"github.com/gogf/gf/v2/os/gcron"
 	"github.com/gogf/gf/v2/os/glog"
 	"kes-cron/internal/global/g_consts"
@@ -68,8 +69,11 @@ func bootMethod(initData *g_consts.InitData) (err error) {
 	_, err = gcron.AddSingleton(ctx, "@every 20s", func(ctx context.Context) {
 		err := update_utils.AutoUpdate.UpdateCore(ctx, initData)
 		if err != nil {
-			glog.Error(ctx, "初始化自动更新服务失败: ", err)
+			glog.Error(ctx, "自动更新服务失败: ", err)
 			return
+		}
+		if !gcache.MustGet(ctx, "updateStatus").IsNil() {
+			_, _ = gcache.Remove(ctx, "updateStatus")
 		}
 	}, "Cron-Update")
 	if err != nil {
