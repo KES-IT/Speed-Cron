@@ -29,7 +29,7 @@ var (
 	Main = gcmd.Command{
 		Name:  "main",
 		Usage: "main",
-		Brief: "start http server",
+		Brief: "start kes-speed-cron client",
 		Func: func(ctx context.Context, parser *gcmd.Parser) (err error) {
 			gres.Dump()
 			err = gres.Export("speedCLI/speedtest.exe", "speed_cli/")
