@@ -8,6 +8,7 @@ import (
 	"github.com/gogf/gf/v2/net/gclient"
 	"github.com/gogf/gf/v2/os/glog"
 	"kes-cron/internal/global/g_consts"
+	"kes-cron/internal/global/g_structs"
 	"kes-cron/utility/net_utils"
 	"time"
 )
@@ -20,7 +21,7 @@ var Auth = &uAuth{}
 //
 //	@dc: 设备认证
 //	@author: hamster   @date:2023/6/20 11:42:38
-func (u *uAuth) DeviceAuth(initData *g_consts.InitData) (err error) {
+func (u *uAuth) DeviceAuth(initData *g_structs.InitData) (err error) {
 	// 获取内网与mac地址
 	internalIp, macAddress := net_utils.NetworkInfo.GetMacAddress()
 	// 进行设备认证
@@ -51,7 +52,7 @@ func (u *uAuth) DeviceAuth(initData *g_consts.InitData) (err error) {
 //
 //	@dc: 获取设备信息
 //	@author: hamster   @date:2023/6/20 17:34:24
-func (u *uAuth) GetDeviceInfo() (getInitData *g_consts.InitData, err error) {
+func (u *uAuth) GetDeviceInfo() (getInitData *g_structs.InitData, err error) {
 	// 获取Mac地址
 	_, macAddress := net_utils.NetworkInfo.GetMacAddress()
 	// 获取配置
@@ -74,7 +75,7 @@ func (u *uAuth) GetDeviceInfo() (getInitData *g_consts.InitData, err error) {
 	}
 	// 解析配置
 	configMap := gjson.New(response.ReadAllString())
-	getInitData = &g_consts.InitData{
+	getInitData = &g_structs.InitData{
 		Department: configMap.Get("data.department").String(),
 		Name:       configMap.Get("data.staff_name").String(),
 	}

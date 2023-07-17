@@ -6,7 +6,8 @@ import (
 	"github.com/gogf/gf/v2/errors/gerror"
 	"github.com/gogf/gf/v2/os/gcache"
 	"github.com/gogf/gf/v2/os/glog"
-	"kes-cron/internal/global/g_consts"
+	"kes-cron/internal/global/g_cache"
+	"kes-cron/internal/global/g_structs"
 )
 
 type uCmdCore struct{}
@@ -17,7 +18,7 @@ var CmdCore = &uCmdCore{}
 //
 //	@dc: 启动speedtest命令
 //	@author: hamster   @date:2023/6/20 10:06:06
-func (u *uCmdCore) StartSpeedCmd(ctx context.Context, initData *g_consts.InitData) (err error) {
+func (u *uCmdCore) StartSpeedCmd(ctx context.Context, initData *g_structs.InitData) (err error) {
 	cmd := CliUtils.CreateSpeedCmd()
 	if cmd == nil {
 		glog.Warning(ctx, "创建命令失败,获取测速节点失败")
@@ -48,7 +49,7 @@ func (u *uCmdCore) StartSpeedCmd(ctx context.Context, initData *g_consts.InitDat
 	// 持续获取输出
 	for scanner.Scan() {
 		// 获取更新核心状态，判断是否即将更新
-		if gcache.MustGet(ctx, "speedtestStatus").Bool() {
+		if gcache.MustGet(ctx, g_cache.UpdateCacheKey).Bool() {
 			glog.Warning(ctx, "正在更新客户端程序，中止测速服务")
 			break
 		}

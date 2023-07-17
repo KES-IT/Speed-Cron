@@ -1,4 +1,4 @@
-package g_consts
+package g_structs
 
 type InitData struct {
 	Department   string `json:"department" description:"部门"`

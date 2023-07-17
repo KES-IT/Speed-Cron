@@ -9,7 +9,9 @@ import (
 	"github.com/gogf/gf/v2/os/gcache"
 	"github.com/gogf/gf/v2/os/gcron"
 	"github.com/gogf/gf/v2/os/glog"
+	"kes-cron/internal/global/g_cache"
 	"kes-cron/internal/global/g_consts"
+	"kes-cron/internal/global/g_structs"
 	"kes-cron/utility/cli_utils"
 	"kes-cron/utility/net_utils"
 	"reflect"
@@ -24,7 +26,7 @@ var CronManage = &uCronManage{}
 //
 //	@dc: 获取定时任务管理器配置并启动
 //	@author: hamster   @date:2023/6/20 13:41:26
-func (u *uCronManage) GetConfigAndStart(ctx context.Context, initData *g_consts.InitData) (err error) {
+func (u *uCronManage) GetConfigAndStart(ctx context.Context, initData *g_structs.InitData) (err error) {
 	glog.Debug(ctx, "开始获取定时任务管理器配置")
 	// 设备认证
 	err = Auth.DeviceAuth(initData)
@@ -157,15 +159,15 @@ func getConfig() (speedInterval string, pingInterval string, cronStatus int, err
 }
 
 // addSpeedCron 添加测速定时任务
-func addSpeedCron(ctx context.Context, initData *g_consts.InitData, timePattern string) (err error) {
+func addSpeedCron(ctx context.Context, initData *g_structs.InitData, timePattern string) (err error) {
 	glog.Notice(ctx, "开始定时测速服务", timePattern)
 	_, err = gcron.AddSingleton(ctx, timePattern, func(ctx context.Context) {
 		// 判断是否在更新中
-		if gcache.MustGet(ctx, "speedtestStatus").Bool() {
+		if gcache.MustGet(ctx, g_cache.UpdateCacheKey).Bool() {
 			glog.Warning(ctx, "正在更新客户端程序，跳过本次测速")
 			return
 		}
-		_ = gcache.Set(ctx, "speedtestStatus", true, 1*time.Minute)
+		_ = gcache.Set(ctx, g_cache.SpeedCacheKey, true, 1*time.Minute)
 
 		err := cli_utils.CmdCore.StartSpeedCmd(ctx, initData)
 		if err != nil {
@@ -173,7 +175,7 @@ func addSpeedCron(ctx context.Context, initData *g_consts.InitData, timePattern 
 			return
 		}
 
-		_, _ = gcache.Remove(ctx, "speedtestStatus")
+		_, _ = gcache.Remove(ctx, g_cache.SpeedCacheKey)
 	}, "Speed-Cron")
 	if err != nil {
 		glog.Warning(ctx, "添加定时测速服务失败: ", err)
@@ -183,7 +185,7 @@ func addSpeedCron(ctx context.Context, initData *g_consts.InitData, timePattern 
 }
 
 // addPingCron 添加延迟检测定时任务
-func addPingCron(ctx context.Context, initData *g_consts.InitData, timePattern string) (err error) {
+func addPingCron(ctx context.Context, initData *g_structs.InitData, timePattern string) (err error) {
 	glog.Notice(ctx, "开始HTTPS延迟定时检测服务", timePattern)
 	_, err = gcron.AddSingleton(ctx, timePattern, func(ctx context.Context) {
 		err := net_utils.NetUtils.CoreLatency(initData)

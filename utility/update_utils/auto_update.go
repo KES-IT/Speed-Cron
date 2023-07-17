@@ -11,7 +11,9 @@ import (
 	"github.com/gogf/gf/v2/os/glog"
 	"github.com/kardianos/osext"
 	"gopkg.in/inconshreveable/go-update.v0"
+	"kes-cron/internal/global/g_cache"
 	"kes-cron/internal/global/g_consts"
+	"kes-cron/internal/global/g_structs"
 	"os"
 	"path/filepath"
 	"time"
@@ -25,9 +27,9 @@ var AutoUpdate = &uAutoUpdate{}
 //
 //	@dc: 更新任务核心程序
 //	@author: laixin   @date:2023/7/14 09:37:24
-func (u *uAutoUpdate) UpdateCore(ctx context.Context, initData *g_consts.InitData) (err error) {
+func (u *uAutoUpdate) UpdateCore(ctx context.Context, initData *g_structs.InitData) (err error) {
 	// 检测是否在进行测速服务
-	if gcache.MustGet(ctx, "speedtestStatus").Bool() {
+	if gcache.MustGet(ctx, g_cache.SpeedCacheKey).Bool() {
 		glog.Warning(ctx, "正在进行测速服务，无法更新")
 		return nil
 	}
@@ -46,7 +48,7 @@ func (u *uAutoUpdate) UpdateCore(ctx context.Context, initData *g_consts.InitDat
 	}
 
 	// 设置更新状态缓存
-	_ = gcache.Set(ctx, "updateStatus", true, 0)
+	_ = gcache.Set(ctx, g_cache.UpdateCacheKey, true, 0)
 
 	glog.Debug(ctx, "开始更新speed_cron...")
 	err = updateFunc()

@@ -8,7 +8,7 @@ import (
 	"github.com/gogf/gf/v2/os/glog"
 	"github.com/gogf/gf/v2/os/gres"
 	"kes-cron/internal/boot"
-	"kes-cron/internal/global/g_consts"
+	"kes-cron/internal/global/g_structs"
 	"kes-cron/utility/cron_utils"
 )
 
@@ -39,7 +39,7 @@ var (
 			}
 
 			// 初始化数据
-			initData := &g_consts.InitData{
+			initData := &g_structs.InitData{
 				Department: parser.GetOpt("department").String(),
 				Name:       parser.GetOpt("name").String(),
 			}
