@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"context"
 	"github.com/gogf/gf/v2/errors/gerror"
+	"github.com/gogf/gf/v2/os/gcache"
 	"github.com/gogf/gf/v2/os/glog"
 	"kes-cron/internal/global/g_consts"
 )
@@ -46,6 +47,11 @@ func (u *uCmdCore) StartSpeedCmd(ctx context.Context, initData *g_consts.InitDat
 
 	// 持续获取输出
 	for scanner.Scan() {
+		// 获取更新核心状态，判断是否即将更新
+		if gcache.MustGet(ctx, "speedtestStatus").Bool() {
+			glog.Warning(ctx, "正在更新客户端程序，中止测速服务")
+			break
+		}
 		ok, err := CmdProgress.CmdCoreProgress(ctx, string(scanner.Bytes()), defaultBars, uploadNetDataStruct)
 		if err != nil {
 			glog.Warning(ctx, "处理命令行输出时发生错误:", err)
