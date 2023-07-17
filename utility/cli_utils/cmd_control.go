@@ -46,5 +46,5 @@ func (s *uCliUtils) CreateSpeedCmd() *exec.Cmd {
 	serverIdCmd := "--server-id=" + configMap.Get("data.speed_server_id").String()
 	glog.Debug(context.Background(), "测速节点:", serverIdCmd)
 	return exec.Command("speed_cli/speedCLI/speedtest.exe", "--accept-gdpr", "--accept-license", serverIdCmd,
-		"--progress=yes", "--format=json", "--progress-update-interval=200")
+		"--progress=yes", "--format=json", "--progress-update-interval=500")
 }
