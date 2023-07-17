@@ -41,12 +41,8 @@ jobs:
         echo "${{env.GIT_COMMIT_LOG}}"
         echo "${{env.BUILD_TIME}}"
 
-    - name: Install GF CLI dependencies
+    - name: Go Build Binary - Windows amd64
       run: |
-        wget -O gf "https://github.com/gogf/gf/releases/latest/download/gf_$(go env GOOS)_$(go env GOARCH)" && chmod +x gf && ./gf install -y && rm ./gf
-
-    - name: GF CLI Build Binary
-      run: |
-        gf build 
+        GOOS=windows GOARCH=amd64 go build
         pwd
 
