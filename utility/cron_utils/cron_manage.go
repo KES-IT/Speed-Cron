@@ -167,7 +167,7 @@ func addSpeedCron(ctx context.Context, initData *g_structs.InitData, timePattern
 			glog.Warning(ctx, "正在更新客户端程序，跳过本次测速")
 			return
 		}
-		_ = gcache.Set(ctx, g_cache.SpeedCacheKey, true, 1*time.Minute)
+		_ = gcache.Set(ctx, g_cache.SpeedCacheKey, true, 0)
 
 		err := cli_utils.CmdCore.StartSpeedCmd(ctx, initData)
 		if err != nil {

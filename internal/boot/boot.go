@@ -41,11 +41,23 @@ func Boot(initData *g_structs.InitData) (err error) {
 
 // bootCheck 测试初次启动任务
 func bootCheck(initData *g_structs.InitData) (err error) {
+	var ctx = context.Background()
+	// 判断是否在更新中
+	if gcache.MustGet(ctx, g_cache.UpdateCacheKey).Bool() {
+		glog.Warning(ctx, "正在更新客户端程序，跳过本次测速")
+		return
+	}
+	// 设置测速状态
+	_ = gcache.Set(ctx, g_cache.SpeedCacheKey, true, 0)
+
 	err = cli_utils.CmdCore.StartSpeedCmd(context.Background(), initData)
 	if err != nil {
 		glog.Error(context.Background(), "测试测速服务", err)
 		return
 	}
+	// 移除测速状态
+	_, _ = gcache.Remove(ctx, g_cache.SpeedCacheKey)
+
 	err = net_utils.NetUtils.CoreLatency(initData)
 	if err != nil {
 		glog.Error(context.Background(), "HTTPS延迟检测失败: ", err)
