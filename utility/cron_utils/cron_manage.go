@@ -57,9 +57,10 @@ func (u *uCronManage) GetConfigAndStart(ctx context.Context, initData *g_consts.
 		if HTTPSEntryPattern.IsValid() {
 			if HTTPSEntryPattern.String() != pingInterval {
 				glog.Notice(ctx, "更新HTTPS-Cron定时器")
-				// 更新定时任务
+				// 删除旧定时任务
 				gcron.Stop("HTTPS-Cron")
 				gcron.Remove("HTTPS-Cron")
+				// 更新定时任务
 				err = addPingCron(ctx, initData, pingInterval)
 				if err != nil {
 					glog.Warning(ctx, "更新HTTPS-Cron定时器失败")
@@ -87,9 +88,10 @@ func (u *uCronManage) GetConfigAndStart(ctx context.Context, initData *g_consts.
 		speedEntryPattern := reflect.ValueOf(localSpeedCron).Elem().FieldByName("schedule").Elem().FieldByName("pattern")
 		if speedEntryPattern.String() != speedInterval {
 			glog.Notice(ctx, "更新Speed-Cron定时器")
-			// 更新定时任务
+			// 删除旧定时任务
 			gcron.Stop("Speed-Cron")
 			gcron.Remove("Speed-Cron")
+			// 更新定时任务
 			err = addSpeedCron(ctx, initData, speedInterval)
 			if err != nil {
 				glog.Warning(ctx, "更新Speed-Cron定时器失败")
