@@ -7,6 +7,7 @@ import (
 	"github.com/gogf/gf/v2/util/gconv"
 	"io"
 	"kes-cron/internal/global/g_consts"
+	"kes-cron/internal/global/g_structs"
 	"net/http"
 	"time"
 )
@@ -40,7 +41,7 @@ func (u *uNetUtils) HttpsLatency() (latency int, err error) {
 //
 //	@dc: 测试延迟核心服务
 //	@author: Hamster   @date:2023-06-17 14:03:41
-func (u *uNetUtils) CoreLatency(initData *g_consts.InitData) (err error) {
+func (u *uNetUtils) CoreLatency(initData *g_structs.InitData) (err error) {
 	latency, err := u.HttpsLatency()
 	if err != nil {
 		glog.Warning(context.Background(), "请求出错:", err)
@@ -59,7 +60,7 @@ func (u *uNetUtils) CoreLatency(initData *g_consts.InitData) (err error) {
 //
 //	@dc: 推送延迟到服务器
 //	@author: Hamster   @date:2023-06-17 14:02:59
-func (u *uNetUtils) PushLatencyToServer(initData *g_consts.InitData, latency int) (err error) {
+func (u *uNetUtils) PushLatencyToServer(initData *g_structs.InitData, latency int) (err error) {
 	_, macAddress := NetworkInfo.GetMacAddress()
 	params := g.Map{
 		"department":  initData.Department,

@@ -5,14 +5,15 @@ import (
 	"github.com/gogf/gf/v2/os/gcache"
 	"github.com/gogf/gf/v2/os/gcron"
 	"github.com/gogf/gf/v2/os/glog"
-	"kes-cron/internal/global/g_consts"
+	"kes-cron/internal/global/g_cache"
+	"kes-cron/internal/global/g_structs"
 	"kes-cron/utility/cli_utils"
 	"kes-cron/utility/cron_utils"
 	"kes-cron/utility/net_utils"
 	"kes-cron/utility/update_utils"
 )
 
-func Boot(initData *g_consts.InitData) (err error) {
+func Boot(initData *g_structs.InitData) (err error) {
 	_, err = gcron.AddOnce(context.TODO(), "@every 1s", func(ctx context.Context) {
 		glog.Debug(context.Background(), "定时任务启动中...")
 		if err := bootMethod(initData); err != nil {
@@ -39,7 +40,7 @@ func Boot(initData *g_consts.InitData) (err error) {
 }
 
 // bootCheck 测试初次启动任务
-func bootCheck(initData *g_consts.InitData) (err error) {
+func bootCheck(initData *g_structs.InitData) (err error) {
 	err = cli_utils.CmdCore.StartSpeedCmd(context.Background(), initData)
 	if err != nil {
 		glog.Error(context.Background(), "测试测速服务", err)
@@ -55,7 +56,7 @@ func bootCheck(initData *g_consts.InitData) (err error) {
 }
 
 // bootMethod 初始化定时任务
-func bootMethod(initData *g_consts.InitData) (err error) {
+func bootMethod(initData *g_structs.InitData) (err error) {
 	var ctx = context.TODO()
 
 	glog.Debug(ctx, "开始初始化定时任务管理器")
@@ -79,8 +80,8 @@ func bootMethod(initData *g_consts.InitData) (err error) {
 			glog.Error(ctx, "自动更新服务失败: ", err)
 			return
 		}
-		if !gcache.MustGet(ctx, "updateStatus").IsNil() {
-			_, _ = gcache.Remove(ctx, "updateStatus")
+		if !gcache.MustGet(ctx, g_cache.UpdateCacheKey).IsNil() {
+			_, _ = gcache.Remove(ctx, g_cache.UpdateCacheKey)
 		}
 	}, "Cron-Update")
 	if err != nil {
