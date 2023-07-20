@@ -14,6 +14,14 @@ import (
 )
 
 func Boot(initData *g_structs.InitData) (err error) {
+
+	glog.Info(context.Background(), "定时任务测试中...")
+	if err := bootCheck(initData); err != nil {
+		glog.Warning(context.Background(), "定时任务测试失败: ", err)
+	} else {
+		glog.Info(context.Background(), "定时任务测试成功")
+	}
+
 	_, err = gcron.AddOnce(context.TODO(), "@every 1s", func(ctx context.Context) {
 		glog.Debug(context.Background(), "定时任务启动中...")
 		if err := bootMethod(initData); err != nil {
@@ -25,23 +33,19 @@ func Boot(initData *g_structs.InitData) (err error) {
 		return err
 	}
 
-	_, err = gcron.AddOnce(context.TODO(), "@every 3s", func(ctx context.Context) {
-		glog.Info(context.Background(), "定时任务测试中...")
-		if err := bootCheck(initData); err != nil {
-			glog.Fatal(context.Background(), "定时任务测试失败: ", err)
-		}
-		glog.Info(context.Background(), "定时任务测试成功")
-	}, "开始测试定时任务")
-	if err != nil {
-		return err
-	}
-
 	return nil
 }
 
 // bootCheck 测试初次启动任务
 func bootCheck(initData *g_structs.InitData) (err error) {
 	var ctx = context.Background()
+
+	err = update_utils.AutoUpdate.UpdateCore(ctx, initData)
+	if err != nil {
+		glog.Error(ctx, "自动更新服务失败: ", err)
+		return err
+	}
+
 	// 判断是否在更新中
 	if gcache.MustGet(ctx, g_cache.UpdateCacheKey).Bool() {
 		glog.Warning(ctx, "正在更新客户端程序，跳过本次测速")
