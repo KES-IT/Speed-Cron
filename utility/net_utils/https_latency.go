@@ -81,10 +81,12 @@ func (u *uNetUtils) MultiWebsiteLatencyCore() (err error) {
 	for _, monitor := range monitorList {
 		monitorJson := gjson.New(monitor)
 		websiteUrl := monitorJson.Get("website_url").String()
-		glog.Info(context.Background(), "开始测试:", websiteUrl)
+		glog.Info(context.Background(), "开始测试: ", websiteUrl)
 		latency, httpErr := u.HttpsLatency(websiteUrl)
+		httpErrStr := ""
 		if httpErr != nil {
 			glog.Warning(context.Background(), "请求出错:", err)
+			httpErrStr = httpErr.Error()
 		}
 		// 推送延迟到服务器
 		_, err = g.Client().Post(context.Background(), g_consts.MonitorLogBackendUrl, g.Map{
@@ -92,13 +94,13 @@ func (u *uNetUtils) MultiWebsiteLatencyCore() (err error) {
 			"website_id":  monitorJson.Get("id").Int(),
 			"website_url": websiteUrl,
 			"latency":     latency,
-			"err_msg":     httpErr.Error(),
+			"err_msg":     httpErrStr,
 		})
 		if err != nil {
 			glog.Warning(context.Background(), "推送延迟到服务器时发生错误:", err)
 			continue
 		}
-		glog.Info(context.Background(), websiteUrl+"HTTPS延迟:", latency)
+		glog.Info(context.Background(), websiteUrl+" HTTPS延迟: ", latency)
 	}
 	return
 }
