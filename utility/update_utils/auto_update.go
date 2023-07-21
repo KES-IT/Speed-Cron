@@ -120,7 +120,9 @@ func updateFunc() error {
 
 // getLatestVersion 获取github最新版本
 func getLatestVersion() (version string) {
-	response, err := g.Client().Get(context.TODO(), g_consts.UpdateBackendUrl)
+	// 获取后端地址
+	baseUrl := gcache.MustGet(context.Background(), "BackendBaseUrl").String()
+	response, err := g.Client().Get(context.TODO(), baseUrl+g_consts.UpdateBackendUrl)
 	if err != nil {
 		glog.Warning(context.TODO(), "请求github最新版本失败，原因：", err.Error())
 		return ""
