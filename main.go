@@ -9,12 +9,15 @@ import (
 
 // GitTag 初始化为 unknown，如果编译时没有传入这些值，则为 unknown
 var (
-	GitTag = "unknown"
+	GitTag         = ""
+	BackendBaseUrl = ""
 )
 
 func main() {
 	// 传入 GitTag 作为版本号
 	cmd.LocalVersion = GitTag
+	// 传入 BaseUrl 作为后端地址
+	cmd.BackendBaseUrl = BackendBaseUrl
 
 	_ = cmd.Main.AddCommand(cmd.Version)
 	cmd.Main.Run(gctx.New())
