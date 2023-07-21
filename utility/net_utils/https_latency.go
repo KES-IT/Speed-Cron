@@ -90,7 +90,9 @@ func (u *uNetUtils) MultiWebsiteLatencyCore() (err error) {
 			httpErrStr = httpErr.Error()
 		}
 		// 推送延迟到服务器
-		_, err = g.Client().Post(context.Background(), g_consts.MonitorLogBackendUrl, g.Map{
+		// 获取后端地址
+		baseUrl := gcache.MustGet(context.Background(), "BackendBaseUrl").String()
+		_, err = g.Client().Post(context.Background(), baseUrl+g_consts.MonitorLogBackendUrl, g.Map{
 			"mac_address": macAddress,
 			"website_id":  monitorJson.Get("id").Int(),
 			"website_url": websiteUrl,
@@ -111,7 +113,9 @@ func (u *uNetUtils) MultiWebsiteLatencyCore() (err error) {
 //	@dc: 获取监控列表
 //	@author: laixin   @date:2023/7/20 16:55:37
 func (u *uNetUtils) GetMonitorList() (monitorList []interface{}, err error) {
-	monitorListRes, err := g.Client().Timeout(5*time.Second).Get(context.Background(), g_consts.MonitorListBackendUrl)
+	// 获取后端地址
+	baseUrl := gcache.MustGet(context.Background(), "BackendBaseUrl").String()
+	monitorListRes, err := g.Client().Timeout(5*time.Second).Get(context.Background(), baseUrl+g_consts.MonitorListBackendUrl)
 	if err != nil {
 		glog.Warning(context.Background(), "获取监控列表时发生错误:", err)
 		return
