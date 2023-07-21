@@ -7,10 +7,11 @@ import (
 	_ "kes-cron/internal/packed"
 )
 
-// GitTag 初始化为 unknown，如果编译时没有传入这些值，则为 unknown
+// GitTag 为编译时传入的版本号
+// BackendBaseUrl 为编译时传入的后端地址
 var (
-	GitTag         = ""
-	BackendBaseUrl = ""
+	GitTag         = "unknown"
+	BackendBaseUrl = "unknown"
 )
 
 func main() {
