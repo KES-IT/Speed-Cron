@@ -62,6 +62,10 @@ func (u *uAutoUpdate) UpdateCore(ctx context.Context, initData *g_structs.InitDa
 	configJson := gjson.New(configResponse.ReadAllString())
 	// 获取更新通道
 	updateChannel := configJson.Get("data.update_channel").String()
+	// 判断更新通道是否为空
+	if updateChannel == "" {
+		updateChannel = "stable"
+	}
 
 	var (
 		githubVersion     string
