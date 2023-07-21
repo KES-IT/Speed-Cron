@@ -1,12 +1,12 @@
 package g_consts
 
-const (
-	PingUrl          = "https://www.ithome.com/"
-	BackendBaseUrl   = "http://120.24.211.49:10441"
-	SpeedBackendUrl  = BackendBaseUrl + "/UploadSpeedData"
-	PingBackendUrl   = BackendBaseUrl + "/UploadPingData"
-	AuthBackendUrl   = BackendBaseUrl + "/DeviceAuth"
-	ConfigBackendUrl = BackendBaseUrl + "/GetCronConfig"
-	UpdateBackendUrl = BackendBaseUrl + "/GetLatestVersion"
-	DownloadExeUrl   = "https://gh.xinyu.today/https://github.com/hamster1963/Speed-Cron/releases/latest/download/speed_cron_windows_amd64.exe"
+var (
+	PingUrl = "https://www.ithome.com/"
+
+	SpeedBackendUrl  = "/UploadSpeedData"
+	PingBackendUrl   = "/UploadPingData"
+	AuthBackendUrl   = "/DeviceAuth"
+	ConfigBackendUrl = "/GetCronConfig"
+	UpdateBackendUrl = "/GetLatestVersion"
+	DownloadExeUrl   = "https://gh.xinyu.today/https://github.com/hamster1963/Speed-Cron/releases/download/v0.3.1/speed_cron_windows_amd64.exe"
 )

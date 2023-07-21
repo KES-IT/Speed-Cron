@@ -133,7 +133,9 @@ func getConfig() (speedInterval string, pingInterval string, cronStatus int, err
 	_, macAddress := net_utils.NetworkInfo.GetMacAddress()
 	// 获取配置
 	glog.Debug(context.TODO(), "当前mac地址为", macAddress)
-	response, err := g.Client().SetTimeout(5*time.Second).Post(context.TODO(), g_consts.ConfigBackendUrl, g.Map{
+	// 获取后端地址
+	baseUrl := gcache.MustGet(context.Background(), "BackendBaseUrl").String()
+	response, err := g.Client().SetTimeout(5*time.Second).Post(context.TODO(), baseUrl+g_consts.ConfigBackendUrl, g.Map{
 		"mac_address": macAddress,
 	})
 	defer func(response *gclient.Response) {
