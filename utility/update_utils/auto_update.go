@@ -34,9 +34,12 @@ func (u *uAutoUpdate) UpdateCore(ctx context.Context, initData *g_structs.InitDa
 		return nil
 	}
 
-	// 本地版本与服务器版本比较
-	githubVersion := getLatestVersion()
-	if githubVersion == "" {
+	//TODO (laixin) 2023/7/21: 获取更新通道
+
+	// 获取最新GitHub Release版本信息与下载地址
+	githubVersion, githubDownloadUrl, downloadStatus := getLatestVersionInfo()
+	glog.Info(ctx, "githubVersion: ", githubVersion, " githubDownloadUrl: ", githubDownloadUrl, " downloadStatus: ", downloadStatus)
+	if githubVersion == "" || githubDownloadUrl == "" || !downloadStatus {
 		glog.Warning(ctx, "获取github最新版本失败，无法比较版本")
 		return nil
 	}
@@ -51,7 +54,11 @@ func (u *uAutoUpdate) UpdateCore(ctx context.Context, initData *g_structs.InitDa
 	_ = gcache.Set(ctx, g_cache.UpdateCacheKey, true, 0)
 
 	glog.Debug(ctx, "开始更新speed_cron...")
-	err = updateFunc()
+
+	proxyDownloadUrl := g_consts.DownloadExeProxyUrl + githubDownloadUrl
+	glog.Debug(ctx, "proxyDownloadUrl: ", proxyDownloadUrl)
+
+	err = updateFunc(proxyDownloadUrl)
 	if err != nil {
 		glog.Warning(ctx, "更新speed_cron失败，原因：", err.Error())
 		return
@@ -60,7 +67,7 @@ func (u *uAutoUpdate) UpdateCore(ctx context.Context, initData *g_structs.InitDa
 }
 
 // updateFunc 更新speed_cron二进制程序
-func updateFunc() error {
+func updateFunc(downloadUrl string) error {
 	// 获取当前程序路径
 	path, err := osext.Executable()
 	if err != nil {
@@ -82,7 +89,7 @@ func updateFunc() error {
 	}(old)
 
 	// 下载最新的speed_cron
-	exe, err := g.Client().Get(context.TODO(), g_consts.DownloadExeUrl)
+	exe, err := g.Client().Get(context.TODO(), downloadUrl)
 	if err != nil {
 		return err
 	}
@@ -119,11 +126,11 @@ func updateFunc() error {
 }
 
 // getLatestVersion 获取github最新版本
-func getLatestVersion() (version string) {
+func getLatestVersionInfo() (version string, downloadUrl string, downloadStatus bool) {
 	response, err := g.Client().Get(context.TODO(), g_consts.UpdateBackendUrl)
 	if err != nil {
 		glog.Warning(context.TODO(), "请求github最新版本失败，原因：", err.Error())
-		return ""
+		return "", "", false
 	}
 	defer func(response *gclient.Response) {
 		err := response.Close()
@@ -134,14 +141,19 @@ func getLatestVersion() (version string) {
 	githubResJson, err := gjson.DecodeToJson(response.ReadAllString())
 	if err != nil {
 		glog.Warning(context.TODO(), "解析response失败，原因：", err.Error())
-		return ""
+		return "", "", false
 	}
 
 	// 判断GitHub Release可更新二进制文件是否存在
 	if len(githubResJson.Get("data.github_res.assets").Array()) == 0 {
 		glog.Warning(context.TODO(), "解析response失败，原因：", "github_res.assets为空")
-		return ""
+		return "", "", false
 	}
-
-	return githubResJson.Get("data.github_res.tag_name").String()
+	version = githubResJson.Get("data.github_res.tag_name").String()
+	downloadUrl = githubResJson.Get("data.github_res.assets.0.browser_download_url").String()
+	if version == "" || downloadUrl == "" {
+		glog.Warning(context.TODO(), "解析response失败，原因：", "version或downloadUrl为空")
+		return "", "", false
+	}
+	return version, downloadUrl, true
 }
