@@ -5,6 +5,7 @@ import (
 	"context"
 	"fmt"
 	"github.com/gogf/gf/v2/encoding/gjson"
+	"github.com/gogf/gf/v2/errors/gerror"
 	"github.com/gogf/gf/v2/frame/g"
 	"github.com/gogf/gf/v2/net/gclient"
 	"github.com/gogf/gf/v2/os/gcache"
@@ -14,6 +15,7 @@ import (
 	"kes-cron/internal/global/g_cache"
 	"kes-cron/internal/global/g_consts"
 	"kes-cron/internal/global/g_structs"
+	"kes-cron/utility/net_utils"
 	"os"
 	"path/filepath"
 	"time"
@@ -34,10 +36,50 @@ func (u *uAutoUpdate) UpdateCore(ctx context.Context, initData *g_structs.InitDa
 		return nil
 	}
 
-	//TODO (laixin) 2023/7/21: 获取更新通道
+	// 获取设备信息
+	_, macAddress := net_utils.NetworkInfo.GetMacAddress()
+	// 获取配置
+	glog.Debug(context.TODO(), "获取设备更新通道，当前mac地址为", macAddress)
+	// 获取后端地址
+	baseUrl := gcache.MustGet(context.Background(), "BackendBaseUrl").String()
+	configResponse, err := g.Client().SetTimeout(5*time.Second).Post(context.TODO(), baseUrl+g_consts.ConfigBackendUrl, g.Map{
+		"mac_address": macAddress,
+	})
+	defer func(response *gclient.Response) {
+		err := response.Close()
+		if err != nil {
+			glog.Warning(context.TODO(), "UpdateCore getConfig 关闭response失败: ", err)
+		}
+	}(configResponse)
+	if err != nil {
+		return
+	}
+	if configResponse.StatusCode != 200 {
+		err = gerror.Newf("UpdateCore getConfig 获取配置失败，错误码：%d", configResponse.StatusCode)
+		return
+	}
+	// 解析配置
+	configJson := gjson.New(configResponse.ReadAllString())
+	// 获取更新通道
+	updateChannel := configJson.Get("data.update_channel").String()
 
-	// 获取最新GitHub Release版本信息与下载地址
-	githubVersion, githubDownloadUrl, downloadStatus := getLatestVersionInfo()
+	var (
+		githubVersion     string
+		githubDownloadUrl string
+		downloadStatus    bool
+	)
+
+	switch updateChannel {
+	case "stable":
+		glog.Debug(ctx, "当前更新通道为稳定版")
+		// 获取最新GitHub Release版本信息与下载地址
+		githubVersion, githubDownloadUrl, downloadStatus = getLatestVersionInfo(false)
+	case "beta":
+		glog.Debug(ctx, "当前更新通道为测试版")
+		// 获取最新GitHub Release版本信息与下载地址
+		githubVersion, githubDownloadUrl, downloadStatus = getLatestVersionInfo(true)
+	}
+
 	glog.Info(ctx, "githubVersion: ", githubVersion, " githubDownloadUrl: ", githubDownloadUrl, " downloadStatus: ", downloadStatus)
 	if githubVersion == "" || githubDownloadUrl == "" || !downloadStatus {
 		glog.Warning(ctx, "获取github最新版本失败，无法比较版本")
@@ -55,7 +97,7 @@ func (u *uAutoUpdate) UpdateCore(ctx context.Context, initData *g_structs.InitDa
 
 	glog.Debug(ctx, "开始更新speed_cron...")
 
-	proxyDownloadUrl := g_consts.DownloadExeProxyUrl + githubDownloadUrl
+	proxyDownloadUrl := g_consts.DownloadProxyUrl + githubDownloadUrl
 	glog.Debug(ctx, "proxyDownloadUrl: ", proxyDownloadUrl)
 
 	err = updateFunc(proxyDownloadUrl)
@@ -126,8 +168,17 @@ func updateFunc(downloadUrl string) error {
 }
 
 // getLatestVersion 获取github最新版本
-func getLatestVersionInfo() (version string, downloadUrl string, downloadStatus bool) {
-	response, err := g.Client().Get(context.TODO(), g_consts.UpdateBackendUrl)
+func getLatestVersionInfo(isBeta bool) (version string, downloadUrl string, downloadStatus bool) {
+	// 获取后端地址
+	baseUrl := gcache.MustGet(context.Background(), "BackendBaseUrl").String()
+	backendURL := baseUrl + g_consts.StableBackendUrl
+
+	// 判断是否为测试版
+	if isBeta {
+		backendURL = baseUrl + g_consts.BetaBackendUrl
+	}
+
+	response, err := g.Client().Get(context.TODO(), backendURL)
 	if err != nil {
 		glog.Warning(context.TODO(), "请求github最新版本失败，原因：", err.Error())
 		return "", "", false
@@ -150,6 +201,15 @@ func getLatestVersionInfo() (version string, downloadUrl string, downloadStatus 
 		return "", "", false
 	}
 	version = githubResJson.Get("data.github_res.tag_name").String()
+
+	// 获取下载文件名是否正确
+	downloadFileName := githubResJson.Get("data.github_res.assets.0.name").String()
+	if downloadFileName != g_consts.DownloadFileName {
+		glog.Warning(context.TODO(), "解析response失败，原因：", "downloadFileName不正确")
+		return "", "", false
+	}
+
+	// 获取下载地址
 	downloadUrl = githubResJson.Get("data.github_res.assets.0.browser_download_url").String()
 	if version == "" || downloadUrl == "" {
 		glog.Warning(context.TODO(), "解析response失败，原因：", "version或downloadUrl为空")
