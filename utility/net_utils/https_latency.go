@@ -5,6 +5,7 @@ import (
 	"github.com/gogf/gf/v2/encoding/gjson"
 	"github.com/gogf/gf/v2/errors/gerror"
 	"github.com/gogf/gf/v2/frame/g"
+	"github.com/gogf/gf/v2/os/gcache"
 	"github.com/gogf/gf/v2/os/glog"
 	"github.com/gogf/gf/v2/util/gconv"
 	"io"
@@ -137,7 +138,9 @@ func (u *uNetUtils) PushLatencyToServer(initData *g_structs.InitData, latency in
 		"mac_address": macAddress,
 		"version":     initData.LocalVersion,
 	}
-	_, err = g.Client().Post(context.Background(), g_consts.PingBackendUrl, params)
+	// 获取后端地址
+	baseUrl := gcache.MustGet(context.Background(), "BackendBaseUrl").String()
+	_, err = g.Client().Post(context.Background(), baseUrl+g_consts.PingBackendUrl, params)
 	if err != nil {
 		glog.Warning(context.Background(), "推送延迟到服务器时发生错误:", err)
 		return

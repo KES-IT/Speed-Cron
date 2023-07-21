@@ -6,6 +6,7 @@ import (
 	"github.com/gogf/gf/v2/errors/gerror"
 	"github.com/gogf/gf/v2/frame/g"
 	"github.com/gogf/gf/v2/net/gclient"
+	"github.com/gogf/gf/v2/os/gcache"
 	"github.com/gogf/gf/v2/os/glog"
 	"kes-cron/internal/global/g_consts"
 	"kes-cron/internal/global/g_structs"
@@ -24,8 +25,11 @@ var Auth = &uAuth{}
 func (u *uAuth) DeviceAuth(initData *g_structs.InitData) (err error) {
 	// 获取内网与mac地址
 	internalIp, macAddress := net_utils.NetworkInfo.GetMacAddress()
+	// 获取后端地址
+	baseUrl := gcache.MustGet(context.Background(), "BackendBaseUrl").String()
 	// 进行设备认证
-	response, err := g.Client().SetTimeout(5*time.Second).Post(context.TODO(), g_consts.AuthBackendUrl, g.Map{
+	glog.Debug(context.Background(), "开始进行设备认证", baseUrl+g_consts.AuthBackendUrl)
+	response, err := g.Client().SetTimeout(5*time.Second).Post(context.TODO(), baseUrl+g_consts.AuthBackendUrl, g.Map{
 		"internal_ip": internalIp,
 		"mac_address": macAddress,
 		"department":  initData.Department,
@@ -57,7 +61,9 @@ func (u *uAuth) GetDeviceInfo() (getInitData *g_structs.InitData, err error) {
 	_, macAddress := net_utils.NetworkInfo.GetMacAddress()
 	// 获取配置
 	glog.Debug(context.TODO(), "重新根据mac获取配置信息", macAddress)
-	response, err := g.Client().SetTimeout(5*time.Second).Post(context.TODO(), g_consts.ConfigBackendUrl, g.Map{
+	// 获取后端地址
+	baseUrl := gcache.MustGet(context.Background(), "BackendBaseUrl").String()
+	response, err := g.Client().SetTimeout(5*time.Second).Post(context.TODO(), baseUrl+g_consts.ConfigBackendUrl, g.Map{
 		"mac_address": macAddress,
 	})
 	defer func(response *gclient.Response) {
