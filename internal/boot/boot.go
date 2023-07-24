@@ -62,7 +62,7 @@ func bootCheck(initData *g_structs.InitData) (err error) {
 	// 移除测速状态
 	_, _ = gcache.Remove(ctx, g_cache.SpeedCacheKey)
 
-	err = net_utils.NetUtils.CoreLatency(initData)
+	err = net_utils.NetUtils.CoreLatency(ctx, initData)
 	if err != nil {
 		glog.Error(context.Background(), "HTTPS延迟检测失败: ", err)
 		return

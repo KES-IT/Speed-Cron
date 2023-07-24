@@ -5,10 +5,10 @@ import (
 	"github.com/gogf/gf/v2/encoding/gjson"
 	"github.com/gogf/gf/v2/errors/gerror"
 	"github.com/gogf/gf/v2/frame/g"
+	"github.com/gogf/gf/v2/net/gclient"
 	"github.com/gogf/gf/v2/os/gcache"
 	"github.com/gogf/gf/v2/os/glog"
 	"github.com/gogf/gf/v2/util/gconv"
-	"io"
 	"kes-cron/internal/global/g_consts"
 	"kes-cron/internal/global/g_structs"
 	"time"
@@ -24,17 +24,17 @@ var NetUtils = &uNetUtils{}
 //	@author: Hamster   @date:2023-06-17 14:01:06
 func (u *uNetUtils) HttpsLatency(url string) (latency int, err error) {
 	start := time.Now()
-	resp, err := g.Client().Timeout(10*time.Second).Get(context.Background(), url)
+	resp, err := g.Client().Timeout(5*time.Second).Get(context.Background(), url)
 	if err != nil {
 		glog.Warning(context.Background(), "请求出错:", err)
 		return
 	}
-	defer func(Body io.ReadCloser) {
-		err := Body.Close()
+	defer func(resp *gclient.Response) {
+		err = resp.Close()
 		if err != nil {
-			glog.Warning(context.Background(), "关闭请求时发生错误:", err)
+			glog.Warning(context.Background(), "HttpsLatency 关闭请求时发生错误:", err)
 		}
-	}(resp.Body)
+	}(resp)
 	latency = gconv.Int(time.Since(start).Milliseconds())
 	return latency, nil
 }
@@ -43,25 +43,25 @@ func (u *uNetUtils) HttpsLatency(url string) (latency int, err error) {
 //
 //	@dc: 测试延迟核心服务
 //	@author: Hamster   @date:2023-06-17 14:03:41
-func (u *uNetUtils) CoreLatency(initData *g_structs.InitData) (err error) {
+func (u *uNetUtils) CoreLatency(ctx context.Context, initData *g_structs.InitData) (err error) {
 	latency, err := u.HttpsLatency(g_consts.PingUrl)
 	if err != nil {
-		glog.Warning(context.Background(), "请求出错:", err)
+		glog.Warning(ctx, "请求出错:", err)
 		return
 	}
-	glog.Info(context.Background(), "HTTPS延迟:", latency)
+	glog.Info(ctx, "HTTPS延迟:", latency)
 	err = u.PushLatencyToServer(initData, latency)
 	if err != nil {
-		glog.Warning(context.Background(), "推送延迟到服务器时发生错误:", err)
+		glog.Warning(ctx, "推送延迟到服务器时发生错误:", err)
 		return err
 	}
-	glog.Info(context.Background(), "开始多节点延迟测试")
+	glog.Info(ctx, "开始多节点延迟测试")
 	err = u.MultiWebsiteLatencyCore()
 	if err != nil {
-		glog.Warning(context.Background(), "多节点延迟核心服务时发生错误:", err)
+		glog.Warning(ctx, "多节点延迟核心服务时发生错误:", err)
 		return err
 	}
-	glog.Info(context.Background(), "多节点延迟测试完成")
+	glog.Info(ctx, "多节点延迟测试完成")
 	return
 }
 
@@ -92,13 +92,19 @@ func (u *uNetUtils) MultiWebsiteLatencyCore() (err error) {
 		// 推送延迟到服务器
 		// 获取后端地址
 		baseUrl := gcache.MustGet(context.Background(), "BackendBaseUrl").String()
-		_, err = g.Client().Post(context.Background(), baseUrl+g_consts.MonitorLogBackendUrl, g.Map{
+		monitorRes, err := g.Client().Post(context.Background(), baseUrl+g_consts.MonitorLogBackendUrl, g.Map{
 			"mac_address": macAddress,
 			"website_id":  monitorJson.Get("id").Int(),
 			"website_url": websiteUrl,
 			"latency":     latency,
 			"err_msg":     httpErrStr,
 		})
+		defer func(monitorRes *gclient.Response) {
+			err := monitorRes.Close()
+			if err != nil {
+				glog.Warning(context.Background(), "MultiWebsiteLatencyCore 关闭请求时发生错误:", err)
+			}
+		}(monitorRes)
 		if err != nil {
 			glog.Warning(context.Background(), "推送延迟到服务器时发生错误:", err)
 			continue
@@ -116,6 +122,12 @@ func (u *uNetUtils) GetMonitorList() (monitorList []interface{}, err error) {
 	// 获取后端地址
 	baseUrl := gcache.MustGet(context.Background(), "BackendBaseUrl").String()
 	monitorListRes, err := g.Client().Timeout(5*time.Second).Get(context.Background(), baseUrl+g_consts.MonitorListBackendUrl)
+	defer func(monitorListRes *gclient.Response) {
+		err := monitorListRes.Close()
+		if err != nil {
+			glog.Warning(context.Background(), "GetMonitorList 关闭请求时发生错误:", err)
+		}
+	}(monitorListRes)
 	if err != nil {
 		glog.Warning(context.Background(), "获取监控列表时发生错误:", err)
 		return
@@ -126,6 +138,7 @@ func (u *uNetUtils) GetMonitorList() (monitorList []interface{}, err error) {
 		err = gerror.New("获取监控列表时发生错误: 监控列表为空")
 		return
 	}
+
 	return
 }
 
@@ -144,7 +157,13 @@ func (u *uNetUtils) PushLatencyToServer(initData *g_structs.InitData, latency in
 	}
 	// 获取后端地址
 	baseUrl := gcache.MustGet(context.Background(), "BackendBaseUrl").String()
-	_, err = g.Client().Post(context.Background(), baseUrl+g_consts.PingBackendUrl, params)
+	pushRes, err := g.Client().Post(context.Background(), baseUrl+g_consts.PingBackendUrl, params)
+	defer func(pushRes *gclient.Response) {
+		err := pushRes.Close()
+		if err != nil {
+			glog.Warning(context.Background(), "PushLatencyToServer 关闭请求时发生错误:", err)
+		}
+	}(pushRes)
 	if err != nil {
 		glog.Warning(context.Background(), "推送延迟到服务器时发生错误:", err)
 		return

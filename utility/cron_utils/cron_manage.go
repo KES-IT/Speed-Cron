@@ -190,7 +190,7 @@ func addSpeedCron(ctx context.Context, initData *g_structs.InitData, timePattern
 func addPingCron(ctx context.Context, initData *g_structs.InitData, timePattern string) (err error) {
 	glog.Notice(ctx, "开始HTTPS延迟定时检测服务", timePattern)
 	_, err = gcron.AddSingleton(ctx, timePattern, func(ctx context.Context) {
-		err := net_utils.NetUtils.CoreLatency(initData)
+		err := net_utils.NetUtils.CoreLatency(ctx, initData)
 		if err != nil {
 			glog.Error(ctx, "HTTPS延迟检测失败: ", err)
 			return
