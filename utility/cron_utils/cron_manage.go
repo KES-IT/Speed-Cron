@@ -174,10 +174,10 @@ func addSpeedCron(ctx context.Context, initData *g_structs.InitData, timePattern
 		err := cli_utils.CmdCore.StartSpeedCmd(ctx, initData)
 		if err != nil {
 			glog.Error(ctx, "定时测速服务失败: ", err)
-			return
 		}
-
+		// 移除测速状态
 		_, _ = gcache.Remove(ctx, g_cache.SpeedCacheKey)
+		return
 	}, "Speed-Cron")
 	if err != nil {
 		glog.Warning(ctx, "添加定时测速服务失败: ", err)

@@ -56,9 +56,9 @@ func bootCheck(initData *g_structs.InitData) (err error) {
 
 	err = cli_utils.CmdCore.StartSpeedCmd(context.Background(), initData)
 	if err != nil {
-		glog.Error(context.Background(), "测试测速服务", err)
-		return
+		glog.Error(context.Background(), "测试测速服务出错", err)
 	}
+
 	// 移除测速状态
 	_, _ = gcache.Remove(ctx, g_cache.SpeedCacheKey)
 
@@ -94,11 +94,14 @@ func bootMethod(initData *g_structs.InitData) (err error) {
 		err := update_utils.AutoUpdate.UpdateCore(ctx, initData)
 		if err != nil {
 			glog.Error(ctx, "自动更新服务失败: ", err)
-			return
 		}
+
+		// 移除更新状态
 		if !gcache.MustGet(ctx, g_cache.UpdateCacheKey).IsNil() {
 			_, _ = gcache.Remove(ctx, g_cache.UpdateCacheKey)
 		}
+
+		return
 	}, "Cron-Update")
 	if err != nil {
 		glog.Warning(ctx, "添加初始化自动更新服务失败: ", err)
