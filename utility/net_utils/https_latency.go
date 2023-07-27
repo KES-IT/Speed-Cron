@@ -88,6 +88,8 @@ func (u *uNetUtils) MultiWebsiteLatencyCore() (err error) {
 		if httpErr != nil {
 			glog.Warning(context.Background(), "请求出错:", err)
 			httpErrStr = httpErr.Error()
+		} else {
+			glog.Info(context.Background(), websiteUrl+" HTTPS延迟: ", latency)
 		}
 		// 推送延迟到服务器
 		// 获取后端地址
@@ -99,17 +101,16 @@ func (u *uNetUtils) MultiWebsiteLatencyCore() (err error) {
 			"latency":     latency,
 			"err_msg":     httpErrStr,
 		})
-		defer func(monitorRes *gclient.Response) {
-			err := monitorRes.Close()
+		if err != nil {
+			glog.Warning(context.Background(), "推送延迟到服务器时发生错误:", err)
+		}
+		// 关闭请求
+		if monitorRes != nil {
+			err = monitorRes.Close()
 			if err != nil {
 				glog.Warning(context.Background(), "MultiWebsiteLatencyCore 关闭请求时发生错误:", err)
 			}
-		}(monitorRes)
-		if err != nil {
-			glog.Warning(context.Background(), "推送延迟到服务器时发生错误:", err)
-			continue
 		}
-		glog.Info(context.Background(), websiteUrl+" HTTPS延迟: ", latency)
 	}
 	return
 }
