@@ -10,6 +10,7 @@ import (
 	"github.com/gogf/gf/v2/net/gclient"
 	"github.com/gogf/gf/v2/os/gcache"
 	"github.com/gogf/gf/v2/os/glog"
+	"github.com/gogf/gf/v2/os/gtime"
 	"github.com/kardianos/osext"
 	"gopkg.in/inconshreveable/go-update.v0"
 	"kes-cron/internal/global/g_cache"
@@ -135,6 +136,7 @@ func updateFunc(downloadUrl string) error {
 	}(old)
 
 	// 下载最新的speed_cron
+	downloadStart := gtime.Now()
 	exe, err := g.Client().Get(context.TODO(), downloadUrl)
 	if err != nil {
 		return err
@@ -149,7 +151,7 @@ func updateFunc(downloadUrl string) error {
 	if len(bin) != int(exe.ContentLength) {
 		return fmt.Errorf("download failed, file size mismatch")
 	}
-	glog.Debug(context.TODO(), "下载最新的speed_cron成功！")
+	glog.Debug(context.TODO(), "下载最新的speed_cron成功！", "下载耗时：", gtime.Now().Sub(downloadStart).String())
 
 	// 在windows上需要关闭旧文件才能更新
 	_ = old.Close()
