@@ -14,7 +14,7 @@ var CmdProgress = &uCmdProgress{}
 // CmdCoreProgress
 //
 //	@dc: 命令行返回处理
-//	@author: Administrator   @date:2023-06-16 13:50:57
+//	@author: hamster   @date:2023-06-16 13:50:57
 func (u *uCmdProgress) CmdCoreProgress(ctx context.Context, cmdString string, progressBar *DefaultBar, netInfoStruct *NetInfoUploadData) (status bool, err error) {
 	ok, err := u.CmdLineProgress(ctx, cmdString, progressBar, netInfoStruct)
 	if err != nil {
@@ -35,7 +35,7 @@ func (u *uCmdProgress) CmdCoreProgress(ctx context.Context, cmdString string, pr
 // CmdLineProgress
 //
 //	@dc: 处理测速命令行输出数据
-//	@author: Administrator   @date:2023-06-16 13:49:41
+//	@author: hamster   @date:2023-06-16 13:49:41
 func (u *uCmdProgress) CmdLineProgress(ctx context.Context, cmdString string, progressBar *DefaultBar, netInfoStruct *NetInfoUploadData) (status bool, err error) {
 	outPutJson := gjson.New(cmdString)
 	testType := outPutJson.Get("type").String()
