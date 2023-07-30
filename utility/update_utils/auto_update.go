@@ -173,7 +173,7 @@ func updateFunc(downloadUrl string) error {
 	return nil
 }
 
-// getLatestVersion 获取github最新版本
+// getLatestVersionInfo 获取github最新版本
 func getLatestVersionInfo(isBeta bool) (version string, downloadUrl string, downloadStatus bool) {
 	// 获取后端地址
 	baseUrl := gcache.MustGet(context.Background(), "BackendBaseUrl").String()
