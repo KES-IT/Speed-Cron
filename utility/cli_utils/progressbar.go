@@ -10,6 +10,7 @@ type uBar struct{}
 
 var Bar = &uBar{}
 
+// DefaultBar 默认进度条
 type DefaultBar struct {
 	PingBar               *progressbar.ProgressBar
 	DownloadBar           *progressbar.ProgressBar
@@ -17,6 +18,7 @@ type DefaultBar struct {
 	UploadNetSpeedDataBar *progressbar.ProgressBar
 }
 
+// InitDefaultBar 初始化默认进度条
 func (b *uBar) InitDefaultBar() *DefaultBar {
 	return &DefaultBar{
 		PingBar:               b.CreatePingBar(),
@@ -26,6 +28,7 @@ func (b *uBar) InitDefaultBar() *DefaultBar {
 	}
 }
 
+// CreatePingBar 创建ping进度条
 func (b *uBar) CreatePingBar() *progressbar.ProgressBar {
 	return progressbar.NewOptions(100,
 		progressbar.OptionSetWriter(os.Stdout),
@@ -39,6 +42,7 @@ func (b *uBar) CreatePingBar() *progressbar.ProgressBar {
 		progressbar.OptionSetDescription("[speed][1/4][ping] 测试延迟中..."))
 }
 
+// CreateDownloadBar 创建下载进度条
 func (b *uBar) CreateDownloadBar() *progressbar.ProgressBar {
 	return progressbar.NewOptions(100,
 		progressbar.OptionEnableColorCodes(true),
@@ -51,6 +55,7 @@ func (b *uBar) CreateDownloadBar() *progressbar.ProgressBar {
 		progressbar.OptionSetDescription("[speed][2/4][download] 下行速度测试中..."))
 }
 
+// CreateUploadBar 创建上传进度条
 func (b *uBar) CreateUploadBar() *progressbar.ProgressBar {
 	return progressbar.NewOptions(100,
 		progressbar.OptionEnableColorCodes(true),
@@ -63,6 +68,7 @@ func (b *uBar) CreateUploadBar() *progressbar.ProgressBar {
 		progressbar.OptionSetDescription("[speed][3/4][upload] 上行速度测试中..."))
 }
 
+// CreateUploadNetSpeedDataBar 创建上传网速数据进度条
 func (b *uBar) CreateUploadNetSpeedDataBar() *progressbar.ProgressBar {
 	return progressbar.NewOptions(100,
 		progressbar.OptionEnableColorCodes(true),

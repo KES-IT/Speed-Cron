@@ -9,6 +9,7 @@ import (
 	"github.com/gogf/gf/v2/os/gcache"
 	"github.com/gogf/gf/v2/os/glog"
 	"github.com/gogf/gf/v2/os/gtime"
+	"github.com/gogf/gf/v2/util/gconv"
 	"kes-cron/internal/global/g_consts"
 	"kes-cron/utility/net_utils"
 )
@@ -34,9 +35,7 @@ type NetInfoUploadData struct {
 // ProcessResult
 //
 //	@dc: 处理结果
-//	@params:
-//	@response:
-//	@author: Administrator   @date:2023-06-16 09:45:06
+//	@author: hamster   @date:2023-06-16 09:45:06
 func (u *uResult) ProcessResult(oriData *NetInfoUploadData) (err error) {
 	// 进行数据处理
 	if oriData.InternalIp == "" || oriData.MacAddress == "00:00:00:00:00:00" {
@@ -65,6 +64,7 @@ func (u *uResult) ProcessResult(oriData *NetInfoUploadData) (err error) {
 	return
 }
 
+// UploadDataToServer 上传数据到服务器
 func (u *uResult) UploadDataToServer(netInfo *NetInfoUploadData) error {
 	// 构建进度条
 	dataBar := Bar.CreateUploadNetSpeedDataBar()
@@ -82,11 +82,11 @@ func (u *uResult) UploadDataToServer(netInfo *NetInfoUploadData) error {
 	defer func(post *gclient.Response) {
 		err := post.Close()
 		if err != nil {
-			glog.Warning(context.Background(), err)
+			glog.Warning(context.Background(), "上传测速数据关闭连接失败", err)
 		}
 	}(post)
 	if post.StatusCode != 200 {
-		return errors.New("上传数据失败")
+		return errors.New("上传数据失败,状态码：" + gconv.String(post.StatusCode))
 	}
 	// 上传成功，修改进度条
 	_ = dataBar.Finish()

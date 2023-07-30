@@ -69,14 +69,14 @@ func (u *uAuth) GetDeviceInfo() (getInitData *g_structs.InitData, err error) {
 	defer func(response *gclient.Response) {
 		err := response.Close()
 		if err != nil {
-			glog.Error(context.Background(), "关闭response时发生错误:", err)
+			glog.Error(context.Background(), "GetDeviceInfo关闭response时发生错误:", err)
 		}
 	}(response)
 	if err != nil {
 		return
 	}
 	if response.StatusCode != 200 {
-		err = gerror.Newf("获取配置失败，错误码：%d", response.StatusCode)
+		err = gerror.Newf("GetDeviceInfo获取配置失败，错误码：%d", response.StatusCode)
 		return
 	}
 	// 解析配置

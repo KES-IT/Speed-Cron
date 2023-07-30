@@ -19,9 +19,9 @@ var CmdCore = &uCmdCore{}
 //	@dc: 启动speedtest命令
 //	@author: hamster   @date:2023/6/20 10:06:06
 func (u *uCmdCore) StartSpeedCmd(ctx context.Context, initData *g_structs.InitData) (err error) {
+	// 创建命令
 	cmd := CliUtils.CreateSpeedCmd()
 	if cmd == nil {
-		glog.Warning(ctx, "创建命令失败,获取测速节点失败")
 		err = gerror.New("创建命令失败,获取测速节点失败")
 		return
 	}
