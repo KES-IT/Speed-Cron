@@ -68,6 +68,7 @@ func (u *uCronManage) GetConfigAndStart(ctx context.Context, initData *g_structs
 					glog.Warning(ctx, "更新HTTPS-Cron定时器失败")
 					return
 				}
+				glog.Notice(ctx, "更新HTTPS-Cron定时器成功")
 				return
 			} else {
 				glog.Notice(ctx, "HTTPS-Cron定时器无需更新")
@@ -89,7 +90,7 @@ func (u *uCronManage) GetConfigAndStart(ctx context.Context, initData *g_structs
 	} else {
 		speedEntryPattern := reflect.ValueOf(localSpeedCron).Elem().FieldByName("schedule").Elem().FieldByName("pattern")
 		if speedEntryPattern.String() != speedInterval {
-			glog.Notice(ctx, "更新Speed-Cron定时器")
+			glog.Notice(ctx, "开始更新Speed-Cron定时器")
 			// 删除旧定时任务
 			gcron.Stop("Speed-Cron")
 			gcron.Remove("Speed-Cron")
@@ -99,6 +100,7 @@ func (u *uCronManage) GetConfigAndStart(ctx context.Context, initData *g_structs
 				glog.Warning(ctx, "更新Speed-Cron定时器失败")
 				return
 			}
+			glog.Notice(ctx, "更新Speed-Cron定时器成功")
 			return
 		} else {
 			glog.Notice(ctx, "Speed-Cron定时器无需更新")
