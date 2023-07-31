@@ -45,8 +45,7 @@ var (
 				Department: parser.GetOpt("department").String(),
 				Name:       parser.GetOpt("name").String(),
 			}
-
-			glog.Notice(ctx, "当前部门: ", initData.Department, " 当前员工: ", initData.Name)
+			glog.Notice(ctx, "当前初始化部门: ", initData.Department, " 当前初始化员工: ", initData.Name)
 			if initData.Department == "" || initData.Name == "" {
 				glog.Warning(ctx, "初始化任务失败: ", "参数错误", "设置为默认值")
 				initData.Department = "未知部门-吉他维修部"
