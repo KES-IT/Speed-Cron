@@ -22,8 +22,8 @@ var (
 	Version = &gcmd.Command{
 		Name:        "version",
 		Brief:       "return version",
-		Description: "return version",
-		Func: func(ctx context.Context, parser *gcmd.Parser) (err error) {
+		Description: "show exe version",
+		Func: func(ctx context.Context, parser *gcmd.Parser) error {
 			fmt.Print(LocalVersion)
 			return nil
 		},
