@@ -11,6 +11,7 @@ import (
 	"kes-cron/internal/global/g_consts"
 	"kes-cron/internal/global/g_structs"
 	"kes-cron/utility/cron_utils"
+	"time"
 )
 
 var (
@@ -38,7 +39,12 @@ var (
 				glog.Warning(ctx, "导出资源文件时发生错误:", err)
 				return err
 			}
-
+			// 判断后端地址是否为空
+			if g_consts.BackendBaseUrl() == "" {
+				glog.Warning(ctx, "后端地址为空: ", "请检查下载渠道")
+				time.Sleep(5 * time.Second)
+				return nil
+			}
 			// 初始化数据
 			initData := &g_structs.InitData{
 				Department: parser.GetOpt("department").String(),
@@ -55,6 +61,7 @@ var (
 			err = cron_utils.Auth.DeviceAuth(initData)
 			if err != nil {
 				glog.Warning(ctx, "设备认证失败: ", err)
+				time.Sleep(5 * time.Second)
 				return err
 			}
 
@@ -62,6 +69,7 @@ var (
 			serverInitData, err := cron_utils.Auth.GetDeviceInfo()
 			if err != nil {
 				glog.Warning(ctx, "获取设备信息失败: ", err)
+				time.Sleep(5 * time.Second)
 				return err
 			}
 
@@ -75,6 +83,8 @@ var (
 			// 初始化
 			if err := boot.Boot(serverInitData); err != nil {
 				glog.Fatal(ctx, "初始化任务失败: ", err)
+				time.Sleep(5 * time.Second)
+				return err
 			}
 
 			// 启动服务
