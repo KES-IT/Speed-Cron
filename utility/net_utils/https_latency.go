@@ -6,7 +6,6 @@ import (
 	"github.com/gogf/gf/v2/errors/gerror"
 	"github.com/gogf/gf/v2/frame/g"
 	"github.com/gogf/gf/v2/net/gclient"
-	"github.com/gogf/gf/v2/os/gcache"
 	"github.com/gogf/gf/v2/os/glog"
 	"github.com/gogf/gf/v2/util/gconv"
 	"kes-cron/internal/global/g_consts"
@@ -92,9 +91,7 @@ func (u *uNetUtils) MultiWebsiteLatencyCore() (err error) {
 			glog.Info(context.Background(), websiteUrl+" HTTPS延迟: ", latency)
 		}
 		// 推送延迟到服务器
-		// 获取后端地址
-		baseUrl := gcache.MustGet(context.Background(), "BackendBaseUrl").String()
-		monitorRes, err := g.Client().Post(context.Background(), baseUrl+g_consts.MonitorLogBackendUrl, g.Map{
+		monitorRes, err := g.Client().Post(context.Background(), g_consts.BackendBaseUrl()+g_consts.MonitorLogBackendUrl, g.Map{
 			"mac_address": macAddress,
 			"website_id":  monitorJson.Get("id").Int(),
 			"website_url": websiteUrl,
@@ -120,9 +117,8 @@ func (u *uNetUtils) MultiWebsiteLatencyCore() (err error) {
 //	@dc: 获取监控列表
 //	@author: laixin   @date:2023/7/20 16:55:37
 func (u *uNetUtils) GetMonitorList() (monitorList []interface{}, err error) {
-	// 获取后端地址
-	baseUrl := gcache.MustGet(context.Background(), "BackendBaseUrl").String()
-	monitorListRes, err := g.Client().Timeout(5*time.Second).Get(context.Background(), baseUrl+g_consts.MonitorListBackendUrl)
+	// 从服务器获取监控列表
+	monitorListRes, err := g.Client().Timeout(5*time.Second).Get(context.Background(), g_consts.BackendBaseUrl()+g_consts.MonitorListBackendUrl)
 	defer func(monitorListRes *gclient.Response) {
 		err := monitorListRes.Close()
 		if err != nil {
@@ -156,9 +152,8 @@ func (u *uNetUtils) PushLatencyToServer(initData *g_structs.InitData, latency in
 		"mac_address": macAddress,
 		"version":     initData.LocalVersion,
 	}
-	// 获取后端地址
-	baseUrl := gcache.MustGet(context.Background(), "BackendBaseUrl").String()
-	pushRes, err := g.Client().Post(context.Background(), baseUrl+g_consts.PingBackendUrl, params)
+	// 推送延迟到服务器
+	pushRes, err := g.Client().Post(context.Background(), g_consts.BackendBaseUrl()+g_consts.PingBackendUrl, params)
 	defer func(pushRes *gclient.Response) {
 		err := pushRes.Close()
 		if err != nil {

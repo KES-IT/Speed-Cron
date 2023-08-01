@@ -6,7 +6,6 @@ import (
 	"github.com/gogf/gf/v2/encoding/gjson"
 	"github.com/gogf/gf/v2/frame/g"
 	"github.com/gogf/gf/v2/net/gclient"
-	"github.com/gogf/gf/v2/os/gcache"
 	"github.com/gogf/gf/v2/os/glog"
 	"github.com/gogf/gf/v2/os/gtime"
 	"github.com/gogf/gf/v2/util/gconv"
@@ -73,9 +72,8 @@ func (u *uResult) UploadDataToServer(netInfo *NetInfoUploadData) error {
 	glog.Debug(context.Background(), "---上传数据---")
 	g.Dump(uploadJson)
 	glog.Debug(context.Background(), "---上传数据---")
-	// 获取后端地址
-	baseUrl := gcache.MustGet(context.Background(), "BackendBaseUrl").String()
-	post, err := g.Client().Post(context.Background(), baseUrl+g_consts.SpeedBackendUrl, uploadJson)
+	// 上传数据
+	post, err := g.Client().Post(context.Background(), g_consts.BackendBaseUrl()+g_consts.SpeedBackendUrl, uploadJson)
 	if err != nil {
 		return err
 	}

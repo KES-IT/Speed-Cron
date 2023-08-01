@@ -41,9 +41,7 @@ func (u *uAutoUpdate) UpdateCore(ctx context.Context, initData *g_structs.InitDa
 	_, macAddress := net_utils.NetworkInfo.GetMacAddress()
 	// 获取配置
 	glog.Debug(context.TODO(), "获取设备更新通道，当前mac地址为", macAddress)
-	// 获取后端地址
-	baseUrl := gcache.MustGet(context.Background(), "BackendBaseUrl").String()
-	configResponse, err := g.Client().SetTimeout(5*time.Second).Post(context.TODO(), baseUrl+g_consts.ConfigBackendUrl, g.Map{
+	configResponse, err := g.Client().SetTimeout(5*time.Second).Post(context.TODO(), g_consts.BackendBaseUrl()+g_consts.ConfigBackendUrl, g.Map{
 		"mac_address": macAddress,
 	})
 	defer func(response *gclient.Response) {
@@ -175,16 +173,15 @@ func updateFunc(downloadUrl string) error {
 
 // getLatestVersionInfo 获取github最新版本
 func getLatestVersionInfo(isBeta bool) (version string, downloadUrl string, downloadStatus bool) {
-	// 获取后端地址
-	baseUrl := gcache.MustGet(context.Background(), "BackendBaseUrl").String()
-	backendURL := baseUrl + g_consts.StableBackendUrl
+
+	backendVersionURL := g_consts.BackendBaseUrl() + g_consts.StableBackendUrl
 
 	// 判断是否为测试版
 	if isBeta {
-		backendURL = baseUrl + g_consts.BetaBackendUrl
+		backendVersionURL = g_consts.BackendBaseUrl() + g_consts.BetaBackendUrl
 	}
 
-	response, err := g.Client().Get(context.TODO(), backendURL)
+	response, err := g.Client().Get(context.TODO(), backendVersionURL)
 	if err != nil {
 		glog.Warning(context.TODO(), "请求github最新版本失败，原因：", err.Error())
 		return "", "", false

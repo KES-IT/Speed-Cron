@@ -4,18 +4,17 @@ import (
 	"context"
 	"fmt"
 	"github.com/gogf/gf/v2/frame/g"
-	"github.com/gogf/gf/v2/os/gcache"
 	"github.com/gogf/gf/v2/os/gcmd"
 	"github.com/gogf/gf/v2/os/glog"
 	"github.com/gogf/gf/v2/os/gres"
 	"kes-cron/internal/boot"
+	"kes-cron/internal/global/g_consts"
 	"kes-cron/internal/global/g_structs"
 	"kes-cron/utility/cron_utils"
 )
 
 var (
-	LocalVersion   = ""
-	BackendBaseUrl = ""
+	LocalVersion = ""
 )
 
 var (
@@ -52,12 +51,6 @@ var (
 				initData.Name = "未知员工-方大同"
 			}
 
-			// 注入后端地址
-			err = gcache.Set(ctx, "BackendBaseUrl", BackendBaseUrl, 0)
-			if err != nil {
-				glog.Fatal(ctx, "设置后端地址缓存失败: ", err)
-			}
-
 			// 第一次设备注册\认证
 			err = cron_utils.Auth.DeviceAuth(initData)
 			if err != nil {
@@ -77,7 +70,7 @@ var (
 			glog.Notice(ctx, "当前客户端版本: ", LocalVersion)
 
 			// 设置后端地址
-			glog.Notice(ctx, "当前后端地址: ", BackendBaseUrl)
+			glog.Notice(ctx, "当前后端地址: ", g_consts.BackendBaseUrl())
 
 			// 初始化
 			if err := boot.Boot(serverInitData); err != nil {

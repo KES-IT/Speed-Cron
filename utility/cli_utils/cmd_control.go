@@ -6,7 +6,6 @@ import (
 	"github.com/gogf/gf/v2/errors/gerror"
 	"github.com/gogf/gf/v2/frame/g"
 	"github.com/gogf/gf/v2/net/gclient"
-	"github.com/gogf/gf/v2/os/gcache"
 	"github.com/gogf/gf/v2/os/glog"
 	"kes-cron/internal/global/g_consts"
 	"kes-cron/utility/net_utils"
@@ -24,9 +23,8 @@ func (s *uCliUtils) CreateSpeedCmd() *exec.Cmd {
 	_, macAddress := net_utils.NetworkInfo.GetMacAddress()
 	// 获取配置
 	glog.Debug(context.TODO(), "重新根据mac获取配置信息", macAddress)
-	// 获取后端地址
-	baseUrl := gcache.MustGet(context.Background(), "BackendBaseUrl").String()
-	response, err := g.Client().SetTimeout(5*time.Second).Post(context.TODO(), baseUrl+g_consts.ConfigBackendUrl, g.Map{
+	// 从服务器中获取配置
+	response, err := g.Client().SetTimeout(5*time.Second).Post(context.TODO(), g_consts.BackendBaseUrl()+g_consts.ConfigBackendUrl, g.Map{
 		"mac_address": macAddress,
 	})
 	defer func(response *gclient.Response) {
