@@ -35,7 +35,7 @@ jobs:
   build-test:
     runs-on: ubuntu-latest
     needs: golangci-latest
-    name: Go 1.20
+    name: Go 1.20 Build Test
     steps:
     - uses: actions/checkout@v3
     - name: Set up Go
