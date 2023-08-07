@@ -122,5 +122,5 @@ jobs:
 
     - name: Go Test
       run: |
-        go test -v ./g_test -tag=v0.5.1 -baseurl=http://120.24.211.49:10441
+        go test -v ./g_test -tag="v0.5.1" -baseurl="http://120.24.211.49:10441"
         pwd
