@@ -21,6 +21,7 @@ func Test_BackendBaseUrl(t *testing.T) {
 		flag.Parse()
 		// 测试是否正确获取到后端地址
 		baseUrl := *inputBaseUrl
+		g.Dump(baseUrl)
 		t.AssertNE(baseUrl, "")
 		// 测试是否正确获取到后端地址且可访问
 		response, err := g.Client().Get(context.Background(), baseUrl)
@@ -36,6 +37,7 @@ func Test_Version(t *testing.T) {
 	gtest.C(t, func(t *gtest.T) {
 		flag.Parse()
 		githubTag := *inputGithubTag
+		g.Dump(githubTag)
 		t.AssertNE(githubTag, "")
 	})
 }
