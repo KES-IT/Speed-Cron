@@ -71,7 +71,7 @@ jobs:
   go-test:
     runs-on: self-hosted
     needs: [build-test]
-    name: Go 1.20 test
+    name: Self-hosted Windows Go 1.20 go-test
     steps:
     - uses: actions/checkout@v3
 
