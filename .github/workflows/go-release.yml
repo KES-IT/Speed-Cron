@@ -97,6 +97,9 @@ jobs:
   build-go-binary:
     runs-on: ubuntu-latest
     needs: go-build-last-test
+    env:
+      GOOS: windows
+      GOARCH: amd64
     steps:
       - name: Get version
         id: get_version
@@ -105,11 +108,11 @@ jobs:
       - uses: wangyoucao577/go-release-action@v1
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }} # 一个默认的变量，用来实现往 Release 中添加文件
-          goos: windows
-          goarch: amd64
+          goos: ${{ env.GOOS }}
+          goarch: ${{ env.GOARCH }}
           ldflags: -X "main.GitTag=${{ env.CURRENT_VERSION }}" -X "main.BackendBaseUrl=${{ secrets.BACKEND_URL }}"       # 通过 ldflags 注入版本号
           pre_command: export CGO_ENABLED=0 && export GODEBUG=http2client=0
           overwrite: true
-          asset_name: "speed_cron_${{ matrix.goos }}_${{ matrix.goarch }}" # 可以指定二进制文件的名称
+          asset_name: "speed_cron_${{ env.GOOS }}_${{ env.GOARCH }}" # 可以指定二进制文件的名称
           compress_assets: OFF # 可以指定是否压缩二进制文件
           
