@@ -1,9 +1,13 @@
 package g_test
 
 import (
+	"context"
 	"github.com/gogf/gf/v2/os/gres"
 	"github.com/gogf/gf/v2/test/gtest"
+	"kes-cron/internal/global/g_consts"
+	"kes-cron/internal/global/g_structs"
 	_ "kes-cron/internal/packed"
+	"kes-cron/utility/cli_utils"
 	"testing"
 )
 
@@ -13,4 +17,22 @@ func Test_GDumpFile(t *testing.T) {
 		err := gres.Export("speedCLI/speedtest.exe", "speed_cli/")
 		t.Assert(err, nil)
 	})
+}
+
+// 测试模拟单次测速
+func Test_Speed_Single(t *testing.T) {
+	gtest.C(t, func(t *gtest.T) {
+		// 传入后端地址
+		baseUrl := *InputBaseUrl
+		g_consts.BaseUrl = baseUrl
+		githubTag := *InputGithubTag
+		initData := &g_structs.InitData{
+			Department:   "GitHub",
+			Name:         "Go-Test",
+			LocalVersion: githubTag,
+		}
+		err := cli_utils.CmdCore.StartSpeedCmd(context.Background(), initData)
+		t.Assert(err, nil)
+	})
+
 }
