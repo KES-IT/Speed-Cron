@@ -70,7 +70,7 @@ jobs:
         pwd
 
   go-test:
-    runs-on: windows-latest
+    runs-on: self-hosted
     needs: build-test
     environment: production
     name: Self-hosted Windows Go 1.20 go-test
