@@ -2,6 +2,7 @@ package g_test
 
 import (
 	"context"
+	"github.com/gogf/gf/v2/frame/g"
 	"github.com/gogf/gf/v2/os/gres"
 	"github.com/gogf/gf/v2/test/gtest"
 	"kes-cron/internal/global/g_consts"
@@ -14,7 +15,6 @@ import (
 )
 
 var (
-	baseUrl   = *InputBaseUrl
 	githubTag = *InputGithubTag
 	initData  = &g_structs.InitData{
 		Department:   "GitHub",
@@ -22,6 +22,13 @@ var (
 		LocalVersion: githubTag,
 	}
 )
+
+func init() {
+	baseUrl := *InputBaseUrl
+	g.Dump(baseUrl)
+	g.Dump(githubTag)
+	g.Dump(initData)
+}
 
 // 测试解压文件
 func Test_GDumpFile(t *testing.T) {
@@ -35,6 +42,7 @@ func Test_GDumpFile(t *testing.T) {
 func Test_Speed_Single(t *testing.T) {
 	gtest.C(t, func(t *gtest.T) {
 		// 传入后端地址
+		baseUrl := *InputBaseUrl
 		g_consts.BaseUrl = baseUrl
 		err := cli_utils.CmdCore.StartSpeedCmd(context.Background(), initData)
 		t.Assert(err, nil)
@@ -45,6 +53,7 @@ func Test_Speed_Single(t *testing.T) {
 func Test_Website_Latency(t *testing.T) {
 	gtest.C(t, func(t *gtest.T) {
 		// 传入后端地址
+		baseUrl := *InputBaseUrl
 		g_consts.BaseUrl = baseUrl
 		err := net_utils.NetUtils.CoreLatency(context.Background(), initData)
 		t.Assert(err, nil)
@@ -55,6 +64,7 @@ func Test_Website_Latency(t *testing.T) {
 func Test_Auto_Update(t *testing.T) {
 	gtest.C(t, func(t *gtest.T) {
 		// 传入后端地址
+		baseUrl := *InputBaseUrl
 		g_consts.BaseUrl = baseUrl
 		err := update_utils.AutoUpdate.UpdateCore(context.Background(), initData)
 		t.Assert(err, nil)
