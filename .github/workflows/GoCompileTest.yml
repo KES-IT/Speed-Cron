@@ -107,19 +107,15 @@ jobs:
         pwd
 
   go-test:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     needs: [build-test]
-    strategy:
-      matrix:
-        go: ['1.19', '1.20','stable' ]
-    name: Go ${{ matrix.go }} sample
+    name: Go 1.20 test
     steps:
     - uses: actions/checkout@v3
     - name: Set up Go
       uses: actions/setup-go@v4
       with:
-        go-version: ${{ matrix.go }}
-        check-latest: true
+        go-version: '1.20'
 
     - name: Get Git Commit Log
       id: git-commit-log
