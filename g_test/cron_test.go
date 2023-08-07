@@ -3,6 +3,7 @@ package g_test
 import (
 	"context"
 	"github.com/gogf/gf/v2/frame/g"
+	"github.com/gogf/gf/v2/os/gcache"
 	"github.com/gogf/gf/v2/os/gres"
 	"github.com/gogf/gf/v2/test/gtest"
 	"kes-cron/internal/global/g_consts"
@@ -68,6 +69,7 @@ func Test_Auto_Update(t *testing.T) {
 		g_consts.BaseUrl = baseUrl
 		githubTag := *InputGithubTag
 		initData.LocalVersion = githubTag
+		_ = gcache.Set(context.Background(), "GitHubTestStatus", true, 0)
 		err := update_utils.AutoUpdate.UpdateCore(context.Background(), initData)
 		t.Assert(err, nil)
 	})

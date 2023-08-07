@@ -164,6 +164,10 @@ func updateFunc(downloadUrl string) error {
 
 	glog.Debug(context.TODO(), "更新完成,重启中......")
 
+	githubTestStatus := gcache.MustGet(context.Background(), "GitHubTestStatus").Bool()
+	if githubTestStatus {
+		return nil
+	}
 	// 采用os.Exit(1)方式退出，等待winsw接管重启
 	time.Sleep(1 * time.Second)
 	os.Exit(1)
