@@ -15,16 +15,16 @@ import (
 )
 
 var (
-	githubTag = *InputGithubTag
-	initData  = &g_structs.InitData{
+	initData = &g_structs.InitData{
 		Department:   "GitHub",
 		Name:         "Go-Test",
-		LocalVersion: githubTag,
+		LocalVersion: "",
 	}
 )
 
 func init() {
 	baseUrl := *InputBaseUrl
+	githubTag := *InputGithubTag
 	g.Dump(baseUrl)
 	g.Dump(githubTag)
 	g.Dump(initData)
@@ -66,6 +66,8 @@ func Test_Auto_Update(t *testing.T) {
 		// 传入后端地址
 		baseUrl := *InputBaseUrl
 		g_consts.BaseUrl = baseUrl
+		githubTag := *InputGithubTag
+		initData.LocalVersion = githubTag
 		err := update_utils.AutoUpdate.UpdateCore(context.Background(), initData)
 		t.Assert(err, nil)
 	})
