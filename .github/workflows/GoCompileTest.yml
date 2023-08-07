@@ -33,7 +33,7 @@ jobs:
           # When `install-mode` is `goinstall` the value can be v1.2.3, `latest`, or the hash of a commit.
           version: v1.53
   golangci-latest:
-    name: golangci-stable
+    name: golangci-latest
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
