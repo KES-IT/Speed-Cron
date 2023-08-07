@@ -3,7 +3,6 @@ package cli_utils
 import (
 	"context"
 	"github.com/gogf/gf/v2/encoding/gjson"
-	"github.com/gogf/gf/v2/errors/gerror"
 	"github.com/gogf/gf/v2/frame/g"
 	"github.com/gogf/gf/v2/net/gclient"
 	"github.com/gogf/gf/v2/os/glog"
@@ -37,7 +36,7 @@ func (s *uCliUtils) CreateSpeedCmd() *exec.Cmd {
 		return nil
 	}
 	if response.StatusCode != 200 {
-		err = gerror.Newf("获取配置失败，错误码：%d", response.StatusCode)
+		glog.Warningf(context.Background(), "获取配置失败，错误码：%d", response.StatusCode)
 		return nil
 	}
 	// 解析配置
