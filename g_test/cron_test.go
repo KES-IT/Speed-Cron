@@ -23,11 +23,6 @@ var (
 	}
 )
 
-func init() {
-	// 传入后端地址
-	g_consts.BaseUrl = baseUrl
-}
-
 // 测试解压文件
 func Test_GDumpFile(t *testing.T) {
 	gtest.C(t, func(t *gtest.T) {
@@ -39,6 +34,8 @@ func Test_GDumpFile(t *testing.T) {
 // 测试模拟单次测速
 func Test_Speed_Single(t *testing.T) {
 	gtest.C(t, func(t *gtest.T) {
+		// 传入后端地址
+		g_consts.BaseUrl = baseUrl
 		err := cli_utils.CmdCore.StartSpeedCmd(context.Background(), initData)
 		t.Assert(err, nil)
 	})
@@ -47,6 +44,8 @@ func Test_Speed_Single(t *testing.T) {
 // 测试多站点延迟测试
 func Test_Website_Latency(t *testing.T) {
 	gtest.C(t, func(t *gtest.T) {
+		// 传入后端地址
+		g_consts.BaseUrl = baseUrl
 		err := net_utils.NetUtils.CoreLatency(context.Background(), initData)
 		t.Assert(err, nil)
 	})
@@ -55,6 +54,8 @@ func Test_Website_Latency(t *testing.T) {
 // 测试自动更新模块
 func Test_Auto_Update(t *testing.T) {
 	gtest.C(t, func(t *gtest.T) {
+		// 传入后端地址
+		g_consts.BaseUrl = baseUrl
 		err := update_utils.AutoUpdate.UpdateCore(context.Background(), initData)
 		t.Assert(err, nil)
 	})
