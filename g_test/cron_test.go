@@ -43,3 +43,19 @@ func Test_Speed_Single(t *testing.T) {
 		t.Assert(err, nil)
 	})
 }
+
+// 测试多站点延迟测试
+func Test_Website_Latency(t *testing.T) {
+	gtest.C(t, func(t *gtest.T) {
+		err := net_utils.NetUtils.CoreLatency(context.Background(), initData)
+		t.Assert(err, nil)
+	})
+}
+
+// 测试自动更新模块
+func Test_Auto_Update(t *testing.T) {
+	gtest.C(t, func(t *gtest.T) {
+		err := update_utils.AutoUpdate.UpdateCore(context.Background(), initData)
+		t.Assert(err, nil)
+	})
+}
