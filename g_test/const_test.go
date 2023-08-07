@@ -10,8 +10,8 @@ import (
 )
 
 var (
-	inputGithubTag = flag.String("tag", "", "get github tag")
-	inputBaseUrl   = flag.String("baseurl", "", "get backend base url")
+	InputGithubTag = flag.String("tag", "", "get github tag")
+	InputBaseUrl   = flag.String("baseurl", "", "get backend base url")
 )
 
 // 测试是否正确获取到后端地址
@@ -20,7 +20,7 @@ func Test_BackendBaseUrl(t *testing.T) {
 		// 获取命令行参数
 		flag.Parse()
 		// 测试是否正确获取到后端地址
-		baseUrl := *inputBaseUrl
+		baseUrl := *InputBaseUrl
 		g.Dump(baseUrl)
 		t.AssertNE(baseUrl, "")
 		// 测试是否正确获取到后端地址且可访问
@@ -36,7 +36,7 @@ func Test_BackendBaseUrl(t *testing.T) {
 func Test_Version(t *testing.T) {
 	gtest.C(t, func(t *gtest.T) {
 		flag.Parse()
-		githubTag := *inputGithubTag
+		githubTag := *InputGithubTag
 		g.Dump(githubTag)
 		t.AssertNE(githubTag, "")
 	})
