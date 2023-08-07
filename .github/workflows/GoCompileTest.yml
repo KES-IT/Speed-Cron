@@ -34,7 +34,6 @@ jobs:
 
   build-test:
     runs-on: ubuntu-latest
-    environment: development
     needs: golangci-latest
     name: Go 1.20 Build Test
     steps:
