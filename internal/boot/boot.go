@@ -100,8 +100,6 @@ func bootMethod(initData *g_structs.InitData) (err error) {
 		if !gcache.MustGet(ctx, g_cache.UpdateCacheKey).IsNil() {
 			_, _ = gcache.Remove(ctx, g_cache.UpdateCacheKey)
 		}
-
-		return
 	}, "Cron-Update")
 	if err != nil {
 		glog.Warning(ctx, "添加初始化自动更新服务失败: ", err)
