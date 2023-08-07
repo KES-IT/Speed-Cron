@@ -132,6 +132,11 @@ func updateFunc(downloadUrl string) error {
 			glog.Warning(context.TODO(), "关闭旧文件失败，原因：", err.Error())
 		}
 	}(old)
+	// GitHub测试状态
+	githubTestStatus := gcache.MustGet(context.Background(), "GitHubTestStatus").Bool()
+	if githubTestStatus {
+		return nil
+	}
 
 	// 下载最新的speed_cron
 	downloadStart := gtime.Now()

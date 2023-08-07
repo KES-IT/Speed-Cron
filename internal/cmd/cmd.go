@@ -15,8 +15,12 @@ import (
 )
 
 var (
-	LocalVersion = ""
+	LocalVersion = "unknown"
 )
+
+func GetVersion() string {
+	return LocalVersion
+}
 
 var (
 	Version = &gcmd.Command{
@@ -24,7 +28,7 @@ var (
 		Brief:       "return version",
 		Description: "show exe version",
 		Func: func(ctx context.Context, parser *gcmd.Parser) error {
-			fmt.Print(LocalVersion)
+			fmt.Print(GetVersion())
 			return nil
 		},
 	}
@@ -74,8 +78,8 @@ var (
 			}
 
 			// 设置本地版本号
-			serverInitData.LocalVersion = LocalVersion
-			glog.Notice(ctx, "当前客户端版本: ", LocalVersion)
+			serverInitData.LocalVersion = GetVersion()
+			glog.Notice(ctx, "当前客户端版本: ", GetVersion())
 
 			// 设置后端地址
 			glog.Notice(ctx, "当前后端地址: ", g_consts.BackendBaseUrl())

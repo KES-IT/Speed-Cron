@@ -9,21 +9,39 @@ on:
   pull_request:
     branches: [ "main" ]
 
+permissions:
+  contents: read
+  pull-requests: read
+
+
 jobs:
+  golangci-latest:
+    name: golangci-latest
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-go@v4
+        with:
+          go-version: '1.20'
+          cache: false
+      - name: golangci-lint
+        uses: golangci/golangci-lint-action@v3
+        with:
+          # Require: The version of golangci-lint to use.
+          # When `install-mode` is `binary` (default) the value can be v1.2 or v1.2.3 or `latest` to use the latest version.
+          # When `install-mode` is `goinstall` the value can be v1.2.3, `latest`, or the hash of a commit.
+          version: v1.53
 
   build-test:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        go: ['1.19', '1.20','stable' ]
-    name: Go ${{ matrix.go }} sample
+    needs: golangci-latest
+    name: Go 1.20 Build Test
     steps:
     - uses: actions/checkout@v3
     - name: Set up Go
       uses: actions/setup-go@v4
       with:
-        go-version: ${{ matrix.go }}
-        check-latest: true
+        go-version: '1.20'
 
     - name: Get Git Commit Log
       id: git-commit-log
@@ -50,3 +68,21 @@ jobs:
         GOOS=windows GOARCH=amd64 go build
         pwd
 
+  go-test:
+    runs-on: self-hosted
+    needs: build-test
+    environment: production
+    name: Self-hosted Windows Go 1.20 go-test
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up Go
+      uses: actions/setup-go@v4
+      with:
+        go-version: '1.20'
+        cache: false
+
+    - name: Go Test
+      run: |
+        go test -v ./g_test -tag="@test" -baseurl="${{ secrets.BACKEND_URL }}"
+        pwd

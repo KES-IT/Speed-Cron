@@ -125,8 +125,6 @@ func removeAllCron() {
 		gcron.Remove("HTTPS-Cron")
 		glog.Debug(context.TODO(), "移除延迟检测定时任务成功")
 	}
-
-	return
 }
 
 // getConfig 获取定时任务管理器配置
@@ -177,7 +175,6 @@ func addSpeedCron(ctx context.Context, initData *g_structs.InitData, timePattern
 		}
 		// 移除测速状态
 		_, _ = gcache.Remove(ctx, g_cache.SpeedCacheKey)
-		return
 	}, "Speed-Cron")
 	if err != nil {
 		glog.Warning(ctx, "添加定时测速服务失败: ", err)
