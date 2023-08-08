@@ -75,13 +75,12 @@ jobs:
           pwd
 
   go-test:
-    runs-on: self-hosted
+    runs-on: [self-hosted, Windows, X64]
     needs: [changelog, build-test]
     environment: production
     name: Go Test
     steps:
     - uses: actions/checkout@v3
-
     - name: Set up Go
       uses: actions/setup-go@v4
       with:
