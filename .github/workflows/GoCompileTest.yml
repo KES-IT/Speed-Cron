@@ -69,7 +69,7 @@ jobs:
         pwd
 
   go-test:
-    runs-on: [self-hosted, Windows, X64, hamster]
+    runs-on: [self-hosted, Windows]
     needs: build-test
     name: Go Test
     steps:
