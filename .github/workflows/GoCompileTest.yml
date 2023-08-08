@@ -16,7 +16,7 @@ permissions:
 
 jobs:
   golangci-latest:
-    name: golangci-latest
+    name: Go Lint
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -71,8 +71,7 @@ jobs:
   go-test:
     runs-on: self-hosted
     needs: build-test
-    environment: production
-    name: Self-hosted Windows Go 1.20 go-test
+    name: Go Test
     steps:
     - uses: actions/checkout@v3
 
