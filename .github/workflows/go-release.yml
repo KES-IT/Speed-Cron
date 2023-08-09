@@ -110,6 +110,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }} # 一个默认的变量，用来实现往 Release 中添加文件
           goos: ${{ env.GOOS }}
           goarch: ${{ env.GOARCH }}
+          goversion: 1.21.0 # 可以指定编译使用的 Golang 版本
           ldflags: -X "main.GitTag=${{ env.CURRENT_VERSION }}" -X "main.BackendBaseUrl=${{ secrets.BACKEND_URL }}"       # 通过 ldflags 注入版本号
           pre_command: export CGO_ENABLED=0 && export GODEBUG=http2client=0
           overwrite: true
