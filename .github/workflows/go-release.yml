@@ -95,7 +95,7 @@ jobs:
 
   build-go-binary:
     runs-on: ubuntu-latest
-    needs: go-build-last-test
+    needs: go-test
     name: Go Build Binary
     env:
       GOOS: windows
