@@ -1,4 +1,4 @@
-name: build-go-binary
+name: Release分发
 
 on:
   release:
