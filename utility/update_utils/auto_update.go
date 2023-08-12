@@ -41,7 +41,7 @@ func (u *uAutoUpdate) UpdateCore(ctx context.Context, initData *g_structs.InitDa
 	_, macAddress := net_utils.NetworkInfo.GetMacAddress()
 	// 获取配置
 	glog.Debug(context.TODO(), "获取设备更新通道，当前mac地址为", macAddress)
-	configResponse, err := g.Client().SetTimeout(5*time.Second).Post(context.TODO(), g_consts.BackendBaseUrl()+g_consts.ConfigBackendUrl, g.Map{
+	configResponse, err := g.Client().SetTimeout(10*time.Second).Post(context.TODO(), g_consts.BackendBaseUrl()+g_consts.ConfigBackendUrl, g.Map{
 		"mac_address": macAddress,
 	})
 	defer func(response *gclient.Response) {
