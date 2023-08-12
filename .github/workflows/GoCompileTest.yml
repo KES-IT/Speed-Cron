@@ -66,7 +66,7 @@ jobs:
         pwd
 
   go-test:
-    runs-on: [self-hosted, Windows]
+    runs-on: windows-latest
     needs: build-test
     name: Go Test
     steps:
