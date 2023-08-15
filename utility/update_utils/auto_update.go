@@ -29,7 +29,7 @@ var AutoUpdate = &uAutoUpdate{}
 // UpdateCore
 //
 //	@dc: 更新任务核心程序
-//	@author: laixin   @date:2023/7/14 09:37:24
+//	@author: hamster   @date:2023/7/14 09:37:24
 func (u *uAutoUpdate) UpdateCore(ctx context.Context, initData *g_structs.InitData) (err error) {
 	// 检测是否在进行测速服务
 	if gcache.MustGet(ctx, g_cache.SpeedCacheKey).Bool() {
