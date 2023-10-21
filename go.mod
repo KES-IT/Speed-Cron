@@ -3,8 +3,8 @@ module kes-cron
 go 1.21
 
 require (
-	github.com/gogf/gf/contrib/drivers/mysql/v2 v2.5.4
-	github.com/gogf/gf/v2 v2.5.4
+	github.com/gogf/gf/contrib/drivers/mysql/v2 v2.5.5
+	github.com/gogf/gf/v2 v2.5.5
 	github.com/kardianos/osext v0.0.0-20190222173326-2bc1f35cddc0
 	github.com/schollz/progressbar/v3 v3.13.1
 	gopkg.in/inconshreveable/go-update.v0 v0.0.0-20150814200126-d8b0b1d421aa
@@ -32,9 +32,9 @@ require (
 	go.opentelemetry.io/otel/metric v1.16.0 // indirect
 	go.opentelemetry.io/otel/sdk v1.16.0 // indirect
 	go.opentelemetry.io/otel/trace v1.16.0 // indirect
-	golang.org/x/net v0.13.0 // indirect
-	golang.org/x/sys v0.10.0 // indirect
-	golang.org/x/term v0.10.0 // indirect
-	golang.org/x/text v0.11.0 // indirect
+	golang.org/x/net v0.17.0 // indirect
+	golang.org/x/sys v0.13.0 // indirect
+	golang.org/x/term v0.13.0 // indirect
+	golang.org/x/text v0.13.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
