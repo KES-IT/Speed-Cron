@@ -11,7 +11,7 @@ var (
 	MonitorListBackendUrl = "/GetAllTaskWebsite"
 	StableBackendUrl      = "/GetLatestVersion"
 	BetaBackendUrl        = "/GetBetaVersion"
-	DownloadProxyUrl      = "https://gh.xinyu.today/"
+	DownloadProxyUrl      = "https://gh.buycoffee.tech/"
 	DownloadFileName      = "speed_cron_windows_amd64.exe"
 )
 
