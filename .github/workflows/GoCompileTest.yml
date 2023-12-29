@@ -23,11 +23,15 @@ jobs:
       - uses: actions/setup-go@v5
         with:
           go-version: '1.21'
-          cache: false
+
+      - run: go mod download
+
+      # 进行代码检查
       - name: golangci-lint
         uses: golangci/golangci-lint-action@v3
         with:
-          version: v1.53
+          version: v1.55.2
+          skip-pkg-cache: true
 
   build-test:
     runs-on: ubuntu-latest
