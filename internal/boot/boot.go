@@ -76,7 +76,7 @@ func bootMethod(initData *g_structs.InitData) (err error) {
 	var ctx = context.TODO()
 
 	glog.Debug(ctx, "开始初始化定时任务管理器")
-	_, err = gcron.AddSingleton(ctx, "@every 30s", func(ctx context.Context) {
+	_, err = gcron.AddSingleton(ctx, "@every 120s", func(ctx context.Context) {
 		err := cron_utils.CronManage.GetConfigAndStart(ctx, initData)
 		if err != nil {
 			glog.Error(ctx, "初始化定时任务管理器服务失败: ", err)
@@ -90,7 +90,7 @@ func bootMethod(initData *g_structs.InitData) (err error) {
 	glog.Debug(ctx, "初始化定时任务管理器服务成功")
 
 	glog.Debug(ctx, "开始初始化自动更新服务")
-	_, err = gcron.AddSingleton(ctx, "@every 20s", func(ctx context.Context) {
+	_, err = gcron.AddSingleton(ctx, "@every 120s", func(ctx context.Context) {
 		err := update_utils.AutoUpdate.UpdateCore(ctx, initData)
 		if err != nil {
 			glog.Error(ctx, "自动更新服务失败: ", err)
