@@ -3,8 +3,8 @@ module kes-cron
 go 1.21
 
 require (
-	github.com/gogf/gf/contrib/drivers/mysql/v2 v2.6.1
-	github.com/gogf/gf/v2 v2.6.1
+	github.com/gogf/gf/contrib/drivers/mysql/v2 v2.6.2
+	github.com/gogf/gf/v2 v2.6.2
 	github.com/kardianos/osext v0.0.0-20190222173326-2bc1f35cddc0
 	github.com/schollz/progressbar/v3 v3.14.1
 	gopkg.in/inconshreveable/go-update.v0 v0.0.0-20150814200126-d8b0b1d421aa
