@@ -7,6 +7,7 @@ import (
 	"github.com/gogf/gf/v2/os/gcmd"
 	"github.com/gogf/gf/v2/os/glog"
 	"github.com/gogf/gf/v2/os/gres"
+	"kes-cron/internal/boot"
 	"kes-cron/internal/global/g_consts"
 	"kes-cron/internal/global/g_structs"
 	"kes-cron/utility/cron_utils"
@@ -31,6 +32,7 @@ var (
 			return nil
 		},
 	}
+
 	Main = gcmd.Command{
 		Name:  "main",
 		Usage: "main",
@@ -84,11 +86,11 @@ var (
 			glog.Notice(ctx, "当前后端地址: ", g_consts.BackendBaseUrl())
 
 			// 初始化
-			//if err := boot.Boot(serverInitData); err != nil {
-			//	glog.Fatal(ctx, "初始化任务失败: ", err)
-			//	time.Sleep(5 * time.Second)
-			//	return err
-			//}
+			if err := boot.Boot(serverInitData); err != nil {
+				glog.Fatal(ctx, "初始化任务失败: ", err)
+				time.Sleep(5 * time.Second)
+				return err
+			}
 
 			// 启动服务
 			s := g.Server()
