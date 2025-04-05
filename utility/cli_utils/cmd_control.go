@@ -9,6 +9,7 @@ import (
 	"kes-cron/internal/global/g_consts"
 	"kes-cron/utility/net_utils"
 	"os/exec"
+	"runtime"
 	"time"
 )
 
@@ -45,6 +46,22 @@ func (s *uCliUtils) CreateSpeedCmd() *exec.Cmd {
 	// 配置测速节点
 	serverIdCmd := "--server-id=" + configMap.Get("data.speed_server_id").String()
 	glog.Debug(context.Background(), "测速节点:", serverIdCmd)
-	return exec.Command("speed_cli/speedCLI/speedtest.exe", "--accept-gdpr", "--accept-license", serverIdCmd,
+	speedtestCliPath := ""
+
+	if runtime.GOOS == "windows" {
+		speedtestCliPath = "speed_cli/speedCLI/speedtest-win.exe"
+	}
+	if runtime.GOOS == "linux" {
+		if runtime.GOARCH == "amd64" {
+			speedtestCliPath = "speed_cli/speedCLI/speedtest-linux-amd64"
+		} else {
+			speedtestCliPath = "speed_cli/speedCLI/speedtest-linux-arm64"
+		}
+	}
+	if runtime.GOOS == "darwin" {
+		speedtestCliPath = "speed_cli/speedCLI/speedtest-mac"
+	}
+
+	return exec.Command(speedtestCliPath, "--accept-gdpr", "--accept-license", serverIdCmd,
 		"--progress=yes", "--format=json", "--progress-update-interval=500")
 }
