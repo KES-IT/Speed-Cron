@@ -45,6 +45,10 @@ func (s *uCliUtils) CreateSpeedCmd() *exec.Cmd {
 
 	// 配置测速节点
 	serverIdCmd := "--server-id=" + configMap.Get("data.speed_server_id").String()
+
+	if configMap.Get("data.speed_server_id").String() == "" {
+		serverIdCmd = ""
+	}
 	glog.Debug(context.Background(), "测速节点:", serverIdCmd)
 	speedtestCliPath := ""
 
