@@ -39,12 +39,6 @@ func Boot(initData *g_structs.InitData) (err error) {
 func bootCheck(initData *g_structs.InitData) (err error) {
 	var ctx = context.Background()
 
-	err = update_utils.AutoUpdate.UpdateCore(ctx, initData)
-	if err != nil {
-		glog.Error(ctx, "自动更新服务失败: ", err)
-		return err
-	}
-
 	// 判断是否在更新中
 	if gcache.MustGet(ctx, g_cache.UpdateCacheKey).Bool() {
 		glog.Warning(ctx, "正在更新客户端程序，跳过本次测速")
