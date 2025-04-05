@@ -12,7 +12,7 @@ import (
 // BackendBaseUrl 为编译时传入的后端地址
 var (
 	GitTag         = "unknown"
-	BackendBaseUrl = "unknown"
+	BackendBaseUrl = "http://127.0.0.1:10441"
 )
 
 func main() {

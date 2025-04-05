@@ -39,7 +39,7 @@ var (
 		Brief: "start kes-speed-cron client",
 		Func: func(ctx context.Context, parser *gcmd.Parser) (err error) {
 			gres.Dump()
-			err = gres.Export("speedCLI/speedtest.exe", "speed_cli/")
+			err = gres.Export("speed_cli", "speed_cli/")
 			if err != nil {
 				glog.Warning(ctx, "导出资源文件时发生错误:", err)
 				return err

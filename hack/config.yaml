@@ -2,8 +2,8 @@
 gfcli:
   build:
     name: "speed_cron"
-    arch: "amd64" # all,386,amd64,arm64
-    system: "windows" # all,linux,darwin,windows....
+    arch: "amd64,arm64" # all,386,amd64,arm64
+    system: "windows,darwin,linux" # all,linux,darwin,windows....
     packSrc: ""
     version: "release"
     mod: ""

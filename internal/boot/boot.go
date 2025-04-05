@@ -9,7 +9,6 @@ import (
 	"kes-cron/internal/global/g_structs"
 	"kes-cron/utility/cli_utils"
 	"kes-cron/utility/cron_utils"
-	"kes-cron/utility/net_utils"
 	"kes-cron/utility/update_utils"
 )
 
@@ -61,13 +60,6 @@ func bootCheck(initData *g_structs.InitData) (err error) {
 
 	// 移除测速状态
 	_, _ = gcache.Remove(ctx, g_cache.SpeedCacheKey)
-
-	err = net_utils.NetUtils.CoreLatency(ctx, initData)
-	if err != nil {
-		glog.Error(context.Background(), "HTTPS延迟检测失败: ", err)
-		return
-	}
-
 	return nil
 }
 

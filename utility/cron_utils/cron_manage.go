@@ -36,7 +36,7 @@ func (u *uCronManage) GetConfigAndStart(ctx context.Context, initData *g_structs
 	}
 	glog.Debug(ctx, "设备认证成功")
 	// 获取config
-	speedInterval, pingInterval, cronStatus, err := getConfig()
+	speedInterval, _, cronStatus, err := getConfig()
 	if err != nil {
 		return
 	}
@@ -44,39 +44,6 @@ func (u *uCronManage) GetConfigAndStart(ctx context.Context, initData *g_structs
 		glog.Warning(ctx, "定时任务管理器已关闭")
 		removeAllCron()
 		return
-	}
-	// 获取延迟检测定时任务
-	localHTTPSCron := gcron.Search("HTTPS-Cron")
-	if localHTTPSCron == nil {
-		glog.Notice(ctx, "本地不存在定时任务,添加HTTPS-Cron定时任务")
-		err = addPingCron(ctx, initData, pingInterval)
-		if err != nil {
-			glog.Warning(ctx, "添加HTTPS-Cron定时器失败")
-			return
-		}
-	} else {
-		HTTPSEntryPattern := reflect.ValueOf(localHTTPSCron).Elem().FieldByName("schedule").Elem().FieldByName("pattern")
-		if HTTPSEntryPattern.IsValid() {
-			if HTTPSEntryPattern.String() != pingInterval {
-				glog.Notice(ctx, "更新HTTPS-Cron定时器")
-				// 删除旧定时任务
-				gcron.Stop("HTTPS-Cron")
-				gcron.Remove("HTTPS-Cron")
-				// 更新定时任务
-				err = addPingCron(ctx, initData, pingInterval)
-				if err != nil {
-					glog.Warning(ctx, "更新HTTPS-Cron定时器失败")
-					return
-				}
-				glog.Notice(ctx, "更新HTTPS-Cron定时器成功")
-				return
-			} else {
-				glog.Notice(ctx, "HTTPS-Cron定时器无需更新")
-			}
-		} else {
-			glog.Warning(ctx, "HTTPS-Cron定时器无效")
-		}
-
 	}
 	// 获取测速定时任务
 	localSpeedCron := gcron.Search("Speed-Cron")
